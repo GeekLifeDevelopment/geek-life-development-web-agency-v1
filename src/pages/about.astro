@@ -1,58 +1,86 @@
 ---
 import Layout from '../components/Layout.astro';
-import CTASection from '../components/sections/CTASection.astro';
-import FeatureGrid from '../components/sections/FeatureGrid.astro';
 import Hero from '../components/sections/Hero.astro';
-import SplitSection from '../components/sections/SplitSection.astro';
+import Button from '../components/ui/Button.astro';
+import Card from '../components/ui/Card.astro';
+import Heading from '../components/ui/Heading.astro';
+import Section from '../components/ui/Section.astro';
 ---
 
-<Layout title="About | Geek Life Development" description="The approach, values, and delivery style behind Geek Life Development.">
+<Layout title="About | Geek Life Development" description="Learn how Geek Life Development builds modern websites and simple apps with clear scope and practical collaboration.">
   <Hero
-    title="A small agency with a systems mindset"
-    subtitle="Geek Life Development helps service businesses communicate clearly online and convert more of the right opportunities."
+    title="About Geek Life Development"
+    subtitle="I build modern websites and simple apps for local businesses and remote teams that want clear execution and clean results."
     primaryCta={{ label: 'Get a quote', href: '/contact' }}
     accent={false}
   />
 
-  <FeatureGrid
-    eyebrow="Values"
-    title="How we work"
-    subtitle="Simple process, honest collaboration, and practical execution from start to launch."
-    items={[
-      {
-        title: 'Clarity over complexity',
-        description: 'We simplify decisions and focus each page on what users actually need.',
-        icon: '🧩'
-      },
-      {
-        title: 'Performance by default',
-        description: 'Fast, lightweight implementation is built into every phase of delivery.',
-        icon: '🚀'
-      },
-      {
-        title: 'Iterative improvement',
-        description: 'We launch with intention, then optimize based on behavior and outcomes.',
-        icon: '📌'
-      }
-    ]}
-  />
+  <Section>
+    <div class="space-y-8">
+      <Heading
+        eyebrow="What I build"
+        title="Practical digital work for growing teams"
+        subtitle="Services are designed to be maintainable, conversion-aware, and easy to iterate over time."
+      />
+      <div class="grid gap-6 md:grid-cols-3">
+        <Card>
+          <h3 class="text-xl font-semibold">Websites</h3>
+          <p class="mt-3 text-sm text-slate-600">Modern responsive websites with clean structure, strong UX, and performance-first implementation.</p>
+        </Card>
+        <Card>
+          <h3 class="text-xl font-semibold">Simple apps</h3>
+          <p class="mt-3 text-sm text-slate-600">Focused app experiences like dashboards, lightweight portals, and operational tools.</p>
+        </Card>
+        <Card>
+          <h3 class="text-xl font-semibold">Ongoing support</h3>
+          <p class="mt-3 text-sm text-slate-600">Subscription-style support is available for updates, maintenance, and ongoing improvements.</p>
+        </Card>
+      </div>
+    </div>
+  </Section>
 
-  <SplitSection
-    eyebrow="Partnership"
-    title="Built for teams that value momentum"
-    description="You get direct communication, transparent trade-offs, and a plan that respects budget and timeline realities."
-    points={[
-      'Clear weekly progress updates',
-      'Focused review cycles without bottlenecks',
-      'Documentation you can actually reuse'
-    ]}
-    visualTitle="Collaboration flow"
-    visualCopy="Discovery → Build → Launch → Iterate"
-    reverse
-  />
+  <Section variant="muted">
+    <div class="space-y-8">
+      <Heading
+        eyebrow="How I work"
+        title="Clear process, no confusion"
+        subtitle="Projects stay healthy when scope, communication, and iteration are simple and visible."
+      />
+      <Card hover={false}>
+        <ul class="space-y-2 text-sm text-slate-700">
+          <li>• Clear scope before implementation begins</li>
+          <li>• Friendly communication with direct updates</li>
+          <li>• Iterative reviews to avoid late surprises</li>
+          <li>• Realistic timelines with practical milestones</li>
+          <li>• Launch support and post-launch guidance</li>
+        </ul>
+      </Card>
+    </div>
+  </Section>
 
-  <CTASection
-    title="Want to see if we’re a fit?"
-    subtitle="Share your goals and timeline, and we’ll recommend a practical next step."
-  />
+  <Section>
+    <div class="grid items-start gap-8 lg:grid-cols-2">
+      <Heading
+        eyebrow="Who I work with"
+        title="Local and remote by design"
+        subtitle="I work with small businesses in Cedarburg and Milwaukee, plus remote creators and startups who want a calm, professional build partner."
+      />
+      <Card hover={false}>
+        <p class="text-sm text-slate-700">
+          Whether your team is local or distributed, the workflow is the same: clear planning, focused implementation,
+          and practical collaboration from kickoff through launch.
+        </p>
+      </Card>
+    </div>
+  </Section>
+
+  <Section variant="dark">
+    <div class="space-y-6 text-center">
+      <h2 class="text-white">Ready to start something modern?</h2>
+      <div class="flex flex-wrap justify-center gap-3">
+        <Button href="/contact" size="lg">Get a quote</Button>
+        <Button href="/work" size="lg" variant="secondary">View work</Button>
+      </div>
+    </div>
+  </Section>
 </Layout>

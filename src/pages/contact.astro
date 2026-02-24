@@ -1,61 +1,151 @@
 ---
 import Layout from '../components/Layout.astro';
-import Hero from '../components/sections/Hero.astro';
 import Button from '../components/ui/Button.astro';
 import Card from '../components/ui/Card.astro';
 import Section from '../components/ui/Section.astro';
 ---
 
 <Layout title="Contact | Geek Life Development" description="Reach out to discuss your website project goals and timeline.">
-  <Hero
-    title="Let’s talk about your next website phase"
-    subtitle="Share your goals, timeline, and current challenges. We’ll follow up with practical next steps."
-    primaryCta={{ label: 'Get a quote', href: '#contact-form' }}
-    accent={false}
-  />
+  <Section>
+    <div class="max-w-4xl space-y-6">
+      <h1 class="text-4xl md:text-6xl">Get a quote</h1>
+      <p class="max-w-3xl text-base text-[var(--color-neutral)] md:text-lg">
+        Tell me a bit about your project. I’ll reply within 1–2 business days.
+      </p>
+    </div>
+  </Section>
 
-  <Section class="bg-white" containerClass="max-w-4xl" >
+  <Section class="bg-white" containerClass="max-w-4xl">
     <Card class="mx-auto max-w-3xl">
-      <form id="contact-form" action="/api/contact" method="post" class="grid gap-5">
+      <form
+        id="contact-form"
+        name="quote"
+        method="POST"
+        action="/contact/thanks"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        class="grid gap-5"
+      >
+        <input type="hidden" name="form-name" value="quote" />
+        <p class="hidden">
+          <label>
+            Don’t fill this out if you’re human: <input name="bot-field" />
+          </label>
+        </p>
+
         <div class="grid gap-5 sm:grid-cols-2">
           <label class="grid gap-2 text-sm font-medium text-slate-800">
-            First name
-            <input name="firstName" required class="h-11 rounded-lg border border-slate-200 px-3" />
+            Name <span aria-hidden="true" class="text-[var(--color-primary)]">*</span>
+            <input
+              name="name"
+              required
+              autocomplete="name"
+              placeholder="Your full name"
+              class="h-11 rounded-lg border border-slate-200 px-3"
+            />
           </label>
+
           <label class="grid gap-2 text-sm font-medium text-slate-800">
-            Last name
-            <input name="lastName" required class="h-11 rounded-lg border border-slate-200 px-3" />
+            Email <span aria-hidden="true" class="text-[var(--color-primary)]">*</span>
+            <input
+              type="email"
+              name="email"
+              required
+              autocomplete="email"
+              placeholder="you@company.com"
+              class="h-11 rounded-lg border border-slate-200 px-3"
+            />
           </label>
         </div>
 
+        <div class="grid gap-5 sm:grid-cols-2">
+          <label class="grid gap-2 text-sm font-medium text-slate-800">
+            Company / Project name
+            <input name="company" placeholder="Company or project" class="h-11 rounded-lg border border-slate-200 px-3" />
+          </label>
+
+          <label class="grid gap-2 text-sm font-medium text-slate-800">
+            Location
+            <input
+              name="location"
+              placeholder="Cedarburg / Milwaukee / Remote"
+              class="h-11 rounded-lg border border-slate-200 px-3"
+            />
+          </label>
+        </div>
+
+        <div class="grid gap-5 sm:grid-cols-2">
+          <label class="grid gap-2 text-sm font-medium text-slate-800">
+            Project type <span aria-hidden="true" class="text-[var(--color-primary)]">*</span>
+            <select name="projectType" required class="h-11 rounded-lg border border-slate-200 bg-white px-3">
+              <option value="">Select a project type</option>
+              <option>Website</option>
+              <option>Website + ongoing support</option>
+              <option>Simple app / internal tool</option>
+              <option>Not sure yet</option>
+            </select>
+          </label>
+
+          <label class="grid gap-2 text-sm font-medium text-slate-800">
+            Budget range <span aria-hidden="true" class="text-[var(--color-primary)]">*</span>
+            <select
+              name="budgetRange"
+              required
+              aria-describedby="budget-help"
+              class="h-11 rounded-lg border border-slate-200 bg-white px-3"
+            >
+              <option value="">Select a budget range</option>
+              <option>$1k–$3k</option>
+              <option>$3k–$6k</option>
+              <option>$6k–$10k</option>
+              <option>$10k+</option>
+              <option>Not sure yet</option>
+            </select>
+          </label>
+        </div>
+
+        <p id="budget-help" class="text-xs text-slate-600">This helps me recommend the right scope for your goals.</p>
+
         <label class="grid gap-2 text-sm font-medium text-slate-800">
-          Email
-          <input type="email" name="email" required class="h-11 rounded-lg border border-slate-200 px-3" />
+          Timeline
+          <select name="timeline" class="h-11 rounded-lg border border-slate-200 bg-white px-3">
+            <option value="">Select a timeline</option>
+            <option>ASAP</option>
+            <option>2–4 weeks</option>
+            <option>1–2 months</option>
+            <option>Flexible</option>
+          </select>
         </label>
 
         <label class="grid gap-2 text-sm font-medium text-slate-800">
-          Company
-          <input name="company" class="h-11 rounded-lg border border-slate-200 px-3" />
-        </label>
-
-        <label class="grid gap-2 text-sm font-medium text-slate-800">
-          Project details
+          Message / Details <span aria-hidden="true" class="text-[var(--color-primary)]">*</span>
           <textarea
             name="message"
             rows={5}
             required
+            aria-describedby="message-help"
             class="rounded-lg border border-slate-200 px-3 py-2"
-            placeholder="Tell us what you're trying to improve and your ideal launch timeline."
+            placeholder="What are you building, what problem are you trying to solve, and what timeline are you aiming for?"
           ></textarea>
         </label>
 
+        <p id="message-help" class="text-xs text-slate-600">The more context you share, the better I can scope your request.</p>
+
         <div class="space-y-3">
-          <Button type="submit">Send Inquiry</Button>
+          <Button type="submit" size="lg">Send request</Button>
           <p class="text-xs text-slate-600">
-            Placeholder form action: update the form action and backend handling when your API endpoint is ready.
+            No spam. I’ll only use this to reply about your request.
           </p>
         </div>
       </form>
     </Card>
+
+    <div class="mx-auto mt-10 max-w-3xl space-y-2 text-sm text-slate-600">
+      <p>
+        Prefer email?
+        <a href="mailto:jason@geeklifedevelopment.com" class="font-medium">jason@geeklifedevelopment.com</a>
+      </p>
+      <p>Serving Cedarburg & Milwaukee area + remote</p>
+    </div>
   </Section>
 </Layout>
