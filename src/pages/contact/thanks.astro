@@ -1,0 +1,20 @@
+---
+import Layout from '../../components/Layout.astro';
+import Button from '../../components/ui/Button.astro';
+import Section from '../../components/ui/Section.astro';
+---
+
+<Layout title="Thanks | Geek Life Development" description="Thanks for reaching out to Geek Life Development.">
+  <Section>
+    <div class="mx-auto max-w-2xl space-y-5 text-center">
+      <h1 class="text-4xl md:text-5xl">Thanks — your request was sent.</h1>
+      <p class="text-base text-[var(--color-neutral)] md:text-lg">
+        I’ll review your details and follow up soon with practical next steps.
+      </p>
+      <div class="flex flex-wrap justify-center gap-3 pt-2">
+        <Button href="/" size="lg">Back to home</Button>
+        <Button href="/work" size="lg" variant="secondary">View work</Button>
+      </div>
+    </div>
+  </Section>
+</Layout>
