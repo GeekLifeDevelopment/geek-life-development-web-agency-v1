@@ -11,10 +11,10 @@ import { navLinks } from '../data/site';
 >
   <Container class="flex h-18 items-center justify-between gap-4">
     <a href="/" class="shrink-0" aria-label="Geek Life Development home">
-      <img src={wordmarkUrl} alt="Geek Life Development" class="h-8 w-auto" loading="eager" />
+      <img src={wordmarkUrl} alt="Geek Life Development" width="210" height="32" class="h-8 w-auto" loading="eager" decoding="async" />
     </a>
 
-    <nav class="hidden items-center gap-6 text-sm font-medium md:flex">
+    <nav class="hidden items-center gap-6 text-sm font-medium md:flex" aria-label="Primary navigation">
       {
         navLinks.map((link) => (
           <a href={link.href} class="text-slate-700 transition hover:text-[var(--color-accent)] hover:no-underline">
@@ -30,7 +30,7 @@ import { navLinks } from '../data/site';
 
     <button
       type="button"
-      class="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 text-slate-800 md:hidden"
+      class="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 text-slate-800 md:hidden"
       data-menu-toggle
       aria-controls="mobile-nav"
       aria-expanded="false"
@@ -56,12 +56,12 @@ import { navLinks } from '../data/site';
 
   <div id="mobile-nav" class="hidden border-t border-slate-200 bg-white md:hidden" data-mobile-nav aria-hidden="true">
     <Container class="py-4">
-      <nav class="flex flex-col gap-3">
+      <nav class="flex flex-col gap-3" aria-label="Mobile navigation">
         {
           navLinks.map((link) => (
             <a
               href={link.href}
-              class="rounded-lg px-2 py-2 font-medium text-slate-700 hover:bg-slate-100 hover:no-underline"
+              class="rounded-lg px-2 py-3 font-medium text-slate-700 hover:bg-slate-100 hover:no-underline"
               data-mobile-link
             >
               {link.label}
@@ -81,8 +81,9 @@ import { navLinks } from '../data/site';
   const toggle = header?.querySelector('[data-menu-toggle]');
   const mobileNav = header?.querySelector('[data-mobile-nav]');
   const mobileLinks = header?.querySelectorAll('[data-mobile-link]') ?? [];
+  let lastFocused = null;
 
-  const closeMenu = () => {
+  const closeMenu = (restoreFocus = true) => {
     if (!toggle || !mobileNav) {
       return;
     }
@@ -90,6 +91,10 @@ import { navLinks } from '../data/site';
     toggle.setAttribute('aria-expanded', 'false');
     mobileNav.classList.add('hidden');
     mobileNav.setAttribute('aria-hidden', 'true');
+
+    if (restoreFocus && lastFocused instanceof HTMLElement) {
+      lastFocused.focus();
+    }
   };
 
   if (toggle && mobileNav) {
@@ -98,10 +103,20 @@ import { navLinks } from '../data/site';
       toggle.setAttribute('aria-expanded', expanded ? 'false' : 'true');
       mobileNav.classList.toggle('hidden');
       mobileNav.setAttribute('aria-hidden', expanded ? 'true' : 'false');
+
+      if (!expanded) {
+        lastFocused = document.activeElement;
+        const firstLink = mobileNav.querySelector('[data-mobile-link]');
+        if (firstLink instanceof HTMLElement) {
+          firstLink.focus();
+        }
+      } else {
+        closeMenu();
+      }
     });
 
     document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') {
+      if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
         closeMenu();
       }
     });
