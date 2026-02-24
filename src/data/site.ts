@@ -1,12 +1,13 @@
+import { siteConfig as coreSiteConfig } from '../config/site';
+
 export const siteConfig = {
-  name: 'Geek Life Development',
-  url: 'https://geeklifedevelopment.com',
-  description:
-    'Geek Life Development builds fast, conversion-focused websites and digital systems for growing service businesses.',
-  tagline: 'Modern websites and growth systems for small businesses',
-  location: 'Cedarburg, WI',
-  email: 'jason@geeklifedevelopment.com',
-  phone: '(512) 555-0199'
+  name: coreSiteConfig.siteName,
+  url: coreSiteConfig.siteUrl,
+  description: coreSiteConfig.defaultDescription,
+  tagline: 'Modern websites and simple apps for small businesses',
+  email: coreSiteConfig.email,
+  locale: coreSiteConfig.locale,
+  ogImage: coreSiteConfig.ogImage
 };
 
 export const navLinks = [

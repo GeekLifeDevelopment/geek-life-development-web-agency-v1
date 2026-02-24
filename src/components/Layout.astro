@@ -3,43 +3,43 @@ import monogramUrl from '../assets/brand/monogram-gld.svg?url';
 import Footer from './Footer.astro';
 import Header from './Header.astro';
 import SEO from './SEO.astro';
-import { siteConfig } from '../data/site';
+import { siteConfig } from '../config/site';
 import '../styles/global.css';
 
 interface Props {
   title?: string;
   description?: string;
+  canonicalPath?: string;
+  url?: string | URL;
+  ogType?: 'website' | 'article';
   noindex?: boolean;
 }
 
-const { title, description, noindex = false } = Astro.props;
+const { title, description, canonicalPath, url, ogType = 'website', noindex = false } = Astro.props;
 
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',
-  name: siteConfig.name,
-  url: siteConfig.url,
+  name: siteConfig.siteName,
+  url: siteConfig.siteUrl,
   email: siteConfig.email,
-  telephone: siteConfig.phone,
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: siteConfig.location,
-    addressCountry: 'US'
-  },
-  areaServed: 'United States',
-  description: siteConfig.description
+  areaServed: ['Cedarburg, WI', 'Milwaukee area, WI', 'Remote/Online'],
+  serviceType: ['Web Design', 'Web Development', 'Simple Web Apps', 'Website Maintenance'],
+  sameAs: []
 };
+
+const language = siteConfig.locale.split('_')[0] ?? 'en';
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={language}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href={monogramUrl} />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
-    <SEO title={title} description={description} noindex={noindex} />
+    <SEO title={title} description={description} canonicalPath={canonicalPath} url={url} ogType={ogType} noindex={noindex} />
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
   <body class="bg-light text-dark">

@@ -21,7 +21,7 @@ const { Content } = await render(entry);
 const nextSteps = entry.data.nextSteps ?? [];
 ---
 
-<Layout title={`${entry.data.title} Case Study | Geek Life Development`} description={entry.data.summary}>
+<Layout title={`${entry.data.title} | Geek Life Development`} description={entry.data.summary} ogType="article">
   <Section>
     <div class="max-w-4xl space-y-6">
       <h1 class="text-4xl md:text-6xl">{entry.data.title}</h1>

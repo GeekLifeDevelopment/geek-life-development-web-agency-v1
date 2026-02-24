@@ -10,13 +10,11 @@ import Section from '../components/ui/Section.astro';
 const studies = (await getCollection('work')).sort((a, b) => a.data.title.localeCompare(b.data.title));
 ---
 
-<Layout title="Work | Geek Life Development" description="Case studies for modern websites and simple apps serving Cedarburg and Milwaukee area businesses plus remote teams.">
+<Layout title="Work | Geek Life Development" description="Review case studies showing how Geek Life Development plans, builds, and launches modern websites and simple web apps.">
   <Section>
     <div class="max-w-4xl space-y-6">
       <h1 class="text-4xl md:text-6xl">Work</h1>
-      <p class="text-base text-[var(--color-neutral)] md:text-lg">
-        Modern websites and simple apps — serving Cedarburg & Milwaukee area + remote.
-      </p>
+      <p class="text-base text-[var(--color-neutral)] md:text-lg">Modern websites and simple apps with real build notes and outcomes.</p>
       <div class="flex flex-wrap gap-3">
         <Button href="/contact" size="lg">Get a quote</Button>
       </div>

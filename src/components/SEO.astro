@@ -1,23 +1,45 @@
 ---
-import { siteConfig } from '../data/site';
+import { siteConfig } from '../config/site';
 
 interface Props {
   title?: string;
   description?: string;
+  canonicalPath?: string;
+  url?: string | URL;
+  ogType?: 'website' | 'article';
   image?: string;
   noindex?: boolean;
 }
 
 const {
-  title = `${siteConfig.name} | ${siteConfig.tagline}`,
-  description = siteConfig.description,
-  image = '/favicon.svg',
+  title = siteConfig.defaultTitle,
+  description = siteConfig.defaultDescription,
+  canonicalPath,
+  url,
+  ogType = 'website',
+  image = siteConfig.ogImage,
   noindex = false
 } = Astro.props;
 
-const siteUrl = Astro.site?.toString() ?? siteConfig.url;
-const canonical = new URL(Astro.url.pathname, siteUrl).toString();
-const ogImage = image.startsWith('http') ? image : new URL(image, siteUrl).toString();
+const baseSiteUrl = siteConfig.siteUrl.replace(/\/+$/, '');
+
+const normalizePath = (value: string) => {
+  const withLeadingSlash = `/${value.replace(/^\/+/, '')}`;
+  return withLeadingSlash.replace(/\/+/g, '/');
+};
+
+let canonical: string;
+
+if (url instanceof URL) {
+  canonical = url.toString();
+} else if (typeof url === 'string' && /^https?:\/\//i.test(url)) {
+  canonical = url;
+} else {
+  const resolvedPath = normalizePath(canonicalPath ?? (typeof url === 'string' ? url : Astro.url.pathname));
+  canonical = new URL(resolvedPath, `${baseSiteUrl}/`).toString();
+}
+
+const ogImage = image.startsWith('http') ? image : new URL(normalizePath(image), `${baseSiteUrl}/`).toString();
 ---
 
 <title>{title}</title>
@@ -25,8 +47,8 @@ const ogImage = image.startsWith('http') ? image : new URL(image, siteUrl).toStr
 <link rel="canonical" href={canonical} />
 <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
 
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content={siteConfig.name} />
+<meta property="og:type" content={ogType} />
+<meta property="og:site_name" content={siteConfig.siteName} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:url" content={canonical} />
