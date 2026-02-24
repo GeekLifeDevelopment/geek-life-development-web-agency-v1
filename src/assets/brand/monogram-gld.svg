@@ -1,0 +1,12 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="monogramTitle monogramDesc">
+  <title id="monogramTitle">GLD monogram</title>
+  <desc id="monogramDesc">Rounded square GLD monogram for Geek Life Development</desc>
+  <defs>
+    <linearGradient id="monogramGradient" x1="18" y1="12" x2="114" y2="118" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#2563EB" />
+      <stop offset="100%" stop-color="#6D28D9" />
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="112" height="112" rx="28" fill="url(#monogramGradient)" />
+  <text x="64" y="77" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="38" font-weight="700" letter-spacing="1.5" fill="#F8FAFC">GLD</text>
+</svg>

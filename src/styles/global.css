@@ -1,10 +1,15 @@
 @config "../../tailwind.config.mjs";
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&family=Space+Grotesk:wght@500;600;700&display=swap');
 @import 'tailwindcss';
 
 @layer base {
 	:root {
 		color-scheme: light;
+		--color-primary: #2563eb;
+		--color-accent: #6d28d9;
+		--color-dark: #0f172a;
+		--color-light: #f8fafc;
+		--color-neutral: #64748b;
 	}
 
 	html {
@@ -12,14 +17,14 @@
 	}
 
 	body {
-		@apply m-0 bg-slate-50 font-sans text-slate-900 antialiased;
+		@apply m-0 bg-light font-body text-dark antialiased;
 	}
 
 	h1,
 	h2,
 	h3,
 	h4 {
-		@apply font-heading tracking-tight text-slate-900;
+		@apply font-heading tracking-tight text-dark;
 	}
 
 	h1 {
@@ -31,10 +36,32 @@
 	}
 
 	p {
-		@apply text-base leading-relaxed text-slate-700;
+		@apply text-base leading-relaxed;
+		color: var(--color-neutral);
 	}
 
 	a {
-		@apply text-blue-600;
+		color: var(--color-primary);
+		transition: color 180ms ease;
+	}
+
+	a:hover {
+		text-decoration: underline;
+		text-underline-offset: 3px;
+		color: var(--color-accent);
+	}
+
+	:focus-visible {
+		outline: 2px solid var(--color-primary);
+		outline-offset: 2px;
+	}
+
+	::selection {
+		background: rgb(37 99 235 / 20%);
+		color: var(--color-dark);
+	}
+
+	.label-mono {
+		@apply font-mono text-xs uppercase tracking-wide;
 	}
 }

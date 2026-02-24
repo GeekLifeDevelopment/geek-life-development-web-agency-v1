@@ -17,27 +17,26 @@ export default {
     },
     extend: {
       colors: {
-        brand: {
-          50: '#eef6ff',
-          100: '#dcecff',
-          500: '#3b82f6',
-          600: '#2563eb',
-          700: '#1d4ed8'
-        },
-        accent: {
-          500: '#14b8a6',
-          600: '#0d9488'
-        },
-        surface: {
-          50: '#f8fafc',
-          100: '#f1f5f9',
-          800: '#1e293b',
-          900: '#0f172a'
-        }
+        primary: '#2563EB',
+        accent: '#6D28D9',
+        dark: '#0F172A',
+        light: '#F8FAFC',
+        neutral: '#64748B'
       },
       fontFamily: {
-        sans: ['Inter', ...defaultTheme.fontFamily.sans],
-        heading: ['Poppins', ...defaultTheme.fontFamily.sans]
+        body: ['Inter', ...defaultTheme.fontFamily.sans],
+        heading: ['Space Grotesk', ...defaultTheme.fontFamily.sans],
+        mono: ['JetBrains Mono', ...defaultTheme.fontFamily.mono]
+      },
+      borderRadius: {
+        lg: '0.75rem',
+        xl: '1rem'
+      },
+      boxShadow: {
+        soft: '0 8px 24px rgba(15, 23, 42, 0.08)'
+      },
+      backgroundImage: {
+        'brand-gradient': 'linear-gradient(135deg, #2563EB 0%, #6D28D9 100%)'
       }
     }
   }

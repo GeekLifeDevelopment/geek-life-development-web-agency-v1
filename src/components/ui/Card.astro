@@ -6,6 +6,8 @@ interface Props {
 const { class: className = '' } = Astro.props;
 ---
 
-<article class={`rounded-2xl border border-slate-100 bg-white p-6 shadow-sm ${className}`}>
+<article
+  class={`rounded-xl border border-slate-100 bg-white p-6 shadow-soft transition duration-200 hover:-translate-y-0.5 ${className}`}
+>
   <slot />
 </article>

@@ -1,0 +1,16 @@
+<svg width="420" height="64" viewBox="0 0 420 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="wordmarkTitle wordmarkDesc">
+  <title id="wordmarkTitle">Geek Life Development</title>
+  <desc id="wordmarkDesc">Wordmark logo for Geek Life Development</desc>
+  <defs>
+    <linearGradient id="brandGradient" x1="0" y1="0" x2="420" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#2563EB" />
+      <stop offset="100%" stop-color="#6D28D9" />
+    </linearGradient>
+  </defs>
+  <text x="0" y="44" font-family="Inter, system-ui, sans-serif" font-weight="600" font-size="36" letter-spacing="0.2" fill="#0F172A">
+    Geek Life
+  </text>
+  <text x="174" y="44" font-family="Inter, system-ui, sans-serif" font-weight="600" font-size="36" letter-spacing="0.2" fill="url(#brandGradient)">
+    Development
+  </text>
+</svg>
