@@ -1,0 +1,40 @@
+@config "../../tailwind.config.mjs";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap');
+@import 'tailwindcss';
+
+@layer base {
+	:root {
+		color-scheme: light;
+	}
+
+	html {
+		scroll-behavior: smooth;
+	}
+
+	body {
+		@apply m-0 bg-slate-50 font-sans text-slate-900 antialiased;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4 {
+		@apply font-heading tracking-tight text-slate-900;
+	}
+
+	h1 {
+		@apply text-4xl leading-tight sm:text-5xl;
+	}
+
+	h2 {
+		@apply text-3xl leading-tight sm:text-4xl;
+	}
+
+	p {
+		@apply text-base leading-relaxed text-slate-700;
+	}
+
+	a {
+		@apply text-blue-600;
+	}
+}

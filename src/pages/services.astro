@@ -1,0 +1,49 @@
+---
+import Layout from '../components/Layout.astro';
+import Button from '../components/ui/Button.astro';
+import Card from '../components/ui/Card.astro';
+import Section from '../components/ui/Section.astro';
+---
+
+<Layout title="Services | Geek Life Development" description="Web design, development, and optimization services for growing businesses.">
+  <Section>
+    <div class="max-w-3xl space-y-4">
+      <h1>Services</h1>
+      <p>
+        We help small businesses launch better websites and improve conversion performance through focused design,
+        technical implementation, and iterative optimization.
+      </p>
+    </div>
+  </Section>
+
+  <Section class="bg-white">
+    <div class="grid gap-6 md:grid-cols-2">
+      <Card>
+        <h2 class="text-2xl">Website Design & Development</h2>
+        <p class="mt-3">From information architecture to launch-ready pages, we build websites that feel premium and load fast.</p>
+      </Card>
+      <Card>
+        <h2 class="text-2xl">Landing Pages & Funnels</h2>
+        <p class="mt-3">Purpose-built pages for campaigns, lead magnets, and service-specific offers.</p>
+      </Card>
+      <Card>
+        <h2 class="text-2xl">SEO Foundations</h2>
+        <p class="mt-3">Technical setup, metadata, and content structure aligned with how customers search.</p>
+      </Card>
+      <Card>
+        <h2 class="text-2xl">Ongoing Optimization</h2>
+        <p class="mt-3">Monthly iterations based on analytics, user behavior, and conversion bottlenecks.</p>
+      </Card>
+    </div>
+  </Section>
+
+  <Section>
+    <Card class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <div>
+        <h2 class="text-2xl">Need help choosing a scope?</h2>
+        <p class="mt-2">We can recommend the smallest practical engagement that still moves the needle.</p>
+      </div>
+      <Button href="/contact">Talk Through Your Goals</Button>
+    </Card>
+  </Section>
+</Layout>

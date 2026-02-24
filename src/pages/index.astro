@@ -1,0 +1,80 @@
+---
+import FAQAccordion from '../components/FAQAccordion.astro';
+import Layout from '../components/Layout.astro';
+import PricingTable from '../components/PricingTable.astro';
+import Badge from '../components/ui/Badge.astro';
+import Button from '../components/ui/Button.astro';
+import Card from '../components/ui/Card.astro';
+import Section from '../components/ui/Section.astro';
+---
+
+<Layout
+	title="Geek Life Development | Websites That Convert"
+	description="Web design and development for service businesses that need better leads and stronger conversion performance."
+>
+	<Section class="bg-gradient-to-b from-white to-slate-50">
+		<div class="max-w-3xl space-y-6">
+			<Badge>Small Agency. Big Results.</Badge>
+			<h1>Build a website that wins trust and drives qualified leads.</h1>
+			<p>
+				We design and develop modern marketing websites for local and online service businesses. Every page is built
+				to communicate clearly, load fast, and convert with intention.
+			</p>
+			<div class="flex flex-wrap gap-3">
+				<Button href="/contact">Start Your Project</Button>
+				<Button href="/work" variant="ghost">View Case Studies</Button>
+			</div>
+		</div>
+	</Section>
+
+	<Section>
+		<div class="mb-10 max-w-2xl">
+			<h2>Services designed for measurable growth</h2>
+			<p class="mt-3">Choose a focused project or build a longer-term partnership as your business grows.</p>
+		</div>
+		<div class="grid gap-6 md:grid-cols-3">
+			<Card>
+				<h3 class="text-xl font-semibold">Web Design & Build</h3>
+				<p class="mt-2">Clean, conversion-focused websites built with performance and maintainability in mind.</p>
+			</Card>
+			<Card>
+				<h3 class="text-xl font-semibold">Content & SEO Structure</h3>
+				<p class="mt-2">Page architecture and messaging that helps people find you and trust you quickly.</p>
+			</Card>
+			<Card>
+				<h3 class="text-xl font-semibold">Optimization & Reporting</h3>
+				<p class="mt-2">Data-informed improvements to key pages, forms, and CTAs after launch.</p>
+			</Card>
+		</div>
+	</Section>
+
+	<Section class="bg-white">
+		<div class="mb-10 max-w-2xl">
+			<h2>Simple pricing that scales with your needs</h2>
+			<p class="mt-3">Clear packages for fast decisions, with custom scope available when needed.</p>
+		</div>
+		<PricingTable />
+	</Section>
+
+	<Section>
+		<div class="grid gap-10 lg:grid-cols-2">
+			<div>
+				<h2>Frequently asked questions</h2>
+				<p class="mt-3">Answers to common questions before we kickoff.</p>
+			</div>
+			<FAQAccordion />
+		</div>
+	</Section>
+
+	<Section class="bg-slate-900 text-white">
+		<div class="flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-center">
+			<div class="max-w-2xl">
+				<h2 class="text-white">Ready to launch a better website?</h2>
+				<p class="mt-3 text-slate-300">
+					Tell us where you are now and where you want to be. We’ll propose the most direct path.
+				</p>
+			</div>
+			<Button href="/contact" variant="primary">Book a Discovery Call</Button>
+		</div>
+	</Section>
+</Layout>

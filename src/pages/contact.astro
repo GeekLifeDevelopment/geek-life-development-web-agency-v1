@@ -1,0 +1,60 @@
+---
+import Layout from '../components/Layout.astro';
+import Button from '../components/ui/Button.astro';
+import Card from '../components/ui/Card.astro';
+import Section from '../components/ui/Section.astro';
+---
+
+<Layout title="Contact | Geek Life Development" description="Reach out to discuss your website project goals and timeline.">
+  <Section>
+    <div class="max-w-3xl space-y-4">
+      <h1>Contact</h1>
+      <p>Share your current goals, timeline, and budget range. We’ll follow up with next steps.</p>
+    </div>
+  </Section>
+
+  <Section class="bg-white">
+    <Card class="mx-auto max-w-3xl">
+      <form action="/api/contact" method="post" class="grid gap-5">
+        <div class="grid gap-5 sm:grid-cols-2">
+          <label class="grid gap-2 text-sm font-medium text-slate-800">
+            First name
+            <input name="firstName" required class="h-11 rounded-lg border border-slate-200 px-3" />
+          </label>
+          <label class="grid gap-2 text-sm font-medium text-slate-800">
+            Last name
+            <input name="lastName" required class="h-11 rounded-lg border border-slate-200 px-3" />
+          </label>
+        </div>
+
+        <label class="grid gap-2 text-sm font-medium text-slate-800">
+          Email
+          <input type="email" name="email" required class="h-11 rounded-lg border border-slate-200 px-3" />
+        </label>
+
+        <label class="grid gap-2 text-sm font-medium text-slate-800">
+          Company
+          <input name="company" class="h-11 rounded-lg border border-slate-200 px-3" />
+        </label>
+
+        <label class="grid gap-2 text-sm font-medium text-slate-800">
+          Project details
+          <textarea
+            name="message"
+            rows={5}
+            required
+            class="rounded-lg border border-slate-200 px-3 py-2"
+            placeholder="Tell us what you're trying to improve and your ideal launch timeline."
+          ></textarea>
+        </label>
+
+        <div class="space-y-3">
+          <Button type="submit">Send Inquiry</Button>
+          <p class="text-xs text-slate-600">
+            Placeholder form action: update the form action and backend handling when your API endpoint is ready.
+          </p>
+        </div>
+      </form>
+    </Card>
+  </Section>
+</Layout>

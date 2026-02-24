@@ -1,0 +1,53 @@
+---
+import Layout from '../../components/Layout.astro';
+import Button from '../../components/ui/Button.astro';
+import Card from '../../components/ui/Card.astro';
+import Section from '../../components/ui/Section.astro';
+import { caseStudies } from '../../data/caseStudies';
+
+export function getStaticPaths() {
+  return caseStudies.map((study) => ({
+    params: { slug: study.slug },
+    props: { study }
+  }));
+}
+
+const { study } = Astro.props;
+---
+
+<Layout title={`${study.client} Case Study | Geek Life Development`} description={study.summary}>
+  <Section>
+    <div class="max-w-3xl space-y-4">
+      <p class="text-xs font-semibold uppercase tracking-wide text-blue-700">{study.industry}</p>
+      <h1>{study.title}</h1>
+      <p>{study.summary}</p>
+    </div>
+  </Section>
+
+  <Section class="bg-white">
+    <div class="grid gap-6 md:grid-cols-2">
+      <Card>
+        <h2 class="text-2xl">Services Provided</h2>
+        <ul class="mt-4 space-y-2 text-slate-700">
+          {study.services.map((service: string) => <li>• {service}</li>)}
+        </ul>
+      </Card>
+      <Card>
+        <h2 class="text-2xl">Key Results</h2>
+        <ul class="mt-4 space-y-2 text-slate-700">
+          {study.results.map((result: string) => <li>• {result}</li>)}
+        </ul>
+      </Card>
+    </div>
+  </Section>
+
+  <Section>
+    <Card class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <div>
+        <h2 class="text-2xl">Want similar results for your business?</h2>
+        <p class="mt-2">Let’s map out the next practical step for your site.</p>
+      </div>
+      <Button href="/contact">Book a Call</Button>
+    </Card>
+  </Section>
+</Layout>

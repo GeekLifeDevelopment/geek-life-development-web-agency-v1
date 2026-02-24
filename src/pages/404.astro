@@ -1,0 +1,18 @@
+---
+import Layout from '../components/Layout.astro';
+import Button from '../components/ui/Button.astro';
+import Section from '../components/ui/Section.astro';
+---
+
+<Layout title="Page Not Found | Geek Life Development" noindex>
+  <Section>
+    <div class="mx-auto max-w-2xl space-y-4 text-center">
+      <p class="text-sm font-semibold uppercase tracking-wide text-blue-700">404</p>
+      <h1>Page not found</h1>
+      <p>The page you requested doesn’t exist or may have moved.</p>
+      <div class="flex justify-center">
+        <Button href="/">Back to Home</Button>
+      </div>
+    </div>
+  </Section>
+</Layout>

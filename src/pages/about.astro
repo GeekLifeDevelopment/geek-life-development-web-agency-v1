@@ -1,0 +1,45 @@
+---
+import Layout from '../components/Layout.astro';
+import Button from '../components/ui/Button.astro';
+import Card from '../components/ui/Card.astro';
+import Section from '../components/ui/Section.astro';
+---
+
+<Layout title="About | Geek Life Development" description="Learn about the agency approach and values behind Geek Life Development.">
+  <Section>
+    <div class="max-w-3xl space-y-4">
+      <h1>About Geek Life Development</h1>
+      <p>
+        We’re a small web agency focused on practical digital growth. Our goal is simple: build websites that make it
+        easier for good businesses to be found, trusted, and contacted.
+      </p>
+    </div>
+  </Section>
+
+  <Section class="bg-white">
+    <div class="grid gap-6 md:grid-cols-3">
+      <Card>
+        <h2 class="text-2xl">Clarity First</h2>
+        <p class="mt-3">Clear messaging and user flow come before visual complexity.</p>
+      </Card>
+      <Card>
+        <h2 class="text-2xl">Performance Matters</h2>
+        <p class="mt-3">Fast sites improve trust, SEO, and conversion outcomes.</p>
+      </Card>
+      <Card>
+        <h2 class="text-2xl">Iterate with Data</h2>
+        <p class="mt-3">Launch quickly, then improve using real user behavior.</p>
+      </Card>
+    </div>
+  </Section>
+
+  <Section>
+    <Card class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <div>
+        <h2 class="text-2xl">Want to see if we’re a fit?</h2>
+        <p class="mt-2">Send a few details about your business and timeline.</p>
+      </div>
+      <Button href="/contact">Start the Conversation</Button>
+    </Card>
+  </Section>
+</Layout>

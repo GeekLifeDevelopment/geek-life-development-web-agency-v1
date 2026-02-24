@@ -1,0 +1,36 @@
+---
+import FAQAccordion from '../components/FAQAccordion.astro';
+import Layout from '../components/Layout.astro';
+import PricingTable from '../components/PricingTable.astro';
+import Section from '../components/ui/Section.astro';
+---
+
+<Layout title="Pricing | Geek Life Development" description="Straightforward website pricing with options for starter, growth, and custom engagements.">
+  <Section>
+    <div class="max-w-3xl space-y-4">
+      <h1>Pricing</h1>
+      <p>
+        Transparent pricing for common project scopes. If your needs are unique, we’ll build a custom proposal.
+      </p>
+    </div>
+  </Section>
+
+  <Section class="bg-white">
+    <PricingTable />
+  </Section>
+
+  <Section>
+    <div class="grid gap-10 lg:grid-cols-2">
+      <div>
+        <h2>What’s included in every project</h2>
+        <ul class="mt-4 space-y-2 text-slate-700">
+          <li>• Discovery and planning session</li>
+          <li>• Mobile-first responsive implementation</li>
+          <li>• Performance and accessibility baseline checks</li>
+          <li>• Post-launch support window</li>
+        </ul>
+      </div>
+      <FAQAccordion />
+    </div>
+  </Section>
+</Layout>

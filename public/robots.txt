@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://geeklifedevelopment.com/sitemap-index.xml
