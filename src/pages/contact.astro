@@ -1,21 +1,22 @@
 ---
 import Layout from '../components/Layout.astro';
+import Hero from '../components/sections/Hero.astro';
 import Button from '../components/ui/Button.astro';
 import Card from '../components/ui/Card.astro';
 import Section from '../components/ui/Section.astro';
 ---
 
 <Layout title="Contact | Geek Life Development" description="Reach out to discuss your website project goals and timeline.">
-  <Section>
-    <div class="max-w-3xl space-y-4">
-      <h1>Contact</h1>
-      <p>Share your current goals, timeline, and budget range. We’ll follow up with next steps.</p>
-    </div>
-  </Section>
+  <Hero
+    title="Let’s talk about your next website phase"
+    subtitle="Share your goals, timeline, and current challenges. We’ll follow up with practical next steps."
+    primaryCta={{ label: 'Get a quote', href: '#contact-form' }}
+    accent={false}
+  />
 
-  <Section class="bg-white">
+  <Section class="bg-white" containerClass="max-w-4xl" >
     <Card class="mx-auto max-w-3xl">
-      <form action="/api/contact" method="post" class="grid gap-5">
+      <form id="contact-form" action="/api/contact" method="post" class="grid gap-5">
         <div class="grid gap-5 sm:grid-cols-2">
           <label class="grid gap-2 text-sm font-medium text-slate-800">
             First name

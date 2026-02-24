@@ -3,7 +3,7 @@ interface Props {
   href?: string;
   type?: 'button' | 'submit' | 'reset';
   variant?: 'primary' | 'secondary' | 'ghost';
-  size?: 'sm' | 'md';
+  size?: 'sm' | 'md' | 'lg';
   class?: string;
 }
 
@@ -16,18 +16,20 @@ const {
 } = Astro.props;
 
 const base =
-  'inline-flex items-center justify-center rounded-xl font-medium transition duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2';
+  'inline-flex items-center justify-center rounded-xl font-medium transition duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-primary)]';
 
 const sizes = {
   sm: 'h-9 px-4 text-sm',
-  md: 'h-11 px-5 text-sm'
+  md: 'h-11 px-5 text-sm',
+  lg: 'h-12 px-6 text-base'
 };
 
 const variants = {
-  primary: 'bg-[var(--color-primary)] text-white hover:-translate-y-0.5 hover:shadow-soft',
+  primary:
+    'bg-[var(--color-primary)] text-white shadow-sm hover:-translate-y-0.5 hover:bg-[var(--color-accent)] hover:shadow-soft',
   secondary:
     'border border-slate-300 bg-white text-[var(--color-dark)] hover:-translate-y-0.5 hover:shadow-soft',
-  ghost: 'bg-transparent text-[var(--color-dark)] hover:bg-slate-100'
+  ghost: 'bg-transparent text-[var(--color-dark)] hover:bg-slate-100 hover:no-underline'
 };
 
 const classes = `${base} ${sizes[size]} ${variants[variant]} ${className}`;

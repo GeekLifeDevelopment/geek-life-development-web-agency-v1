@@ -1,36 +1,70 @@
 ---
 import FAQAccordion from '../components/FAQAccordion.astro';
 import Layout from '../components/Layout.astro';
-import PricingTable from '../components/PricingTable.astro';
+import CTASection from '../components/sections/CTASection.astro';
+import Hero from '../components/sections/Hero.astro';
+import PricingTiers from '../components/sections/PricingTiers.astro';
+import SplitSection from '../components/sections/SplitSection.astro';
+import Heading from '../components/ui/Heading.astro';
 import Section from '../components/ui/Section.astro';
+
+const faqItems = [
+  {
+    question: 'Do we need to pick a tier immediately?',
+    answer: 'No. We can scope your project around current priorities and map to a tier later.'
+  },
+  {
+    question: 'Can we phase the engagement over time?',
+    answer: 'Yes. Most clients start with a focused phase and expand once early goals are achieved.'
+  },
+  {
+    question: 'What does pricing depend on?',
+    answer: 'Scope complexity, page count, required integrations, and timeline urgency.'
+  }
+];
 ---
 
-<Layout title="Pricing | Geek Life Development" description="Straightforward website pricing with options for starter, growth, and custom engagements.">
-  <Section>
-    <div class="max-w-3xl space-y-4">
-      <h1>Pricing</h1>
-      <p>
-        Transparent pricing for common project scopes. If your needs are unique, we’ll build a custom proposal.
-      </p>
-    </div>
-  </Section>
+<Layout
+  title="Pricing | Geek Life Development"
+  description="Flexible service tiers and scoped engagements for teams that need practical website outcomes."
+>
+  <Hero
+    title="Pricing built around scope and outcomes"
+    subtitle="Choose a tier to frame your project, then refine details around goals, timeline, and internal team capacity."
+    primaryCta={{ label: 'Get a quote', href: '/contact' }}
+    accent={false}
+  />
 
-  <Section class="bg-white">
-    <PricingTable />
-  </Section>
+  <PricingTiers />
+
+  <SplitSection
+    eyebrow="What’s included"
+    title="Every engagement includes a strong foundation"
+    description="Regardless of tier, you get a process that keeps quality high and decisions clear."
+    points={[
+      'Structured kickoff and implementation plan',
+      'Responsive, performance-minded delivery',
+      'Content-ready sections with consistent UX patterns',
+      'Launch QA and transition guidance'
+    ]}
+    reverse
+    visualTitle="Delivery checklist"
+    visualCopy="Milestones, approvals, and launch-readiness checks all tracked in one flow."
+  />
 
   <Section>
     <div class="grid gap-10 lg:grid-cols-2">
-      <div>
-        <h2>What’s included in every project</h2>
-        <ul class="mt-4 space-y-2 text-slate-700">
-          <li>• Discovery and planning session</li>
-          <li>• Mobile-first responsive implementation</li>
-          <li>• Performance and accessibility baseline checks</li>
-          <li>• Post-launch support window</li>
-        </ul>
-      </div>
-      <FAQAccordion />
+      <Heading
+        eyebrow="FAQ"
+        title="Pricing questions"
+        subtitle="Quick answers to help you choose a practical path forward."
+      />
+      <FAQAccordion items={faqItems} />
     </div>
   </Section>
+
+  <CTASection
+    title="Need a custom scope?"
+    subtitle="Tell us your goals and constraints, and we’ll propose a right-sized plan."
+  />
 </Layout>

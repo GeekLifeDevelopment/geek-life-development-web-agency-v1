@@ -1,18 +1,21 @@
 ---
 import Layout from '../components/Layout.astro';
+import CTASection from '../components/sections/CTASection.astro';
+import Hero from '../components/sections/Hero.astro';
 import Button from '../components/ui/Button.astro';
 import Card from '../components/ui/Card.astro';
 import Section from '../components/ui/Section.astro';
 import { caseStudies } from '../data/caseStudies';
 ---
 
-<Layout title="Work | Geek Life Development" description="Selected website and growth projects for service businesses.">
-  <Section>
-    <div class="max-w-3xl space-y-4">
-      <h1>Work</h1>
-      <p>Case studies from recent projects focused on lead generation, conversion, and stronger positioning.</p>
-    </div>
-  </Section>
+<Layout title="Work | Geek Life Development" description="Selected projects focused on positioning clarity, conversion, and maintainable growth systems.">
+  <Hero
+    title="Selected work and outcomes"
+    subtitle="A snapshot of recent engagements where we improved trust, conversion flow, and performance for service businesses."
+    primaryCta={{ label: 'Get a quote', href: '/contact' }}
+    secondaryCta={{ label: 'Our services', href: '/services' }}
+    accent={false}
+  />
 
   <Section class="bg-white">
     <div class="grid gap-6 md:grid-cols-2">
@@ -33,4 +36,9 @@ import { caseStudies } from '../data/caseStudies';
       }
     </div>
   </Section>
+
+  <CTASection
+    title="Want your project featured next?"
+    subtitle="Let’s build a site system that supports your next growth phase."
+  />
 </Layout>
