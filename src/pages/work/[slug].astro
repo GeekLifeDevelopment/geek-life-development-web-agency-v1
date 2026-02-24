@@ -1,60 +1,75 @@
 ---
+import { getCollection, render } from 'astro:content';
 import Layout from '../../components/Layout.astro';
-import CTASection from '../../components/sections/CTASection.astro';
-import Hero from '../../components/sections/Hero.astro';
-import SplitSection from '../../components/sections/SplitSection.astro';
+import Button from '../../components/ui/Button.astro';
 import Card from '../../components/ui/Card.astro';
+import Heading from '../../components/ui/Heading.astro';
 import Section from '../../components/ui/Section.astro';
-import { caseStudies } from '../../data/caseStudies';
 
 export function getStaticPaths() {
-  return caseStudies.map((study) => ({
-    params: { slug: study.slug },
-    props: { study }
-  }));
+  return getCollection('work').then((entries) =>
+    entries.map((entry) => ({
+      params: { slug: entry.slug },
+      props: { entry }
+    }))
+  );
 }
 
-const { study } = Astro.props;
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+
+const nextSteps = entry.data.nextSteps ?? [];
 ---
 
-<Layout title={`${study.client} Case Study | Geek Life Development`} description={study.summary}>
-  <Hero
-    title={study.title}
-    subtitle={study.summary}
-    primaryCta={{ label: 'Get a quote', href: '/contact' }}
-    secondaryCta={{ label: 'Back to work', href: '/work' }}
-    accent={false}
-  />
-
-  <Section class="bg-white">
-    <div class="grid gap-6 md:grid-cols-2">
-      <Card>
-        <h2 class="text-2xl">Services Provided</h2>
-        <ul class="mt-4 space-y-2 text-slate-700">
-          {study.services.map((service: string) => <li>• {service}</li>)}
-        </ul>
-      </Card>
-      <Card>
-        <h2 class="text-2xl">Key Results</h2>
-        <ul class="mt-4 space-y-2 text-slate-700">
-          {study.results.map((result: string) => <li>• {result}</li>)}
-        </ul>
-      </Card>
+<Layout title={`${entry.data.title} Case Study | Geek Life Development`} description={entry.data.summary}>
+  <Section>
+    <div class="max-w-4xl space-y-6">
+      <h1 class="text-4xl md:text-6xl">{entry.data.title}</h1>
+      <p class="max-w-3xl text-base text-[var(--color-neutral)] md:text-lg">{entry.data.summary}</p>
+      <div class="flex flex-wrap gap-3">
+        <a
+          href={entry.data.websiteUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex h-12 items-center justify-center rounded-xl border border-slate-200 px-6 text-base font-medium text-[var(--color-dark)] transition hover:-translate-y-0.5 hover:shadow-soft hover:no-underline"
+        >
+          Visit site
+        </a>
+        <Button href="/contact" size="lg">Get a quote</Button>
+      </div>
     </div>
   </Section>
 
-  <SplitSection
-    eyebrow="Approach"
-    title="How this project was delivered"
-    description="Each case study follows the same process foundation: clarify message, simplify UX, and optimize for action."
-    points={['Strategic page planning', 'Lean implementation sprints', 'Post-launch refinement path']}
-    visualTitle="Execution model"
-    visualCopy="Focused roadmap, fast feedback loops, and visible milestones."
-    reverse
-  />
+  <Section variant="muted">
+    <Card hover={false} class="p-8">
+      <article class="prose prose-slate max-w-none">
+        <Content />
+      </article>
+    </Card>
+  </Section>
 
-  <CTASection
-    title="Want similar outcomes for your business?"
-    subtitle="Let’s map the most practical next step for your website."
-  />
+  {nextSteps.length > 0 && (
+    <Section>
+      <Heading
+        eyebrow="Next steps"
+        title="What comes after launch"
+        subtitle="Typical follow-up improvements that keep momentum moving forward."
+      />
+      <Card class="mt-8" hover={false}>
+        <ul class="space-y-2 text-sm text-slate-700">
+          {nextSteps.map((step) => <li>• {step}</li>)}
+        </ul>
+      </Card>
+    </Section>
+  )}
+
+  <Section variant="dark">
+    <div class="space-y-6 text-center">
+      <h2 class="text-white">Want something like this for your business?</h2>
+      <div class="flex flex-wrap justify-center gap-3">
+        <Button href="/contact" size="lg">Get a quote</Button>
+        <Button href="/pricing" size="lg" variant="secondary">See pricing</Button>
+      </div>
+    </div>
+  </Section>
 </Layout>

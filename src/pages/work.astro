@@ -1,44 +1,64 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '../components/Layout.astro';
-import CTASection from '../components/sections/CTASection.astro';
-import Hero from '../components/sections/Hero.astro';
+import Badge from '../components/ui/Badge.astro';
 import Button from '../components/ui/Button.astro';
 import Card from '../components/ui/Card.astro';
+import Heading from '../components/ui/Heading.astro';
 import Section from '../components/ui/Section.astro';
-import { caseStudies } from '../data/caseStudies';
+
+const studies = (await getCollection('work')).sort((a, b) => a.data.title.localeCompare(b.data.title));
 ---
 
-<Layout title="Work | Geek Life Development" description="Selected projects focused on positioning clarity, conversion, and maintainable growth systems.">
-  <Hero
-    title="Selected work and outcomes"
-    subtitle="A snapshot of recent engagements where we improved trust, conversion flow, and performance for service businesses."
-    primaryCta={{ label: 'Get a quote', href: '/contact' }}
-    secondaryCta={{ label: 'Our services', href: '/services' }}
-    accent={false}
-  />
-
-  <Section class="bg-white">
-    <div class="grid gap-6 md:grid-cols-2">
-      {
-        caseStudies.map((study) => (
-          <Card class="flex h-full flex-col">
-            <p class="text-xs font-semibold uppercase tracking-wide text-blue-700">{study.industry}</p>
-            <h2 class="mt-2 text-2xl">{study.title}</h2>
-            <p class="mt-3">{study.summary}</p>
-            <div class="mt-4 flex flex-wrap gap-2 text-xs text-slate-600">
-              {study.services.map((service) => <span class="rounded-full bg-slate-100 px-3 py-1">{service}</span>)}
-            </div>
-            <Button href={`/work/${study.slug}`} class="mt-6 w-fit" variant="ghost">
-              Read Case Study
-            </Button>
-          </Card>
-        ))
-      }
+<Layout title="Work | Geek Life Development" description="Case studies for modern websites and simple apps serving Cedarburg and Milwaukee area businesses plus remote teams.">
+  <Section>
+    <div class="max-w-4xl space-y-6">
+      <h1 class="text-4xl md:text-6xl">Work</h1>
+      <p class="text-base text-[var(--color-neutral)] md:text-lg">
+        Modern websites and simple apps — serving Cedarburg & Milwaukee area + remote.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <Button href="/contact" size="lg">Get a quote</Button>
+      </div>
     </div>
   </Section>
 
-  <CTASection
-    title="Want your project featured next?"
-    subtitle="Let’s build a site system that supports your next growth phase."
-  />
+  <Section variant="muted">
+    <div class="space-y-10">
+      <Heading
+        eyebrow="Case studies"
+        title="Proof from real projects"
+        subtitle="Each project includes implementation notes and practical build decisions, not just outbound links."
+      />
+
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {
+        studies.map((study) => (
+          <Card class="flex h-full flex-col">
+            <h2 class="text-2xl">{study.data.title}</h2>
+            <p class="mt-3 text-sm text-slate-600">{study.data.summary}</p>
+            <div class="mt-4 flex flex-wrap gap-2 text-xs text-slate-600">
+              {study.data.tags.map((tag) => <Badge variant="neutral">{tag}</Badge>)}
+            </div>
+            <div class="mt-6 flex flex-wrap gap-2">
+              <Button href={`/work/${study.slug}`} variant="secondary" size="sm">
+                View case study
+              </Button>
+              <a
+                href={study.data.websiteUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex h-9 items-center justify-center rounded-xl border border-slate-200 px-4 text-sm font-medium text-[var(--color-dark)] transition hover:-translate-y-0.5 hover:shadow-soft hover:no-underline"
+              >
+                Visit site
+              </a>
+            </div>
+          </Card>
+        ))
+      }
+      </div>
+
+      <p class="text-sm text-slate-600">More case studies coming soon.</p>
+    </div>
+  </Section>
 </Layout>
