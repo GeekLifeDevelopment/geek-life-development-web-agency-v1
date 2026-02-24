@@ -1,76 +1,144 @@
 ---
 import Layout from '../components/Layout.astro';
-import CTASection from '../components/sections/CTASection.astro';
-import FeatureGrid from '../components/sections/FeatureGrid.astro';
 import Hero from '../components/sections/Hero.astro';
-import SplitSection from '../components/sections/SplitSection.astro';
+import Button from '../components/ui/Button.astro';
+import Card from '../components/ui/Card.astro';
+import Heading from '../components/ui/Heading.astro';
+import Section from '../components/ui/Section.astro';
 ---
 
 <Layout
   title="Services | Geek Life Development"
-  description="Practical design and development services for service businesses that need clearer positioning and stronger lead flow."
+  description="Websites, simple apps, and ongoing support for local businesses and remote creators/startups that need clear, modern digital execution."
 >
   <Hero
-    title="Services built for clarity, speed, and measurable growth"
-    subtitle="Choose a focused engagement or a broader implementation partnership. Every service is designed to reduce friction and improve outcomes."
+    title="Services designed to ship modern digital work without the chaos"
+    subtitle="Built for small businesses in Cedarburg and Milwaukee, plus remote creators and startups who need clear scope, clean execution, and steady momentum."
     primaryCta={{ label: 'Get a quote', href: '/contact' }}
-    secondaryCta={{ label: 'View work', href: '/work' }}
+    secondaryCta={{ label: 'See pricing', href: '/pricing' }}
     accent={false}
   />
 
-  <FeatureGrid
-    eyebrow="Service pillars"
-    title="What we can deliver"
-    subtitle="Flexible support across strategy, implementation, and optimization."
-    items={[
-      {
-        title: 'Website strategy + messaging',
-        description: 'Offer positioning, hierarchy, and conversion path planning before design starts.',
-        icon: '🧠'
-      },
-      {
-        title: 'Design systems + page templates',
-        description: 'Reusable sections and components for consistent launches and faster iteration.',
-        icon: '🎯'
-      },
-      {
-        title: 'Technical build in Astro',
-        description: 'Performance-first implementation with maintainable structure and clean handoff.',
-        icon: '🛠️'
-      },
-      {
-        title: 'Conversion UX improvements',
-        description: 'CTA hierarchy, layout tuning, and friction reduction across key pages.',
-        icon: '📊'
-      },
-      {
-        title: 'SEO-ready architecture',
-        description: 'Metadata, semantic structure, and crawlable page systems built in from day one.',
-        icon: '🔎'
-      },
-      {
-        title: 'Post-launch optimization',
-        description: 'Prioritized improvements based on behavior and lead quality signals.',
-        icon: '🔁'
-      }
-    ]}
-  />
+  <Section>
+    <div class="grid items-start gap-10 lg:grid-cols-2">
+      <Heading
+        eyebrow="Websites"
+        title="Our main offering: modern websites with subscription-friendly support"
+        subtitle="We build responsive sites that look polished, load fast, and give you an SEO-ready foundation from day one."
+      />
 
-  <SplitSection
-    eyebrow="Engagement model"
-    title="Start focused, then scale"
-    description="We often begin with the highest-impact pages and foundational system, then expand in short, outcome-driven cycles."
-    points={[
-      'Clear deliverables by milestone',
-      'Structured reviews and feedback windows',
-      'Documentation for long-term maintainability'
-    ]}
-    visualTitle="Service roadmap"
-    visualCopy="Phase 1: Foundation. Phase 2: Expansion. Phase 3: Optimization."
-  />
+      <Card hover={false}>
+        <p class="label-mono text-slate-500">Typical website engagement includes</p>
+        <ul class="mt-4 space-y-2 text-sm text-slate-700">
+          <li>• Messaging-led page structure and conversion-focused flow</li>
+          <li>• Responsive implementation across mobile, tablet, and desktop</li>
+          <li>• SEO-friendly technical setup and clean content architecture</li>
+          <li>• Ongoing subscription-based support for updates and improvements</li>
+        </ul>
+      </Card>
+    </div>
 
-  <CTASection
-    title="Need help choosing the right scope?"
-    subtitle="Share your current stage and goals, and we’ll recommend a practical starting plan."
-  />
+    <div class="mt-8 max-w-4xl space-y-4">
+      <p>
+        This is ideal for businesses that want a strong web presence without rebuilding from scratch every few months.
+      </p>
+      <p class="text-sm text-slate-600">Not enterprise-scale custom platforms.</p>
+    </div>
+  </Section>
+
+  <Section variant="muted">
+    <div class="space-y-10">
+      <Heading
+        eyebrow="Simple apps"
+        title="Simple apps that solve one core problem well"
+        subtitle="When a website isn’t enough, we build lean product layers to handle specific workflows without unnecessary complexity."
+      />
+
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <Card>
+          <h3 class="text-xl font-semibold">Member portals (lightweight)</h3>
+          <p class="mt-3 text-sm text-slate-600">Access-controlled pages for members, clients, or internal teams.</p>
+        </Card>
+        <Card>
+          <h3 class="text-xl font-semibold">Dashboards</h3>
+          <p class="mt-3 text-sm text-slate-600">Simple reporting views that surface the numbers your team actually uses.</p>
+        </Card>
+        <Card>
+          <h3 class="text-xl font-semibold">Scheduling systems</h3>
+          <p class="mt-3 text-sm text-slate-600">Booking and availability flows designed for smoother operations.</p>
+        </Card>
+        <Card>
+          <h3 class="text-xl font-semibold">Internal tools</h3>
+          <p class="mt-3 text-sm text-slate-600">Small utility apps that remove repetitive manual work.</p>
+        </Card>
+        <Card>
+          <h3 class="text-xl font-semibold">Form-driven workflows</h3>
+          <p class="mt-3 text-sm text-slate-600">Structured submissions, triage logic, and cleaner handoffs.</p>
+        </Card>
+      </div>
+
+      <div class="max-w-3xl space-y-4">
+        <p>Everything is built lean, with scope focused on the most important workflow first.</p>
+        <p class="text-sm text-slate-600">Not full SaaS platforms.</p>
+        <Button href="/contact">Discuss your idea</Button>
+      </div>
+    </div>
+  </Section>
+
+  <Section>
+    <div class="grid items-start gap-10 lg:grid-cols-2">
+      <Heading
+        eyebrow="Ongoing support"
+        title="Support and maintenance that keeps momentum"
+        subtitle="After launch, we continue with monthly updates and focused improvements so your digital presence keeps up with your business."
+      />
+
+      <Card hover={false}>
+        <ul class="space-y-2 text-sm text-slate-700">
+          <li>• Monthly updates and quality checks</li>
+          <li>• Iterative UX and content improvements</li>
+          <li>• Hosting guidance and deployment support</li>
+          <li>• Performance and security basics handled consistently</li>
+        </ul>
+      </Card>
+    </div>
+
+    <p class="mt-8 max-w-4xl">
+      A subscription model works better than one-off rebuilds because progress compounds over time instead of restarting each quarter.
+    </p>
+  </Section>
+
+  <Section variant="muted">
+    <div class="space-y-8">
+      <Heading
+        eyebrow="Boundaries"
+        title="What we don’t do"
+        subtitle="Clear boundaries help keep projects honest, healthy, and successful."
+      />
+      <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <Card hover={false} class="p-5">
+          <p class="font-medium text-slate-900">No bloated builds</p>
+        </Card>
+        <Card hover={false} class="p-5">
+          <p class="font-medium text-slate-900">No mystery retainers</p>
+        </Card>
+        <Card hover={false} class="p-5">
+          <p class="font-medium text-slate-900">No long-term lock-ins</p>
+        </Card>
+        <Card hover={false} class="p-5">
+          <p class="font-medium text-slate-900">No cheap and rushed projects</p>
+        </Card>
+      </div>
+    </div>
+  </Section>
+
+  <Section variant="dark">
+    <div class="space-y-6 text-center">
+      <h2 class="text-white">When scope is clear, building gets easier.</h2>
+      <div class="flex flex-wrap justify-center gap-3">
+        <Button href="/contact" size="lg">Get a quote</Button>
+        <Button href="/work" size="lg" variant="secondary">View work</Button>
+      </div>
+    </div>
+  </Section>
 </Layout>
