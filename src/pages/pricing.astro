@@ -1,70 +1,216 @@
 ---
 import FAQAccordion from '../components/FAQAccordion.astro';
 import Layout from '../components/Layout.astro';
-import CTASection from '../components/sections/CTASection.astro';
-import Hero from '../components/sections/Hero.astro';
-import PricingTiers from '../components/sections/PricingTiers.astro';
-import SplitSection from '../components/sections/SplitSection.astro';
+import Badge from '../components/ui/Badge.astro';
+import Button from '../components/ui/Button.astro';
+import Card from '../components/ui/Card.astro';
 import Heading from '../components/ui/Heading.astro';
 import Section from '../components/ui/Section.astro';
 
+const tiers = [
+  {
+    name: 'Starter',
+    bestFor: 'Small businesses needing a clean, modern web presence.',
+    timeline: '~1–2 weeks',
+    includes: [
+      '1–5 pages or equivalent sections',
+      'Mobile-responsive build',
+      'Basic SEO setup (titles, descriptions, sitemap-ready)',
+      'Performance-first structure',
+      'Launch support'
+    ],
+    boundaries: [
+      'Best for brochure or landing-style sites',
+      'Copy and assets provided by client (light guidance included)',
+      'Advanced features scoped separately'
+    ]
+  },
+  {
+    name: 'Growth',
+    bestFor: 'Businesses and creators focused on visibility and conversion.',
+    timeline: '~2–4 weeks',
+    includes: [
+      'Everything in Starter',
+      'Blog or content-ready structure',
+      'Conversion-focused sections (FAQs, testimonials, lead capture)',
+      'Local SEO foundations',
+      'Analytics setup'
+    ],
+    boundaries: ['Moderate integrations supported', 'Complex custom functionality scoped separately'],
+    popular: true
+  },
+  {
+    name: 'Pro',
+    bestFor: 'Advanced builds, integrations, or app-adjacent needs.',
+    timeline: '~4–8 weeks',
+    includes: [
+      'Everything in Growth',
+      'Advanced integrations (payments, memberships-lite, portals-lite)',
+      'Custom components tailored to brand',
+      'Extended iteration cycles'
+    ],
+    boundaries: ['Not full custom SaaS platform development', 'Third-party tools billed separately']
+  }
+];
+
 const faqItems = [
   {
-    question: 'Do we need to pick a tier immediately?',
-    answer: 'No. We can scope your project around current priorities and map to a tier later.'
+    question: 'Who owns the website?',
+    answer:
+      'You do. Once the project is complete and paid according to the agreed scope, your site and content are yours.'
   },
   {
-    question: 'Can we phase the engagement over time?',
-    answer: 'Yes. Most clients start with a focused phase and expand once early goals are achieved.'
+    question: 'What counts as an edit under a monthly plan?',
+    answer:
+      'Typical edits include content updates, section tweaks, small layout improvements, and routine technical maintenance.'
   },
   {
-    question: 'What does pricing depend on?',
-    answer: 'Scope complexity, page count, required integrations, and timeline urgency.'
+    question: 'Is the subscription required?',
+    answer:
+      'No. The monthly subscription is optional, but recommended if you want ongoing updates and performance improvements.'
+  },
+  {
+    question: 'What happens if I cancel?',
+    answer:
+      'You can pause or cancel monthly support. Your existing live site remains yours, and future updates can be scoped separately.'
+  },
+  {
+    question: 'How does the timeline work?',
+    answer:
+      'Timelines are set at kickoff based on scope and feedback cadence. Most projects move through clear weekly milestones.'
+  },
+  {
+    question: 'Do you provide hosting?',
+    answer:
+      'We provide hosting guidance and can manage deployment/hosting setup as part of your project or monthly support plan.'
+  },
+  {
+    question: 'Can you work remotely?',
+    answer:
+      'Yes. We work with local clients in the Cedarburg and Milwaukee area and also support remote teams.'
+  },
+  {
+    question: 'What if I need something larger later?',
+    answer:
+      'That’s common. We can phase in larger features over time and scope each step clearly before implementation.'
   }
 ];
 ---
 
 <Layout
   title="Pricing | Geek Life Development"
-  description="Flexible service tiers and scoped engagements for teams that need practical website outcomes."
+  description="Structured pricing model with a one-time build investment and optional monthly support, designed for clear scope and long-term momentum."
 >
-  <Hero
-    title="Pricing built around scope and outcomes"
-    subtitle="Choose a tier to frame your project, then refine details around goals, timeline, and internal team capacity."
-    primaryCta={{ label: 'Get a quote', href: '/contact' }}
-    accent={false}
-  />
+  <Section>
+    <div class="max-w-4xl space-y-6">
+      <h1 class="text-4xl leading-tight md:text-6xl">Simple, structured pricing.</h1>
+      <p class="max-w-3xl text-base leading-relaxed text-[var(--color-neutral)] md:text-lg">
+        Our model combines a one-time build investment with optional monthly support, so you can launch cleanly
+        without surprise retainers.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <Button href="/contact" size="lg">Get a quote</Button>
+        <Button href="/work" size="lg" variant="secondary">View work</Button>
+      </div>
+      <p class="text-sm text-slate-600">Clear scope. Clear communication. No pressure.</p>
+    </div>
+  </Section>
 
-  <PricingTiers />
+  <Section variant="muted">
+    <div class="grid items-start gap-10 lg:grid-cols-2">
+      <Heading
+        eyebrow="How pricing works"
+        title="A clear structure from kickoff to support"
+        subtitle="We keep the model straightforward so you always know what phase you’re in and what comes next."
+      />
 
-  <SplitSection
-    eyebrow="What’s included"
-    title="Every engagement includes a strong foundation"
-    description="Regardless of tier, you get a process that keeps quality high and decisions clear."
-    points={[
-      'Structured kickoff and implementation plan',
-      'Responsive, performance-minded delivery',
-      'Content-ready sections with consistent UX patterns',
-      'Launch QA and transition guidance'
-    ]}
-    reverse
-    visualTitle="Delivery checklist"
-    visualCopy="Milestones, approvals, and launch-readiness checks all tracked in one flow."
-  />
+      <Card hover={false}>
+        <ul class="space-y-3 text-sm text-slate-700">
+          <li><strong>Step 1:</strong> One-time build fee (covers design + development + launch)</li>
+          <li><strong>Step 2:</strong> Optional monthly plan (ongoing updates, improvements, support)</li>
+          <li><strong>Step 3:</strong> Add-ons available for larger features or integrations</li>
+        </ul>
+        <p class="mt-5 text-sm text-slate-600">Exact pricing depends on scope, complexity, and timeline.</p>
+      </Card>
+    </div>
+  </Section>
 
   <Section>
-    <div class="grid gap-10 lg:grid-cols-2">
+    <div class="space-y-10">
+      <Heading
+        eyebrow="Tier structure"
+        title="Starter, Growth, and Pro"
+        subtitle="Choose based on scope and goals. Growth is usually the right fit for businesses focused on visibility and conversion."
+      />
+
+      <div class="grid gap-6 lg:grid-cols-3">
+        {
+          tiers.map((tier) => (
+            <Card class={tier.popular ? 'border-blue-200 ring-2 ring-blue-100' : ''}>
+              {tier.popular && <Badge variant="accent">Most popular</Badge>}
+              <h3 class="mt-3 text-2xl font-semibold">{tier.name}</h3>
+              <p class="mt-3 text-sm text-slate-600"><strong>Best for:</strong> {tier.bestFor}</p>
+              <p class="mt-2 text-sm text-slate-700"><strong>Typical timeline:</strong> {tier.timeline}</p>
+
+              <p class="mt-5 label-mono text-slate-500">What’s included</p>
+              <ul class="mt-2 space-y-2 text-sm text-slate-700">
+                {tier.includes.map((item) => <li>• {item}</li>)}
+              </ul>
+
+              <p class="mt-5 label-mono text-slate-500">Boundaries</p>
+              <ul class="mt-2 space-y-2 text-sm text-slate-700">
+                {tier.boundaries.map((item) => <li>• {item}</li>)}
+              </ul>
+
+              <Button href="/contact" class="mt-6 w-full">Get a quote</Button>
+            </Card>
+          ))
+        }
+      </div>
+    </div>
+  </Section>
+
+  <Section variant="muted">
+    <div class="space-y-8">
+      <Heading
+        eyebrow="Add-ons"
+        title="Optional add-ons when you need more"
+        subtitle="Add exactly what you need without overcomplicating the base project."
+      />
+
+      <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <Card hover={false} class="p-5"><p class="font-medium text-slate-900">Extra pages</p></Card>
+        <Card hover={false} class="p-5"><p class="font-medium text-slate-900">Copywriting or copy polish</p></Card>
+        <Card hover={false} class="p-5"><p class="font-medium text-slate-900">SEO content expansion</p></Card>
+        <Card hover={false} class="p-5"><p class="font-medium text-slate-900">Booking / email / payments integrations</p></Card>
+        <Card hover={false} class="p-5"><p class="font-medium text-slate-900">Simple app features (forms → database, dashboards-lite)</p></Card>
+        <Card hover={false} class="p-5"><p class="font-medium text-slate-900">Brand refresh / UI polish</p></Card>
+        <Card hover={false} class="p-5 md:col-span-2 lg:col-span-1"><p class="font-medium text-slate-900">Ongoing performance tune-ups</p></Card>
+      </div>
+
+      <p class="text-sm text-slate-600">If you’re not sure what you need, we’ll recommend the simplest solution.</p>
+    </div>
+  </Section>
+
+  <Section>
+    <div class="grid gap-10 lg:grid-cols-[1fr_1.2fr]">
       <Heading
         eyebrow="FAQ"
-        title="Pricing questions"
-        subtitle="Quick answers to help you choose a practical path forward."
+        title="Common pricing questions"
+        subtitle="Friendly answers so you can move forward with confidence."
       />
       <FAQAccordion items={faqItems} />
     </div>
   </Section>
 
-  <CTASection
-    title="Need a custom scope?"
-    subtitle="Tell us your goals and constraints, and we’ll propose a right-sized plan."
-  />
+  <Section variant="dark">
+    <div class="space-y-6 text-center">
+      <h2 class="text-white">Ready to build something modern?</h2>
+      <div class="flex flex-wrap justify-center gap-3">
+        <Button href="/contact" size="lg">Get a quote</Button>
+        <Button href="/services" size="lg" variant="secondary">See services</Button>
+      </div>
+      <p class="text-sm text-slate-300">Clear scope. Clear communication. No pressure.</p>
+    </div>
+  </Section>
 </Layout>
