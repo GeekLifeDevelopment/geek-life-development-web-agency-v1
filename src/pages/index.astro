@@ -1,98 +1,162 @@
 ---
-import FAQAccordion from '../components/FAQAccordion.astro';
 import Layout from '../components/Layout.astro';
-import CTASection from '../components/sections/CTASection.astro';
-import FeatureGrid from '../components/sections/FeatureGrid.astro';
-import Hero from '../components/sections/Hero.astro';
-import PricingTiers from '../components/sections/PricingTiers.astro';
-import SplitSection from '../components/sections/SplitSection.astro';
+import Button from '../components/ui/Button.astro';
+import Card from '../components/ui/Card.astro';
 import Heading from '../components/ui/Heading.astro';
 import Section from '../components/ui/Section.astro';
-
-const faqItems = [
-  {
-    question: 'How long does a typical project take?',
-    answer:
-      'Most projects launch in 3–6 weeks depending on scope, feedback speed, and whether messaging support is included.'
-  },
-  {
-    question: 'Can you help us improve conversion after launch?',
-    answer:
-      'Yes. We can continue with iterative page updates, CTA tests, and analytics-driven improvements after launch.'
-  },
-  {
-    question: 'Do we need all services at once?',
-    answer:
-      'No. We usually start with the smallest focused scope, then build forward as your growth priorities become clear.'
-  }
-];
 ---
 
 <Layout
-	title="Geek Life Development | Calm, conversion-focused websites"
-	description="Modern websites and page systems for service businesses that want better positioning, trust, and lead flow."
+	title="Geek Life Development | Websites and simple apps for growing businesses"
+	description="Conversion-first websites and simple mobile apps for Cedarburg and Milwaukee area businesses, plus remote startups and creators."
 >
-	<Hero
-		title="Build a website that feels premium and converts with clarity"
-		subtitle="Geek Life Development designs and builds calm, high-trust marketing sites for service businesses that want stronger positioning and better leads."
-		primaryCta={{ label: 'Get a quote', href: '/contact' }}
-		secondaryCta={{ label: 'View work', href: '/work' }}
-	/>
-
-	<FeatureGrid
-		eyebrow="Capabilities"
-		title="A reusable web system, not just pages"
-		subtitle="Every project ships with intentional structure so your marketing team can evolve content without design chaos."
-		items={[
-			{
-				title: 'Messaging-first page planning',
-				description: 'Clarify what to say, where to say it, and how each section supports conversion.',
-				icon: '🧭'
-			},
-			{
-				title: 'Fast, maintainable implementation',
-				description: 'Clean Astro-based architecture that keeps performance high and iteration easy.',
-				icon: '⚡'
-			},
-			{
-				title: 'Conversion-focused UX details',
-				description: 'CTA hierarchy, content rhythm, and layouts designed to guide confident action.',
-				icon: '📈'
-			}
-		]}
-	/>
-
-	<SplitSection
-		eyebrow="Process"
-		title="A calm process with strong momentum"
-		description="We keep communication simple: clear scope, fast iterations, and visible progress from kickoff through launch."
-		points={[
-			'Discovery and messaging workshop',
-			'Wireframes and design direction',
-			'Build, QA, and launch support'
-		]}
-		cta={{ label: 'See services', href: '/services' }}
-		visualTitle="Project roadmap"
-		visualCopy="A practical timeline with weekly milestones and review points so nothing drifts."
-	/>
-
-	<PricingTiers />
-
-	<Section>
-		<div class="grid gap-10 lg:grid-cols-2">
-			<div>
-				<Heading
-					eyebrow="FAQ"
-					title="Common questions before kickoff"
-					subtitle="Quick answers about scope, timeline, and what collaboration looks like."
-				/>
+	<Section class="relative overflow-hidden">
+		<div
+			class="pointer-events-none absolute right-[-140px] top-[-160px] h-[360px] w-[360px] rounded-full opacity-20 blur-3xl"
+			style="background: linear-gradient(135deg, #2563EB 0%, #6D28D9 100%);"
+			aria-hidden="true"
+		></div>
+		<div class="relative max-w-4xl space-y-6">
+			<h1 class="text-4xl leading-tight md:text-6xl">Websites and simple apps that help your business look sharp and move faster.</h1>
+			<p class="max-w-3xl text-base leading-relaxed text-[var(--color-neutral)] md:text-lg">
+				We help small businesses, creators, and startups launch modern digital experiences with clear messaging,
+				clean UX, and practical technology choices.
+			</p>
+			<div class="flex flex-wrap gap-3 pt-1">
+				<Button href="/contact" size="lg">Get a quote</Button>
+				<Button href="/work" size="lg" variant="secondary">View work</Button>
 			</div>
-			<FAQAccordion items={faqItems} />
+			<p class="text-sm font-medium text-slate-600">Serving Cedarburg & Milwaukee area + remote.</p>
 		</div>
 	</Section>
 
-	<CTASection
-		title="Ready for a cleaner website system?"
-		subtitle="Share your goals and timeline. We’ll recommend the most practical next step."
-	/>
+	<Section variant="muted">
+		<div class="space-y-10">
+			<Heading
+				eyebrow="Services"
+				title="What we build"
+				subtitle="Focused delivery built around clarity, speed, and maintainability."
+			/>
+			<div class="grid gap-6 md:grid-cols-3">
+				<Card>
+					<h3 class="text-xl font-semibold">Websites</h3>
+					<p class="mt-3 text-sm text-slate-600">
+						Fast, modern, SEO-ready websites with clean structure and conversion-focused page flow.
+					</p>
+					<Button href="/services" variant="ghost" class="mt-4 px-0">Learn more</Button>
+				</Card>
+				<Card>
+					<h3 class="text-xl font-semibold">Simple apps</h3>
+					<p class="mt-3 text-sm text-slate-600">
+						Lightweight app experiences like forms workflows, portal-lite tools, and internal utility features.
+					</p>
+					<Button href="/services" variant="ghost" class="mt-4 px-0">Learn more</Button>
+				</Card>
+				<Card>
+					<h3 class="text-xl font-semibold">Ongoing support</h3>
+					<p class="mt-3 text-sm text-slate-600">
+						Ongoing updates, maintenance, and iterative improvements so your site keeps pace with your business.
+					</p>
+					<Button href="/services" variant="ghost" class="mt-4 px-0">Learn more</Button>
+				</Card>
+			</div>
+			<p class="text-sm text-slate-600">What we don’t do: bloated platforms, vague scopes, or mystery retainers.</p>
+		</div>
+	</Section>
+
+	<Section>
+		<div class="grid items-start gap-8 lg:grid-cols-2">
+			<Heading
+				eyebrow="Subscription model"
+				title="Predictable support without the guesswork"
+				subtitle="Our website subscriptions are designed for teams who want consistent progress, clear communication, and a reliable monthly rhythm."
+			/>
+			<Card hover={false} class="bg-white">
+				<p class="label-mono text-slate-500">Typical subscription includes</p>
+				<ul class="mt-4 space-y-2 text-sm text-slate-700">
+					<li>• Monthly implementation and content update capacity</li>
+					<li>• Hosting and maintenance oversight</li>
+					<li>• Prioritized improvements based on business goals</li>
+					<li>• Technical support for essential site changes</li>
+				</ul>
+				<Button href="/pricing" class="mt-6">See how pricing works</Button>
+			</Card>
+		</div>
+	</Section>
+
+	<Section variant="muted">
+		<div class="space-y-10">
+			<Heading
+				eyebrow="Work preview"
+				title="Recent projects"
+				subtitle="A few examples of brands and products we’ve helped launch or improve."
+			/>
+			<div class="grid gap-6 md:grid-cols-3">
+				<Card>
+					<h3 class="text-xl font-semibold">Burnt Dirt Art</h3>
+					<p class="mt-2 text-sm text-slate-500">burntdirtart.com</p>
+					<p class="mt-3 text-sm text-slate-600">Art-forward site experience designed for clarity, storytelling, and easy exploration.</p>
+					<Button href="/work" variant="ghost" class="mt-4 px-0">View project</Button>
+				</Card>
+				<Card>
+					<h3 class="text-xl font-semibold">FactoryCat</h3>
+					<p class="mt-2 text-sm text-slate-500">factorycat.com</p>
+					<p class="mt-3 text-sm text-slate-600">A modern product presence focused on performance, positioning, and conversion flow.</p>
+					<Button href="/work" variant="ghost" class="mt-4 px-0">View project</Button>
+				</Card>
+				<Card>
+					<h3 class="text-xl font-semibold">The Overwhelmed Gamer</h3>
+					<p class="mt-2 text-sm text-slate-500">overwhelmedgamer.show</p>
+					<p class="mt-3 text-sm text-slate-600">Content-forward site structure that helps episodes, updates, and brand voice stay organized.</p>
+					<Button href="/work" variant="ghost" class="mt-4 px-0">View project</Button>
+				</Card>
+			</div>
+			<div>
+				<Button href="/work" size="lg">View all work</Button>
+			</div>
+		</div>
+	</Section>
+
+	<Section>
+		<div class="space-y-10">
+			<Heading
+				eyebrow="Process"
+				title="How we work together"
+				subtitle="A friendly four-step flow designed to keep things clear and low-stress."
+			/>
+			<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+				<Card>
+					<p class="label-mono text-slate-500">01</p>
+					<h3 class="mt-3 text-lg font-semibold">Discover</h3>
+					<p class="mt-2 text-sm text-slate-600">We align on goals, audience, and what success should look like.</p>
+				</Card>
+				<Card>
+					<p class="label-mono text-slate-500">02</p>
+					<h3 class="mt-3 text-lg font-semibold">Design & Build</h3>
+					<p class="mt-2 text-sm text-slate-600">We design and implement a modern experience with practical scope control.</p>
+				</Card>
+				<Card>
+					<p class="label-mono text-slate-500">03</p>
+					<h3 class="mt-3 text-lg font-semibold">Launch</h3>
+					<p class="mt-2 text-sm text-slate-600">We run QA, finalize content, and launch with confidence.</p>
+				</Card>
+				<Card>
+					<p class="label-mono text-slate-500">04</p>
+					<h3 class="mt-3 text-lg font-semibold">Support & Improve</h3>
+					<p class="mt-2 text-sm text-slate-600">We keep improving performance, UX, and messaging as your business evolves.</p>
+				</Card>
+			</div>
+		</div>
+	</Section>
+
+	<Section variant="dark">
+		<div class="space-y-6 text-center">
+			<h2 class="text-white">Ready to ship something modern?</h2>
+			<div class="flex flex-wrap justify-center gap-3">
+				<Button href="/contact" size="lg">Get a quote</Button>
+				<Button href="/about" size="lg" variant="secondary">Read about the process</Button>
+			</div>
+			<p class="text-sm text-slate-300">Clear scope. Clear communication. No pressure.</p>
+		</div>
+	</Section>
 </Layout>
