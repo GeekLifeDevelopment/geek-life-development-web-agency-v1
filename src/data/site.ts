@@ -4,8 +4,8 @@ export const siteConfig = {
   description:
     'Geek Life Development builds fast, conversion-focused websites and digital systems for growing service businesses.',
   tagline: 'Modern websites and growth systems for small businesses',
-  location: 'Austin, TX',
-  email: 'hello@geeklifedevelopment.com',
+  location: 'Cedarburg, WI',
+  email: 'jason@geeklifedevelopment.com',
   phone: '(512) 555-0199'
 };
 

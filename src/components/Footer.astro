@@ -1,0 +1,29 @@
+---
+import monogramUrl from '../assets/brand/monogram-gld.svg?url';
+import Container from './ui/Container.astro';
+import { navLinks, siteConfig } from '../data/site';
+---
+
+<footer class="border-t border-slate-200 bg-white py-10">
+  <Container class="space-y-8">
+    <div class="flex flex-col justify-between gap-8 lg:flex-row lg:items-start">
+      <div class="max-w-sm space-y-3">
+        <a href="/" class="inline-flex items-center gap-3 hover:no-underline" aria-label="Geek Life Development home">
+          <img src={monogramUrl} alt="GLD monogram" class="h-10 w-10 rounded-xl" loading="lazy" />
+          <span class="font-heading text-lg font-semibold text-[var(--color-dark)]">Geek Life Development</span>
+        </a>
+        <p class="text-sm text-slate-600">Serving Cedarburg & Milwaukee area + remote</p>
+        <a href={`mailto:${siteConfig.email}`} class="inline-block text-sm font-medium">{siteConfig.email}</a>
+      </div>
+
+      <div class="grid gap-2 text-sm">
+        <p class="label-mono text-slate-500">Quick links</p>
+        {navLinks.map((link) => <a href={link.href}>{link.label}</a>)}
+      </div>
+    </div>
+
+    <p class="border-t border-slate-100 pt-5 text-sm text-slate-500">
+      © {new Date().getFullYear()} Geek Life Development. All rights reserved.
+    </p>
+  </Container>
+</footer>

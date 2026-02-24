@@ -1,8 +1,9 @@
 ---
+import monogramUrl from '../assets/brand/monogram-gld.svg?url';
+import Footer from './Footer.astro';
+import Header from './Header.astro';
 import SEO from './SEO.astro';
-import Container from './ui/Container.astro';
-import Button from './ui/Button.astro';
-import { navLinks, siteConfig } from '../data/site';
+import { siteConfig } from '../data/site';
 import '../styles/global.css';
 
 interface Props {
@@ -35,44 +36,19 @@ const jsonLd = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href={monogramUrl} />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     <SEO title={title} description={description} noindex={noindex} />
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
-  <body class="bg-slate-50 text-slate-900">
-    <header class="border-b border-slate-100 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/75">
-      <Container class="flex h-18 items-center justify-between gap-6">
-        <a href="/" class="font-heading text-lg font-semibold tracking-tight text-slate-900">
-          Geek Life Development
-        </a>
-        <nav class="hidden items-center gap-6 text-sm font-medium md:flex">
-          {
-            navLinks.map((link) => (
-              <a href={link.href} class="text-slate-700 transition hover:text-blue-600">
-                {link.label}
-              </a>
-            ))
-          }
-        </nav>
-        <Button href="/contact" size="sm">Book a Call</Button>
-      </Container>
-    </header>
+  <body class="bg-light text-dark">
+    <Header />
 
     <main>
       <slot />
     </main>
 
-    <footer class="border-t border-slate-100 bg-white py-10">
-      <Container class="flex flex-col items-start justify-between gap-4 text-sm text-slate-600 md:flex-row md:items-center">
-        <p>© {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</p>
-        <div class="flex gap-4">
-          <a href="/services" class="hover:text-blue-600">Services</a>
-          <a href="/work" class="hover:text-blue-600">Work</a>
-          <a href="/contact" class="hover:text-blue-600">Contact</a>
-        </div>
-      </Container>
-    </footer>
+    <Footer />
   </body>
 </html>
