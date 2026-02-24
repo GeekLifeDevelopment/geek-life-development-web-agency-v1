@@ -1,45 +1,58 @@
 ---
 import Layout from '../components/Layout.astro';
-import Button from '../components/ui/Button.astro';
-import Card from '../components/ui/Card.astro';
-import Section from '../components/ui/Section.astro';
+import CTASection from '../components/sections/CTASection.astro';
+import FeatureGrid from '../components/sections/FeatureGrid.astro';
+import Hero from '../components/sections/Hero.astro';
+import SplitSection from '../components/sections/SplitSection.astro';
 ---
 
-<Layout title="About | Geek Life Development" description="Learn about the agency approach and values behind Geek Life Development.">
-  <Section>
-    <div class="max-w-3xl space-y-4">
-      <h1>About Geek Life Development</h1>
-      <p>
-        We’re a small web agency focused on practical digital growth. Our goal is simple: build websites that make it
-        easier for good businesses to be found, trusted, and contacted.
-      </p>
-    </div>
-  </Section>
+<Layout title="About | Geek Life Development" description="The approach, values, and delivery style behind Geek Life Development.">
+  <Hero
+    title="A small agency with a systems mindset"
+    subtitle="Geek Life Development helps service businesses communicate clearly online and convert more of the right opportunities."
+    primaryCta={{ label: 'Get a quote', href: '/contact' }}
+    accent={false}
+  />
 
-  <Section class="bg-white">
-    <div class="grid gap-6 md:grid-cols-3">
-      <Card>
-        <h2 class="text-2xl">Clarity First</h2>
-        <p class="mt-3">Clear messaging and user flow come before visual complexity.</p>
-      </Card>
-      <Card>
-        <h2 class="text-2xl">Performance Matters</h2>
-        <p class="mt-3">Fast sites improve trust, SEO, and conversion outcomes.</p>
-      </Card>
-      <Card>
-        <h2 class="text-2xl">Iterate with Data</h2>
-        <p class="mt-3">Launch quickly, then improve using real user behavior.</p>
-      </Card>
-    </div>
-  </Section>
+  <FeatureGrid
+    eyebrow="Values"
+    title="How we work"
+    subtitle="Simple process, honest collaboration, and practical execution from start to launch."
+    items={[
+      {
+        title: 'Clarity over complexity',
+        description: 'We simplify decisions and focus each page on what users actually need.',
+        icon: '🧩'
+      },
+      {
+        title: 'Performance by default',
+        description: 'Fast, lightweight implementation is built into every phase of delivery.',
+        icon: '🚀'
+      },
+      {
+        title: 'Iterative improvement',
+        description: 'We launch with intention, then optimize based on behavior and outcomes.',
+        icon: '📌'
+      }
+    ]}
+  />
 
-  <Section>
-    <Card class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-      <div>
-        <h2 class="text-2xl">Want to see if we’re a fit?</h2>
-        <p class="mt-2">Send a few details about your business and timeline.</p>
-      </div>
-      <Button href="/contact">Start the Conversation</Button>
-    </Card>
-  </Section>
+  <SplitSection
+    eyebrow="Partnership"
+    title="Built for teams that value momentum"
+    description="You get direct communication, transparent trade-offs, and a plan that respects budget and timeline realities."
+    points={[
+      'Clear weekly progress updates',
+      'Focused review cycles without bottlenecks',
+      'Documentation you can actually reuse'
+    ]}
+    visualTitle="Collaboration flow"
+    visualCopy="Discovery → Build → Launch → Iterate"
+    reverse
+  />
+
+  <CTASection
+    title="Want to see if we’re a fit?"
+    subtitle="Share your goals and timeline, and we’ll recommend a practical next step."
+  />
 </Layout>

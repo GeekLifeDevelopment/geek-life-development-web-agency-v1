@@ -1,80 +1,98 @@
 ---
 import FAQAccordion from '../components/FAQAccordion.astro';
 import Layout from '../components/Layout.astro';
-import PricingTable from '../components/PricingTable.astro';
-import Badge from '../components/ui/Badge.astro';
-import Button from '../components/ui/Button.astro';
-import Card from '../components/ui/Card.astro';
+import CTASection from '../components/sections/CTASection.astro';
+import FeatureGrid from '../components/sections/FeatureGrid.astro';
+import Hero from '../components/sections/Hero.astro';
+import PricingTiers from '../components/sections/PricingTiers.astro';
+import SplitSection from '../components/sections/SplitSection.astro';
+import Heading from '../components/ui/Heading.astro';
 import Section from '../components/ui/Section.astro';
+
+const faqItems = [
+  {
+    question: 'How long does a typical project take?',
+    answer:
+      'Most projects launch in 3–6 weeks depending on scope, feedback speed, and whether messaging support is included.'
+  },
+  {
+    question: 'Can you help us improve conversion after launch?',
+    answer:
+      'Yes. We can continue with iterative page updates, CTA tests, and analytics-driven improvements after launch.'
+  },
+  {
+    question: 'Do we need all services at once?',
+    answer:
+      'No. We usually start with the smallest focused scope, then build forward as your growth priorities become clear.'
+  }
+];
 ---
 
 <Layout
-	title="Geek Life Development | Websites That Convert"
-	description="Web design and development for service businesses that need better leads and stronger conversion performance."
+	title="Geek Life Development | Calm, conversion-focused websites"
+	description="Modern websites and page systems for service businesses that want better positioning, trust, and lead flow."
 >
-	<Section class="bg-gradient-to-b from-white to-slate-50">
-		<div class="max-w-3xl space-y-6">
-			<Badge>Small Agency. Big Results.</Badge>
-			<h1>Build a website that wins trust and drives qualified leads.</h1>
-			<p>
-				We design and develop modern marketing websites for local and online service businesses. Every page is built
-				to communicate clearly, load fast, and convert with intention.
-			</p>
-			<div class="flex flex-wrap gap-3">
-				<Button href="/contact">Start Your Project</Button>
-				<Button href="/work" variant="ghost">View Case Studies</Button>
-			</div>
-		</div>
-	</Section>
+	<Hero
+		title="Build a website that feels premium and converts with clarity"
+		subtitle="Geek Life Development designs and builds calm, high-trust marketing sites for service businesses that want stronger positioning and better leads."
+		primaryCta={{ label: 'Get a quote', href: '/contact' }}
+		secondaryCta={{ label: 'View work', href: '/work' }}
+	/>
 
-	<Section>
-		<div class="mb-10 max-w-2xl">
-			<h2>Services designed for measurable growth</h2>
-			<p class="mt-3">Choose a focused project or build a longer-term partnership as your business grows.</p>
-		</div>
-		<div class="grid gap-6 md:grid-cols-3">
-			<Card>
-				<h3 class="text-xl font-semibold">Web Design & Build</h3>
-				<p class="mt-2">Clean, conversion-focused websites built with performance and maintainability in mind.</p>
-			</Card>
-			<Card>
-				<h3 class="text-xl font-semibold">Content & SEO Structure</h3>
-				<p class="mt-2">Page architecture and messaging that helps people find you and trust you quickly.</p>
-			</Card>
-			<Card>
-				<h3 class="text-xl font-semibold">Optimization & Reporting</h3>
-				<p class="mt-2">Data-informed improvements to key pages, forms, and CTAs after launch.</p>
-			</Card>
-		</div>
-	</Section>
+	<FeatureGrid
+		eyebrow="Capabilities"
+		title="A reusable web system, not just pages"
+		subtitle="Every project ships with intentional structure so your marketing team can evolve content without design chaos."
+		items={[
+			{
+				title: 'Messaging-first page planning',
+				description: 'Clarify what to say, where to say it, and how each section supports conversion.',
+				icon: '🧭'
+			},
+			{
+				title: 'Fast, maintainable implementation',
+				description: 'Clean Astro-based architecture that keeps performance high and iteration easy.',
+				icon: '⚡'
+			},
+			{
+				title: 'Conversion-focused UX details',
+				description: 'CTA hierarchy, content rhythm, and layouts designed to guide confident action.',
+				icon: '📈'
+			}
+		]}
+	/>
 
-	<Section class="bg-white">
-		<div class="mb-10 max-w-2xl">
-			<h2>Simple pricing that scales with your needs</h2>
-			<p class="mt-3">Clear packages for fast decisions, with custom scope available when needed.</p>
-		</div>
-		<PricingTable />
-	</Section>
+	<SplitSection
+		eyebrow="Process"
+		title="A calm process with strong momentum"
+		description="We keep communication simple: clear scope, fast iterations, and visible progress from kickoff through launch."
+		points={[
+			'Discovery and messaging workshop',
+			'Wireframes and design direction',
+			'Build, QA, and launch support'
+		]}
+		cta={{ label: 'See services', href: '/services' }}
+		visualTitle="Project roadmap"
+		visualCopy="A practical timeline with weekly milestones and review points so nothing drifts."
+	/>
+
+	<PricingTiers />
 
 	<Section>
 		<div class="grid gap-10 lg:grid-cols-2">
 			<div>
-				<h2>Frequently asked questions</h2>
-				<p class="mt-3">Answers to common questions before we kickoff.</p>
+				<Heading
+					eyebrow="FAQ"
+					title="Common questions before kickoff"
+					subtitle="Quick answers about scope, timeline, and what collaboration looks like."
+				/>
 			</div>
-			<FAQAccordion />
+			<FAQAccordion items={faqItems} />
 		</div>
 	</Section>
 
-	<Section class="bg-slate-900 text-white">
-		<div class="flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-center">
-			<div class="max-w-2xl">
-				<h2 class="text-white">Ready to launch a better website?</h2>
-				<p class="mt-3 text-slate-300">
-					Tell us where you are now and where you want to be. We’ll propose the most direct path.
-				</p>
-			</div>
-			<Button href="/contact" variant="primary">Book a Discovery Call</Button>
-		</div>
-	</Section>
+	<CTASection
+		title="Ready for a cleaner website system?"
+		subtitle="Share your goals and timeline. We’ll recommend the most practical next step."
+	/>
 </Layout>

@@ -1,13 +1,21 @@
 ---
 interface Props {
+  variant?: 'primary' | 'accent' | 'neutral';
+  mono?: boolean;
   class?: string;
 }
 
-const { class: className = '' } = Astro.props;
+const { variant = 'primary', mono = false, class: className = '' } = Astro.props;
+
+const variants = {
+  primary: 'bg-blue-50 text-blue-700',
+  accent: 'bg-violet-50 text-violet-700',
+  neutral: 'bg-slate-100 text-slate-700'
+};
 ---
 
 <span
-  class={`inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-blue-700 ${className}`}
+  class={`inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wide ${variants[variant]} ${mono ? 'font-mono' : ''} ${className}`}
 >
   <slot />
 </span>

@@ -2,15 +2,23 @@
 import Container from './Container.astro';
 
 interface Props {
+  variant?: 'default' | 'muted' | 'dark';
+  size?: 'sm' | 'md' | 'lg' | 'xl' | 'full';
   class?: string;
   containerClass?: string;
 }
 
-const { class: className = '', containerClass = '' } = Astro.props;
+const { variant = 'default', size = 'xl', class: className = '', containerClass = '' } = Astro.props;
+
+const variants = {
+  default: 'bg-transparent text-inherit',
+  muted: 'bg-slate-50',
+  dark: 'bg-[var(--color-dark)] text-slate-100'
+};
 ---
 
-<section class={`py-16 sm:py-20 ${className}`}>
-  <Container class={containerClass}>
+<section class={`py-20 md:py-28 ${variants[variant]} ${className}`}>
+  <Container size={size} class={containerClass}>
     <slot />
   </Container>
 </section>
