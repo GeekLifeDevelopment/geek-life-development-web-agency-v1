@@ -1,5 +1,4 @@
 @config "../../tailwind.config.mjs";
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&family=Space+Grotesk:wght@500;600;700&display=swap');
 @import 'tailwindcss';
 
 @layer base {
@@ -53,7 +52,26 @@
 
 	:focus-visible {
 		outline: 2px solid var(--color-primary);
-		outline-offset: 2px;
+		outline-offset: 3px;
+		box-shadow: 0 0 0 4px rgb(37 99 235 / 20%);
+	}
+
+	.skip-link {
+		position: absolute;
+		left: 1rem;
+		top: -120px;
+		z-index: 50;
+		border-radius: 0.75rem;
+		background: var(--color-dark);
+		color: #fff;
+		padding: 0.625rem 0.875rem;
+		font-weight: 600;
+		text-decoration: none;
+		transition: top 160ms ease;
+	}
+
+	.skip-link:focus-visible {
+		top: 1rem;
 	}
 
 	::selection {
@@ -63,5 +81,14 @@
 
 	.label-mono {
 		@apply font-mono text-xs uppercase tracking-wide;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	* {
+		scroll-behavior: auto;
+		transition-duration: 0.01ms !important;
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
 	}
 }
