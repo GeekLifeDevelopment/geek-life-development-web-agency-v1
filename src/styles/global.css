@@ -92,3 +92,60 @@
 		animation-iteration-count: 1 !important;
 	}
 }
+
+@layer components {
+	.article-content {
+		@apply text-base leading-relaxed text-slate-700;
+	}
+
+	.article-content h2,
+	.article-content h3,
+	.article-content h4 {
+		@apply mt-8 text-slate-900;
+	}
+
+	.article-content h2 {
+		@apply text-2xl;
+	}
+
+	.article-content h3 {
+		@apply text-xl;
+	}
+
+	.article-content p {
+		@apply mt-4 text-base leading-relaxed text-slate-700;
+	}
+
+	.article-content ul,
+	.article-content ol {
+		@apply mt-4 space-y-2 pl-6;
+	}
+
+	.article-content li {
+		@apply text-base leading-relaxed text-slate-700;
+	}
+
+	.article-content a {
+		@apply font-medium;
+	}
+
+	.article-content strong {
+		@apply font-semibold text-slate-900;
+	}
+
+	.article-content blockquote {
+		@apply mt-6 border-l-4 border-slate-200 pl-4 text-slate-700;
+	}
+
+	.article-content hr {
+		@apply my-8 border-slate-200;
+	}
+
+	.article-content > :first-child {
+		margin-top: 0;
+	}
+
+	.article-content > :last-child {
+		margin-bottom: 0;
+	}
+}
