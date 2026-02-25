@@ -10,127 +10,140 @@ import Section from '../components/ui/Section.astro';
 const tiers = [
   {
     name: 'Starter',
+    buildFee: 'Starting at $2,900+',
+    supportFee: 'Support from $197/mo',
     bestFor: 'Small businesses needing a clean, modern web presence.',
-    timeline: '~1–2 weeks',
+    timeline: '~1–2 weeks (typical)',
     includes: [
-      '1–5 pages or equivalent sections',
+      '1–5 pages (or equivalent sections)',
       'Mobile-responsive build',
-      'Basic SEO setup (titles, descriptions, sitemap-ready)',
-      'Performance-first structure',
+      'SEO-ready foundation (titles, descriptions, sitemap)',
+      'Performance-first setup',
       'Launch support'
     ],
     boundaries: [
-      'Best for brochure or landing-style sites',
-      'Copy and assets provided by client (light guidance included)',
-      'Advanced features scoped separately'
+      'Best for brochure/landing sites',
+      'Copy + assets provided by client (light guidance ok)',
+      'New features/integrations scoped separately'
     ]
   },
   {
     name: 'Growth',
-    bestFor: 'Businesses and creators focused on visibility and conversion.',
-    timeline: '~2–4 weeks',
+    buildFee: 'Starting at $4,900+',
+    supportFee: 'Support from $397/mo',
+    bestFor: 'Businesses/creators focused on visibility + conversion.',
+    timeline: '~2–4 weeks (typical)',
     includes: [
       'Everything in Starter',
-      'Blog or content-ready structure',
-      'Conversion-focused sections (FAQs, testimonials, lead capture)',
-      'Local SEO foundations',
-      'Analytics setup'
+      'Content-ready structure (blog/portfolio style sections if applicable)',
+      'Conversion sections (FAQs, testimonials, lead capture blocks)',
+      'Local SEO foundations (schema-ready, location signals)',
+      'Analytics setup (optional)'
     ],
-    boundaries: ['Moderate integrations supported', 'Complex custom functionality scoped separately'],
+    boundaries: ['Moderate integrations can be scoped', 'Larger custom functionality is an add-on'],
     popular: true
   },
   {
     name: 'Pro',
+    buildFee: 'Starting at $8,000+',
+    supportFee: 'Support from $697+/mo',
     bestFor: 'Advanced builds, integrations, or app-adjacent needs.',
-    timeline: '~4–8 weeks',
+    timeline: '~4–8 weeks (typical)',
     includes: [
       'Everything in Growth',
-      'Advanced integrations (payments, memberships-lite, portals-lite)',
+      'Advanced integrations (payments, memberships-lite, portals-lite) as scoped',
       'Custom components tailored to brand',
-      'Extended iteration cycles'
+      'More pre-launch iteration'
     ],
-    boundaries: ['Not full custom SaaS platform development', 'Third-party tools billed separately']
+    boundaries: ['Not full SaaS product development', 'Third-party costs billed separately']
   }
 ];
 
 const faqItems = [
   {
-    question: 'Who owns the website?',
+    question: 'Do you charge a one-time build fee?',
     answer:
-      'You do. Once the project is complete and paid according to the agreed scope, your site and content are yours.'
+      'Yes. Every project starts with a one-time build fee that covers design, development, QA, and launch.'
   },
   {
-    question: 'What counts as an edit under a monthly plan?',
+    question: 'Is ongoing support required?',
     answer:
-      'Typical edits include content updates, section tweaks, small layout improvements, and routine technical maintenance.'
+      'No. Ongoing support is not mandatory, but it is the preferred path for most clients because the site keeps improving after launch.'
   },
   {
-    question: 'Is the subscription required?',
+    question: 'What counts as an “edit” in support?',
     answer:
-      'No. The monthly subscription is optional, but recommended if you want ongoing updates and performance improvements.'
+      'Typical edits include content updates, image swaps, small layout adjustments, and routine upkeep tasks that fit your plan scope.'
   },
   {
-    question: 'What happens if I cancel?',
+    question: 'What’s considered outside support scope?',
     answer:
-      'You can pause or cancel monthly support. Your existing live site remains yours, and future updates can be scoped separately.'
+      'Bigger features, major redesign work, and app/database functionality (including Supabase workflows) are scoped as separate add-ons.'
   },
   {
-    question: 'How does the timeline work?',
+    question: 'Who owns the website and content?',
     answer:
-      'Timelines are set at kickoff based on scope and feedback cadence. Most projects move through clear weekly milestones.'
+      'You do. Once project deliverables are completed and paid, your site and content belong to you.'
   },
   {
-    question: 'Do you provide hosting?',
+    question: 'What about hosting and domains?',
     answer:
-      'We provide hosting guidance and can manage deployment/hosting setup as part of your project or monthly support plan.'
+      'You can keep hosting and domain ownership in your own accounts. We can help set things up and support handoff as needed.'
+  },
+  {
+    question: 'What happens if I cancel support?',
+    answer:
+      'You can cancel support at any time. Your existing site stays live under your ownership, and future changes can be scoped as needed.'
   },
   {
     question: 'Can you work remotely?',
     answer:
-      'Yes. We work with local clients in the Cedarburg and Milwaukee area and also support remote teams.'
+      'Yes. We work with clients in the Cedarburg and Milwaukee area and also collaborate remotely.'
   },
   {
-    question: 'What if I need something larger later?',
+    question: 'Can you add a database / login / dashboard?',
     answer:
-      'That’s common. We can phase in larger features over time and scope each step clearly before implementation.'
+      'Absolutely. Those are available as scoped add-ons so requirements, timeline, and costs are clear before implementation begins.'
   }
 ];
 ---
 
 <Layout
   title="Pricing | Geek Life Development"
-  description="See a clear pricing structure with one-time build options, optional monthly support, and straightforward scope boundaries."
+  description="Simple, structured pricing with one-time build fees, ongoing support options, and clear boundaries for reliable delivery."
 >
   <Section>
     <div class="max-w-4xl space-y-6">
       <h1 class="text-4xl leading-tight md:text-6xl">Simple, structured pricing.</h1>
       <p class="max-w-3xl text-base leading-relaxed text-[var(--color-neutral)] md:text-lg">
-        Our model combines a one-time build investment with optional monthly support, so you can launch cleanly
-        without surprise retainers.
+        We combine a one-time build investment with ongoing support so your site launches cleanly and keeps improving
+        over time.
       </p>
       <div class="flex flex-wrap gap-3">
         <Button href="/contact" size="lg">Get a quote</Button>
         <Button href="/work" size="lg" variant="secondary">View work</Button>
       </div>
-      <p class="text-sm text-slate-600">Clear scope. Clear communication. No pressure.</p>
+      <p class="text-sm text-slate-600">Serving Cedarburg & Milwaukee area + remote.</p>
     </div>
   </Section>
 
   <Section variant="muted">
     <div class="grid items-start gap-10 lg:grid-cols-2">
       <Heading
-        eyebrow="How pricing works"
-        title="A clear structure from kickoff to support"
-        subtitle="We keep the model straightforward so you always know what phase you’re in and what comes next."
+        eyebrow="How it works"
+        title="A clear model from launch to long-term support"
+        subtitle="Designed for businesses that want dependable delivery without vague scope or surprise process shifts."
       />
 
       <Card hover={false}>
         <ul class="space-y-3 text-sm text-slate-700">
-          <li><strong>Step 1:</strong> One-time build fee (covers design + development + launch)</li>
-          <li><strong>Step 2:</strong> Optional monthly plan (ongoing updates, improvements, support)</li>
-          <li><strong>Step 3:</strong> Add-ons available for larger features or integrations</li>
+          <li><strong>Step 1:</strong> One-time build investment (design + build + launch)</li>
+          <li><strong>Step 2:</strong> Optional ongoing support (updates, improvements, peace of mind)</li>
+          <li><strong>Step 3:</strong> Add-ons for larger features (integrations, databases, custom functionality)</li>
         </ul>
-        <p class="mt-5 text-sm text-slate-600">Exact pricing depends on scope, complexity, and timeline.</p>
+        <p class="mt-5 text-sm text-slate-600">
+          Exact pricing depends on scope, complexity, and timeline — these tiers help you choose the right fit.
+        </p>
       </Card>
     </div>
   </Section>
@@ -140,7 +153,7 @@ const faqItems = [
       <Heading
         eyebrow="Tier structure"
         title="Starter, Growth, and Pro"
-        subtitle="Choose based on scope and goals. Growth is usually the right fit for businesses focused on visibility and conversion."
+        subtitle="Choose based on your current goals, delivery pace, and support needs. Growth is our most common path."
       />
 
       <div class="grid gap-6 lg:grid-cols-3">
@@ -149,6 +162,8 @@ const faqItems = [
             <Card class={tier.popular ? 'border-blue-200 ring-2 ring-blue-100' : ''}>
               {tier.popular && <Badge variant="accent">Most popular</Badge>}
               <h3 class="mt-3 text-2xl font-semibold">{tier.name}</h3>
+              <p class="mt-3 text-lg font-semibold text-slate-900">{tier.buildFee}</p>
+              <p class="mt-1 text-sm text-slate-600">{tier.supportFee}</p>
               <p class="mt-3 text-sm text-slate-600"><strong>Best for:</strong> {tier.bestFor}</p>
               <p class="mt-2 text-sm text-slate-700"><strong>Typical timeline:</strong> {tier.timeline}</p>
 
@@ -171,24 +186,72 @@ const faqItems = [
   </Section>
 
   <Section variant="muted">
+    <div class="grid items-start gap-10 lg:grid-cols-[1.2fr_1fr]">
+      <Heading
+        eyebrow="Preferred partnership"
+        title="Prefer a long-term partner?"
+        subtitle="Most clients choose ongoing support so their site stays current after launch."
+      />
+
+      <Card hover={false}>
+        <ul class="space-y-2 text-sm text-slate-700">
+          <li>• Content updates (copy/images)</li>
+          <li>• Small layout adjustments</li>
+          <li>• New sections/pages within plan limits</li>
+          <li>• Performance & uptime checks</li>
+          <li>• Light SEO upkeep</li>
+        </ul>
+        <p class="mt-5 text-sm text-slate-600">Bigger features and app work are scoped separately.</p>
+        <p class="mt-3 text-sm font-medium text-slate-800">Reduced build fee available with a 12-month support plan.</p>
+        <Button href="/contact" class="mt-6">Get a quote</Button>
+      </Card>
+    </div>
+  </Section>
+
+  <Section variant="muted">
     <div class="space-y-8">
       <Heading
         eyebrow="Add-ons"
-        title="Optional add-ons when you need more"
-        subtitle="Add exactly what you need without overcomplicating the base project."
+        title="Scoped add-ons when you need more"
+        subtitle="Add capability where needed while keeping core delivery clear and manageable."
       />
 
       <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        <Card hover={false} class="p-5"><p class="font-medium text-slate-900">Extra pages</p></Card>
-        <Card hover={false} class="p-5"><p class="font-medium text-slate-900">Copywriting or copy polish</p></Card>
-        <Card hover={false} class="p-5"><p class="font-medium text-slate-900">SEO content expansion</p></Card>
-        <Card hover={false} class="p-5"><p class="font-medium text-slate-900">Booking / email / payments integrations</p></Card>
-        <Card hover={false} class="p-5"><p class="font-medium text-slate-900">Simple app features (forms → database, dashboards-lite)</p></Card>
-        <Card hover={false} class="p-5"><p class="font-medium text-slate-900">Brand refresh / UI polish</p></Card>
-        <Card hover={false} class="p-5 md:col-span-2 lg:col-span-1"><p class="font-medium text-slate-900">Ongoing performance tune-ups</p></Card>
+        <Card hover={false} class="p-5">
+          <p class="font-medium text-slate-900">Extra pages</p>
+          <p class="mt-2 text-sm text-slate-600">Add pages for services, offers, or campaigns.</p>
+        </Card>
+        <Card hover={false} class="p-5">
+          <p class="font-medium text-slate-900">Copywriting / copy polish</p>
+          <p class="mt-2 text-sm text-slate-600">Clarify messaging and improve page readability.</p>
+        </Card>
+        <Card hover={false} class="p-5">
+          <p class="font-medium text-slate-900">Brand refresh / UI polish</p>
+          <p class="mt-2 text-sm text-slate-600">Refine visual direction without a full redesign.</p>
+        </Card>
+        <Card hover={false} class="p-5">
+          <p class="font-medium text-slate-900">SEO content expansion</p>
+          <p class="mt-2 text-sm text-slate-600">Service/location page expansion for qualified traffic.</p>
+        </Card>
+        <Card hover={false} class="p-5">
+          <p class="font-medium text-slate-900">Integrations (booking/email/payments)</p>
+          <p class="mt-2 text-sm text-slate-600">Connect tools your team already uses.</p>
+        </Card>
+        <Card hover={false} class="p-5">
+          <p class="font-medium text-slate-900">Forms → database (Supabase/Sheets) scoped</p>
+          <p class="mt-2 text-sm text-slate-600">Structured data workflows scoped as add-on work.</p>
+        </Card>
+        <Card hover={false} class="p-5">
+          <p class="font-medium text-slate-900">Dashboards-lite / internal tools-lite scoped</p>
+          <p class="mt-2 text-sm text-slate-600">Light operational tooling with clear boundaries.</p>
+        </Card>
+        <Card hover={false} class="p-5 md:col-span-2 lg:col-span-1">
+          <p class="font-medium text-slate-900">Ongoing performance tuning</p>
+          <p class="mt-2 text-sm text-slate-600">Iterative speed and UX improvements over time.</p>
+        </Card>
       </div>
 
-      <p class="text-sm text-slate-600">If you’re not sure what you need, we’ll recommend the simplest solution.</p>
+      <p class="text-sm text-slate-600">If you’re not sure what to prioritize first, we’ll recommend the simplest next step.</p>
     </div>
   </Section>
 
