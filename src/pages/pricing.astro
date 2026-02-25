@@ -17,8 +17,8 @@ const tiers = [
     includes: [
       '1–5 pages (or equivalent sections)',
       'Mobile-responsive build',
-      'SEO-ready foundation (titles, descriptions, sitemap)',
-      'Performance-first setup',
+      'Search-ready foundation',
+      'Fast, clean setup',
       'Launch support'
     ],
     boundaries: [
@@ -35,9 +35,9 @@ const tiers = [
     timeline: '~2–4 weeks (typical)',
     includes: [
       'Everything in Starter',
-      'Content-ready structure (blog/portfolio style sections if applicable)',
-      'Conversion sections (FAQs, testimonials, lead capture blocks)',
-      'Local SEO foundations (schema-ready, location signals)',
+      'Content-ready pages for updates and case studies',
+      'Conversion-focused sections (FAQs, testimonials, lead capture)',
+      'Local search foundations',
       'Analytics setup (optional)'
     ],
     boundaries: ['Moderate integrations can be scoped', 'Larger custom functionality is an add-on'],
@@ -51,11 +51,11 @@ const tiers = [
     timeline: '~4–8 weeks (typical)',
     includes: [
       'Everything in Growth',
-      'Advanced integrations (payments, memberships-lite, portals-lite) as scoped',
+      'Advanced integrations (payments, memberships, client areas) as scoped',
       'Custom components tailored to brand',
       'More pre-launch iteration'
     ],
-    boundaries: ['Not full SaaS product development', 'Third-party costs billed separately']
+    boundaries: ['Not full software product builds', 'Third-party costs billed separately']
   }
 ];
 
@@ -63,7 +63,7 @@ const faqItems = [
   {
     question: 'Do you charge a one-time build fee?',
     answer:
-      'Yes. Every project starts with a one-time build fee that covers design, development, QA, and launch.'
+      'Yes. Every project starts with a one-time build fee that covers planning, design, build, and launch.'
   },
   {
     question: 'Is ongoing support required?',
@@ -78,7 +78,7 @@ const faqItems = [
   {
     question: 'What’s considered outside support scope?',
     answer:
-      'Bigger features, major redesign work, and app/database functionality (including Supabase workflows) are scoped as separate add-ons.'
+      'Bigger features, major redesigns, and advanced custom functionality are scoped as separate add-ons.'
   },
   {
     question: 'Who owns the website and content?',
@@ -98,32 +98,31 @@ const faqItems = [
   {
     question: 'Can you work remotely?',
     answer:
-      'Yes. We work with clients in the Cedarburg and Milwaukee area and also collaborate remotely.'
+      'Yes. We work with clients in Ozaukee County and the Milwaukee area and also collaborate remotely.'
   },
   {
     question: 'Can you add a database / login / dashboard?',
     answer:
-      'Absolutely. Those are available as scoped add-ons so requirements, timeline, and costs are clear before implementation begins.'
+      'Yes. Those features are available as scoped add-ons so timeline, deliverables, and costs are clear before work begins.'
   }
 ];
 ---
 
 <Layout
   title="Pricing | Geek Life Development"
-  description="Simple, structured pricing with one-time build fees, ongoing support options, and clear boundaries for reliable delivery."
+  description="Simple, professional pricing with one-time build fees, ongoing support options, and clear scope boundaries."
 >
   <Section>
     <div class="max-w-4xl space-y-6">
       <h1 class="text-4xl leading-tight md:text-6xl">Simple, structured pricing.</h1>
       <p class="max-w-3xl text-base leading-relaxed text-[var(--color-neutral)] md:text-lg">
-        We combine a one-time build investment with ongoing support so your site launches cleanly and keeps improving
-        over time.
+        We combine a one-time build fee with ongoing support so your website launches strong and keeps improving over time.
       </p>
       <div class="flex flex-wrap gap-3">
         <Button href="/contact" size="lg">Get a quote</Button>
         <Button href="/work" size="lg" variant="secondary">View work</Button>
       </div>
-      <p class="text-sm text-slate-600">Serving Cedarburg & Milwaukee area + remote.</p>
+      <p class="text-sm text-slate-600">Serving Ozaukee County & Milwaukee area + remote.</p>
     </div>
   </Section>
 
@@ -132,14 +131,14 @@ const faqItems = [
       <Heading
         eyebrow="How it works"
         title="A clear model from launch to long-term support"
-        subtitle="Designed for businesses that want dependable delivery without vague scope or surprise process shifts."
+        subtitle="Designed for business owners who want reliable delivery and clear expectations."
       />
 
       <Card hover={false}>
         <ul class="space-y-3 text-sm text-slate-700">
           <li><strong>Step 1:</strong> One-time build investment (design + build + launch)</li>
           <li><strong>Step 2:</strong> Optional ongoing support (updates, improvements, peace of mind)</li>
-          <li><strong>Step 3:</strong> Add-ons for larger features (integrations, databases, custom functionality)</li>
+           <li><strong>Step 3:</strong> Add-ons for larger features (integrations, connected tools, custom functionality)</li>
         </ul>
         <p class="mt-5 text-sm text-slate-600">
           Exact pricing depends on scope, complexity, and timeline — these tiers help you choose the right fit.
@@ -153,9 +152,9 @@ const faqItems = [
       <Heading
         eyebrow="Tier structure"
         title="Starter, Growth, and Pro"
-        subtitle="Choose based on your current goals, delivery pace, and support needs. Growth is our most common path."
+        subtitle="Choose the level that fits your goals, timeline, and support needs."
       />
-
+         question: 'Can you add advanced features like member logins or reporting?',
       <div class="grid gap-6 lg:grid-cols-3">
         {
           tiers.map((tier) => (
@@ -190,7 +189,7 @@ const faqItems = [
       <Heading
         eyebrow="Preferred partnership"
         title="Prefer a long-term partner?"
-        subtitle="Most clients choose ongoing support so their site stays current after launch."
+        subtitle="Most clients choose ongoing support so their site stays current and useful after launch."
       />
 
       <Card hover={false}>
@@ -199,7 +198,7 @@ const faqItems = [
           <li>• Small layout adjustments</li>
           <li>• New sections/pages within plan limits</li>
           <li>• Performance & uptime checks</li>
-          <li>• Light SEO upkeep</li>
+          <li>• Light search visibility upkeep</li>
         </ul>
         <p class="mt-5 text-sm text-slate-600">Bigger features and app work are scoped separately.</p>
         <p class="mt-3 text-sm font-medium text-slate-800">Reduced build fee available with a 12-month support plan.</p>
@@ -213,7 +212,7 @@ const faqItems = [
       <Heading
         eyebrow="Add-ons"
         title="Scoped add-ons when you need more"
-        subtitle="Add capability where needed while keeping core delivery clear and manageable."
+        subtitle="Add what you need while keeping the core project clear and manageable."
       />
 
       <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -226,32 +225,32 @@ const faqItems = [
           <p class="mt-2 text-sm text-slate-600">Clarify messaging and improve page readability.</p>
         </Card>
         <Card hover={false} class="p-5">
-          <p class="font-medium text-slate-900">Brand refresh / UI polish</p>
-          <p class="mt-2 text-sm text-slate-600">Refine visual direction without a full redesign.</p>
+          <p class="font-medium text-slate-900">Brand refresh / visual polish</p>
+          <p class="mt-2 text-sm text-slate-600">Refresh the look and feel without rebuilding everything.</p>
         </Card>
         <Card hover={false} class="p-5">
-          <p class="font-medium text-slate-900">SEO content expansion</p>
-          <p class="mt-2 text-sm text-slate-600">Service/location page expansion for qualified traffic.</p>
+          <p class="font-medium text-slate-900">Search content expansion</p>
+          <p class="mt-2 text-sm text-slate-600">Add service and location pages to grow qualified traffic.</p>
         </Card>
         <Card hover={false} class="p-5">
           <p class="font-medium text-slate-900">Integrations (booking/email/payments)</p>
           <p class="mt-2 text-sm text-slate-600">Connect tools your team already uses.</p>
         </Card>
         <Card hover={false} class="p-5">
-          <p class="font-medium text-slate-900">Forms → database (Supabase/Sheets) scoped</p>
-          <p class="mt-2 text-sm text-slate-600">Structured data workflows scoped as add-on work.</p>
+          <p class="font-medium text-slate-900">Advanced forms and data workflows</p>
+          <p class="mt-2 text-sm text-slate-600">Custom form handling and connected workflows scoped separately.</p>
         </Card>
         <Card hover={false} class="p-5">
-          <p class="font-medium text-slate-900">Dashboards-lite / internal tools-lite scoped</p>
-          <p class="mt-2 text-sm text-slate-600">Light operational tooling with clear boundaries.</p>
+          <p class="font-medium text-slate-900">Reporting and internal tools</p>
+          <p class="mt-2 text-sm text-slate-600">Light business tools scoped to your specific workflow.</p>
         </Card>
         <Card hover={false} class="p-5 md:col-span-2 lg:col-span-1">
           <p class="font-medium text-slate-900">Ongoing performance tuning</p>
-          <p class="mt-2 text-sm text-slate-600">Iterative speed and UX improvements over time.</p>
+          <p class="mt-2 text-sm text-slate-600">Ongoing speed and usability improvements over time.</p>
         </Card>
       </div>
 
-      <p class="text-sm text-slate-600">If you’re not sure what to prioritize first, we’ll recommend the simplest next step.</p>
+      <p class="text-sm text-slate-600">If you’re unsure where to start, we’ll recommend the clearest next step.</p>
     </div>
   </Section>
 
