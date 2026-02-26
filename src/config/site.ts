@@ -5,5 +5,6 @@ export const siteConfig = {
   defaultDescription: 'Modern websites and simple apps. Serving Ozaukee County & the Milwaukee area + remote.',
   email: 'jason@geeklifedevelopment.com',
   locale: 'en_US',
-  ogImage: '/og.png'
+  ogImage: '/og.png',
+  googleAnalyticsId: 'G-5QF4FNPWX2'
 };

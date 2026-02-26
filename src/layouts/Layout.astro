@@ -43,6 +43,15 @@ const language = siteConfig.locale.split('_')[0] ?? 'en';
     <link rel="alternate icon" type="image/png" href="/favicon.ico?v=2" />
     <meta name="generator" content={Astro.generator} />
     <SEO title={title} description={description} ogType={ogType} noindex={noindex} />
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.googleAnalyticsId}`}></script>
+    <script is:inline define:vars={{ googleAnalyticsId: siteConfig.googleAnalyticsId }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', googleAnalyticsId);
+    </script>
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
   <body class="bg-light text-dark">
