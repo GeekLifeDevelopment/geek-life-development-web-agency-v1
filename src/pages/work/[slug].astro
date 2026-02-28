@@ -60,13 +60,17 @@ const images = getWorkImages(entry.slug);
             />
           </div>
 
-          <div class="mx-auto w-full max-w-[260px] overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm md:mx-0">
-            <img
-              src={images.mobile.src}
-              alt={`${images.alt} mobile preview`}
-              class="h-auto w-full"
-              loading="lazy"
-            />
+          <div class="mx-auto w-full max-w-[220px] rounded-[2rem] border border-slate-300 bg-slate-900 p-2 shadow-md md:mx-0">
+            <div class="mx-auto mb-2 h-1.5 w-16 rounded-full bg-slate-700"></div>
+            <div class="overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white">
+              <img
+                src={images.mobile.src}
+                alt={`${images.alt} mobile preview`}
+                class="h-auto w-full"
+                loading="lazy"
+              />
+            </div>
+            <div class="mx-auto mt-2 h-1 w-12 rounded-full bg-slate-600"></div>
           </div>
         </div>
       </Card>
