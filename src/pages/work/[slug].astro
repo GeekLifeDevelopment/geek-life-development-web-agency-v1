@@ -5,6 +5,7 @@ import Button from '../../components/ui/Button.astro';
 import Card from '../../components/ui/Card.astro';
 import Heading from '../../components/ui/Heading.astro';
 import Section from '../../components/ui/Section.astro';
+import { getWorkImages } from '../../data/workImages';
 
 export function getStaticPaths() {
   return getCollection('work').then((entries) =>
@@ -19,6 +20,7 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 
 const nextSteps = entry.data.nextSteps ?? [];
+const images = getWorkImages(entry.slug);
 ---
 
 <Layout title={`${entry.data.title} | Geek Life Development`} description={entry.data.summary} ogType="article">
@@ -41,6 +43,35 @@ const nextSteps = entry.data.nextSteps ?? [];
   </Section>
 
   <Section variant="muted">
+    {images && (
+      <Card hover={false} class="mb-8 p-6 md:p-8">
+        <div class="mb-5 flex items-center justify-between gap-3">
+          <h2 class="text-xl md:text-2xl">Project preview</h2>
+          <p class="text-xs font-medium uppercase tracking-wide text-slate-500">Desktop + mobile</p>
+        </div>
+
+        <div class="grid gap-4 md:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] md:items-end">
+          <div class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+            <img
+              src={images.desktop.src}
+              alt={`${images.alt} desktop preview`}
+              class="h-auto w-full"
+              loading="eager"
+            />
+          </div>
+
+          <div class="mx-auto w-full max-w-[260px] overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm md:mx-0">
+            <img
+              src={images.mobile.src}
+              alt={`${images.alt} mobile preview`}
+              class="h-auto w-full"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </Card>
+    )}
+
     <Card hover={false} class="p-8">
       <article class="prose prose-slate max-w-none">
         <Content />
