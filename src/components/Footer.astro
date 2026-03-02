@@ -1,5 +1,5 @@
 ---
-import monogramUrl from '../assets/brand/monogram-gld.svg?url';
+import newLogoUrl from '../assets/brand/new-logo.png';
 import Container from './ui/Container.astro';
 import { navLinks } from '../data/site';
 import { siteConfig } from '../config/site';
@@ -10,7 +10,7 @@ import { siteConfig } from '../config/site';
     <div class="flex flex-col justify-between gap-8 lg:flex-row lg:items-start">
       <div class="max-w-sm space-y-3">
         <a href="/" class="inline-flex items-center gap-3 hover:no-underline" aria-label="Geek Life Development home">
-          <img src={monogramUrl} alt="GLD monogram" width="40" height="40" class="h-10 w-10 rounded-xl" loading="lazy" decoding="async" />
+          <img src={newLogoUrl.src} alt="Geek Life Development logo" width="40" height="40" class="h-10 w-auto object-contain" loading="lazy" decoding="async" />
           <span class="font-heading text-lg font-semibold text-[var(--color-dark)]">Geek Life Development</span>
         </a>
         <p class="text-sm text-slate-600">Serving Ozaukee County & the Milwaukee area + remote.</p>
