@@ -20,6 +20,7 @@ const jsonLd = {
   name: siteConfig.siteName,
   url: siteConfig.siteUrl,
   email: siteConfig.email,
+  telephone: siteConfig.phoneDisplay,
   areaServed: ['Ozaukee County, WI', 'Milwaukee area, WI', 'Remote/Online'],
   serviceType: ['Web Design', 'Web Development', 'Simple Web Apps', 'Website Maintenance'],
   sameAs: []
@@ -54,7 +55,7 @@ const language = siteConfig.locale.split('_')[0] ?? 'en';
     </script>
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
-  <body class="bg-light text-dark">
+  <body class="bg-light pb-20 text-dark md:pb-0">
     <a href="#main" class="skip-link">Skip to content</a>
     <Header />
 
@@ -63,5 +64,13 @@ const language = siteConfig.locale.split('_')[0] ?? 'en';
     </main>
 
     <Footer />
+
+    <a
+      href={siteConfig.phoneHref}
+      class="fixed inset-x-4 bottom-4 z-40 inline-flex items-center justify-center rounded-xl bg-[var(--color-primary)] px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-900/20 hover:bg-[var(--color-accent)] hover:no-underline md:hidden"
+      aria-label={`Call Geek Life Development at ${siteConfig.phoneDisplay}`}
+    >
+      Call {siteConfig.phoneDisplay}
+    </a>
   </body>
 </html>

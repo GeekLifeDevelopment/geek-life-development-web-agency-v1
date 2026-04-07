@@ -5,6 +5,7 @@ import Button from '../components/ui/Button.astro';
 import Card from '../components/ui/Card.astro';
 import Heading from '../components/ui/Heading.astro';
 import Section from '../components/ui/Section.astro';
+import { siteConfig } from '../config/site';
 ---
 
 <Layout
@@ -15,7 +16,7 @@ import Section from '../components/ui/Section.astro';
     title="Services built for small businesses that want clear, reliable results"
     subtitle="We help business owners in Ozaukee County, Milwaukee, and beyond launch professional websites and keep them improving over time."
     primaryCta={{ label: 'Get a quote', href: '/contact' }}
-    secondaryCta={{ label: 'See pricing', href: '/pricing' }}
+    secondaryCta={{ label: 'Talk through your project', href: siteConfig.phoneHref }}
     accent={false}
   />
 
@@ -41,6 +42,9 @@ import Section from '../components/ui/Section.astro';
     <div class="mt-8 max-w-4xl space-y-4">
       <p>
         This is a strong fit for businesses that want a professional online presence without constant rework.
+      </p>
+      <p class="text-sm text-slate-600">
+        Not sure what you need yet? <a href={siteConfig.phoneHref} class="font-medium">Give me a call.</a>
       </p>
       <p class="text-sm text-slate-600">We focus on practical scope and dependable delivery.</p>
     </div>
@@ -79,6 +83,9 @@ import Section from '../components/ui/Section.astro';
 
       <div class="max-w-3xl space-y-4">
         <p>We keep scope focused on the most valuable business outcome first, then expand as needed.</p>
+        <p class="text-sm text-slate-600">
+          Questions? <a href={siteConfig.phoneHref} class="font-medium">Call and we can talk it through.</a>
+        </p>
         <p class="text-sm text-slate-600">Larger custom platforms are scoped as separate engagements.</p>
         <Button href="/contact">Discuss your idea</Button>
       </div>
@@ -105,6 +112,9 @@ import Section from '../components/ui/Section.astro';
 
     <p class="mt-8 max-w-4xl">
       Most clients get better long-term results with ongoing support than one-time updates every few months.
+    </p>
+    <p class="mt-3 text-sm text-slate-600">
+      Want to talk before requesting a quote? <a href={siteConfig.phoneHref} class="font-medium">Call {siteConfig.phoneDisplay}</a>.
     </p>
   </Section>
 
@@ -137,8 +147,9 @@ import Section from '../components/ui/Section.astro';
       <h2 class="text-white">When communication is clear, projects move smoothly.</h2>
       <div class="flex flex-wrap justify-center gap-3">
         <Button href="/contact" size="lg">Get a quote</Button>
-        <Button href="/work" size="lg" variant="secondary">View work</Button>
+        <Button href={siteConfig.phoneHref} size="lg" variant="secondary">Call now</Button>
       </div>
+      <p class="text-sm text-slate-300">Reach out whichever way is easiest: call, text, or form.</p>
     </div>
   </Section>
 </Layout>

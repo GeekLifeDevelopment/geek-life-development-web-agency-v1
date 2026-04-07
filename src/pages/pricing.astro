@@ -6,6 +6,7 @@ import Button from '../components/ui/Button.astro';
 import Card from '../components/ui/Card.astro';
 import Heading from '../components/ui/Heading.astro';
 import Section from '../components/ui/Section.astro';
+import { siteConfig } from '../config/site';
 
 const tiers = [
   {
@@ -120,8 +121,11 @@ const faqItems = [
       </p>
       <div class="flex flex-wrap gap-3">
         <Button href="/contact" size="lg">Get a quote</Button>
-        <Button href="/work" size="lg" variant="secondary">View work</Button>
+        <Button href={siteConfig.phoneHref} size="lg" variant="secondary">Call now</Button>
       </div>
+      <p class="text-sm text-slate-600">
+        Prefer to talk first? <a href={siteConfig.phoneHref} class="font-medium">Call or text {siteConfig.phoneDisplay}</a>.
+      </p>
       <p class="text-sm text-slate-600">Serving Ozaukee County & the Milwaukee area + remote.</p>
     </div>
   </Section>
@@ -251,6 +255,9 @@ const faqItems = [
       </div>
 
       <p class="text-sm text-slate-600">If you’re unsure where to start, we’ll recommend the clearest next step.</p>
+      <p class="text-sm text-slate-600">
+        Questions about fit? <a href={siteConfig.phoneHref} class="font-medium">Call and we can talk it through.</a>
+      </p>
     </div>
   </Section>
 
@@ -270,9 +277,9 @@ const faqItems = [
       <h2 class="text-white">Ready to build something modern?</h2>
       <div class="flex flex-wrap justify-center gap-3">
         <Button href="/contact" size="lg">Get a quote</Button>
-        <Button href="/services" size="lg" variant="secondary">See services</Button>
+        <Button href={siteConfig.phoneHref} size="lg" variant="secondary">Call Geek Life Development</Button>
       </div>
-      <p class="text-sm text-slate-300">Clear scope. Clear communication. No pressure.</p>
+      <p class="text-sm text-slate-300">Call or text to talk through your project. No pressure.</p>
     </div>
   </Section>
 </Layout>

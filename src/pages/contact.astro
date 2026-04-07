@@ -3,6 +3,7 @@ import Layout from '../components/Layout.astro';
 import Button from '../components/ui/Button.astro';
 import Card from '../components/ui/Card.astro';
 import Section from '../components/ui/Section.astro';
+import { siteConfig } from '../config/site';
 ---
 
 <Layout
@@ -13,13 +14,38 @@ import Section from '../components/ui/Section.astro';
     <div class="max-w-4xl space-y-6">
       <h1 class="text-4xl md:text-6xl">Get a quote</h1>
       <p class="max-w-3xl text-base text-[var(--color-neutral)] md:text-lg">
-        Tell me a bit about your project. I’ll reply within 1–2 business days.
+        Reach out whichever way is easiest. Fill out the form, or call/text directly.
+      </p>
+      <p class="text-sm text-slate-600">
+        Want to skip the form? <a href={siteConfig.phoneHref} class="font-semibold">Call or text {siteConfig.phoneDisplay}</a>.
       </p>
     </div>
   </Section>
 
-  <Section class="bg-white" containerClass="max-w-4xl">
-    <Card class="mx-auto max-w-3xl">
+  <Section class="bg-white" containerClass="max-w-6xl">
+    <div class="grid items-start gap-6 lg:grid-cols-2">
+      <Card hover={false} class="space-y-5">
+        <p class="label-mono text-slate-500">Option 1</p>
+        <h2 class="text-2xl">Call or text directly</h2>
+        <p class="text-sm text-slate-600">Rather talk it through first? Reach me directly and we can quickly map the right next step.</p>
+        <a href={siteConfig.phoneHref} class="inline-flex text-xl font-semibold leading-tight text-slate-900">
+          {siteConfig.phoneDisplay}
+        </a>
+        <div class="space-y-2 text-sm text-slate-700">
+          <p>• Call or text to talk through your project</p>
+          <p>• No pressure, just a quick conversation</p>
+          <p>• If form is easier, that works too</p>
+        </div>
+        <div class="flex flex-wrap gap-3 pt-2">
+          <Button href={siteConfig.phoneHref}>Call now</Button>
+          <Button href={`mailto:jason@geeklifedevelopment.com`} variant="secondary">Send email</Button>
+        </div>
+      </Card>
+
+      <Card>
+        <p class="label-mono text-slate-500">Option 2</p>
+        <h2 class="mt-2 text-2xl">Fill out the project form</h2>
+
       <form
         id="contact-form"
         name="quote"
@@ -27,7 +53,7 @@ import Section from '../components/ui/Section.astro';
         action="/contact/thanks"
         data-netlify="true"
         netlify-honeypot="bot-field"
-        class="grid gap-5"
+        class="mt-4 grid gap-5"
       >
         <input type="hidden" name="form-name" value="quote" />
         <p class="hidden">
@@ -141,12 +167,17 @@ import Section from '../components/ui/Section.astro';
           </p>
         </div>
       </form>
-    </Card>
+      </Card>
+    </div>
 
     <div class="mx-auto mt-10 max-w-3xl space-y-2 text-sm text-slate-600">
       <p>
         Prefer email?
         <a href="mailto:jason@geeklifedevelopment.com" class="font-medium">jason@geeklifedevelopment.com</a>
+      </p>
+      <p>
+        Prefer to call?
+        <a href={siteConfig.phoneHref} class="font-medium">{siteConfig.phoneDisplay}</a>
       </p>
       <p>Serving Ozaukee County & the Milwaukee area + remote.</p>
     </div>
