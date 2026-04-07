@@ -4,6 +4,10 @@ import Button from '../components/ui/Button.astro';
 import Card from '../components/ui/Card.astro';
 import Heading from '../components/ui/Heading.astro';
 import Section from '../components/ui/Section.astro';
+import webImage from '../assets/web-image.png';
+import appImage from '../assets/app-image.png';
+import supportImage from '../assets/support-image.png';
+import { siteConfig } from '../config/site';
 ---
 
 <Layout
@@ -24,8 +28,12 @@ import Section from '../components/ui/Section.astro';
 			</p>
 			<div class="flex flex-wrap gap-3 pt-1">
 				<Button href="/contact" size="lg">Get a quote</Button>
-				<Button href="/work" size="lg" variant="secondary">View work</Button>
+				<Button href={siteConfig.phoneHref} size="lg" variant="secondary">Call now</Button>
 			</div>
+			<p class="text-sm text-slate-600">
+				Have questions first? Call or text
+				<a href={siteConfig.phoneHref} class="font-semibold">{siteConfig.phoneDisplay}</a>.
+			</p>
 			<p class="text-sm font-medium text-slate-600">Serving Ozaukee County & the Milwaukee area + remote.</p>
 		</div>
 	</Section>
@@ -38,28 +46,52 @@ import Section from '../components/ui/Section.astro';
 				subtitle="Practical services built to support growth, clarity, and consistency."
 			/>
 			<div class="grid gap-6 md:grid-cols-3">
-				<Card>
-					<h3 class="text-xl font-semibold">Websites</h3>
-					<p class="mt-3 text-sm text-slate-600">
-						Clear, professional websites that present your business well and guide visitors to contact you.
-					</p>
-					<Button href="/services" variant="ghost" class="mt-4 px-0">Learn more</Button>
+				<Card class="border-transparent">
+					<h3 class="text-xl font-semibold text-slate-900">Websites</h3>
+					<div
+						class="relative mt-4 min-h-[260px] overflow-hidden rounded-lg bg-cover bg-center"
+						style={`background-image: url(${webImage.src});`}
+					>
+						<div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 via-slate-950/60 to-transparent px-4 pb-4 pt-5">
+							<p class="text-sm text-white [text-shadow:0_1px_2px_rgba(15,23,42,0.85)]">
+								Clear, professional websites that present your business well and guide visitors to contact you.
+							</p>
+							<Button href="/services" variant="ghost" class="mt-2 px-0 text-white hover:bg-white/15">Learn more</Button>
+						</div>
+					</div>
 				</Card>
-				<Card>
-					<h3 class="text-xl font-semibold">Simple apps</h3>
-					<p class="mt-3 text-sm text-slate-600">
-						Practical tools that help with day-to-day operations, customer communication, and internal workflows.
-					</p>
-					<Button href="/services" variant="ghost" class="mt-4 px-0">Learn more</Button>
+				<Card class="border-transparent">
+					<h3 class="text-xl font-semibold text-slate-900">Simple apps</h3>
+					<div
+						class="relative mt-4 min-h-[260px] overflow-hidden rounded-lg bg-cover bg-center"
+						style={`background-image: url(${appImage.src});`}
+					>
+						<div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 via-slate-950/60 to-transparent px-4 pb-4 pt-5">
+							<p class="text-sm text-white [text-shadow:0_1px_2px_rgba(15,23,42,0.85)]">
+								Practical tools that help with day-to-day operations, customer communication, and internal workflows.
+							</p>
+							<Button href="/services" variant="ghost" class="mt-2 px-0 text-white hover:bg-white/15">Learn more</Button>
+						</div>
+					</div>
 				</Card>
-				<Card>
-					<h3 class="text-xl font-semibold">Ongoing support</h3>
-					<p class="mt-3 text-sm text-slate-600">
-						Reliable monthly support so your site stays current, polished, and aligned with your goals.
-					</p>
-					<Button href="/services" variant="ghost" class="mt-4 px-0">Learn more</Button>
+				<Card class="border-transparent">
+					<h3 class="text-xl font-semibold text-slate-900">Ongoing support</h3>
+					<div
+						class="relative mt-4 min-h-[260px] overflow-hidden rounded-lg bg-cover bg-center"
+						style={`background-image: url(${supportImage.src});`}
+					>
+						<div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 via-slate-950/60 to-transparent px-4 pb-4 pt-5">
+							<p class="text-sm text-white [text-shadow:0_1px_2px_rgba(15,23,42,0.85)]">
+								Reliable monthly support so your site stays current, polished, and aligned with your goals.
+							</p>
+							<Button href="/services" variant="ghost" class="mt-2 px-0 text-white hover:bg-white/15">Learn more</Button>
+						</div>
+					</div>
 				</Card>
 			</div>
+			<p class="text-sm text-slate-600">
+				Questions? <a href={siteConfig.phoneHref} class="font-medium">Call and we can talk it through.</a>
+			</p>
 			<p class="text-sm text-slate-600">Clear scope, clear timelines, and communication you can count on.</p>
 		</div>
 	</Section>
@@ -79,6 +111,9 @@ import Section from '../components/ui/Section.astro';
 					<li>• Planned improvements tied to business priorities</li>
 					<li>• Fast help for important website changes</li>
 				</ul>
+				<p class="mt-4 text-sm text-slate-600">
+					Want to talk before requesting a quote? <a href={siteConfig.phoneHref} class="font-medium">Call {siteConfig.phoneDisplay}</a>.
+				</p>
 				<Button href="/pricing" class="mt-6">See how pricing works</Button>
 			</Card>
 		</div>
@@ -154,9 +189,9 @@ import Section from '../components/ui/Section.astro';
 			<h2 class="text-white">Ready for a website that reflects your business?</h2>
 			<div class="flex flex-wrap justify-center gap-3">
 				<Button href="/contact" size="lg">Get a quote</Button>
-				<Button href="/about" size="lg" variant="secondary">Read about the process</Button>
+				<Button href={siteConfig.phoneHref} size="lg" variant="secondary">Call Geek Life Development</Button>
 			</div>
-			<p class="text-sm text-slate-300">Clear scope. Clear communication. No pressure.</p>
+			<p class="text-sm text-slate-300">Call or text to talk through your project. No pressure, just a quick conversation.</p>
 		</div>
 	</Section>
 </Layout>

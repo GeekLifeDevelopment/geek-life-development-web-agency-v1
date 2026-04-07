@@ -14,6 +14,10 @@ import { siteConfig } from '../config/site';
           <span class="font-heading text-lg font-semibold text-[var(--color-dark)]">Geek Life Development</span>
         </a>
         <p class="text-sm text-slate-600">Serving Ozaukee County & the Milwaukee area + remote.</p>
+        <p class="text-sm text-slate-600">
+          Call or text:
+          <a href={siteConfig.phoneHref} class="ml-1 font-medium">{siteConfig.phoneDisplay}</a>
+        </p>
         <a href={`mailto:${siteConfig.email}`} class="inline-block text-sm font-medium">{siteConfig.email}</a>
       </div>
 
