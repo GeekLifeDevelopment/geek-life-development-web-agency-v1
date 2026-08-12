@@ -1,4 +1,5 @@
 ---
+import { selectedWorkProjects } from '../data/homepage';
 import Layout from '../components/Layout.astro';
 import Button from '../components/ui/Button.astro';
 import Card from '../components/ui/Card.astro';
@@ -7,12 +8,13 @@ import Section from '../components/ui/Section.astro';
 import webImage from '../assets/web-image.png';
 import appImage from '../assets/app-image.png';
 import supportImage from '../assets/support-image.png';
+import SelectedWork from '../components/sections/SelectedWork.astro';
 import { siteConfig } from '../config/site';
 ---
 
 <Layout
-	title="Geek Life Development | Websites and Simple Apps"
-	description="Geek Life Development helps small businesses launch clear, professional websites and practical digital tools. Serving Ozaukee County & the Milwaukee area + remote."
+	title="Websites that help you grow. Business tools that help you work smarter. | Geek Life Development"
+	description="Geek Life Development helps small businesses build professional websites that earn trust and practical custom applications that simplify everyday work. Serving Ozaukee County, the Milwaukee area, and remote clients."
 >
 	<Section class="relative overflow-hidden">
 		<div
@@ -21,10 +23,9 @@ import { siteConfig } from '../config/site';
 			aria-hidden="true"
 		></div>
 		<div class="relative max-w-4xl space-y-6">
-			<h1 class="text-4xl leading-tight md:text-6xl">Professional websites that help your business build trust and win more inquiries.</h1>
+			<h1 class="text-4xl leading-tight md:text-6xl">Websites that help you grow. Business tools that help you work smarter.</h1>
 			<p class="max-w-3xl text-base leading-relaxed text-[var(--color-neutral)] md:text-lg">
-				We partner with small businesses to create clear, modern online experiences that make your company look
-				credible and make it easy for people to take the next step.
+				Geek Life Development helps small businesses build professional websites that earn trust and practical custom applications that simplify everyday work — from customer management and scheduling to internal workflows and automation.
 			</p>
 			<div class="flex flex-wrap gap-3 pt-1">
 				<Button href="/contact" size="lg">Get a quote</Button>
@@ -34,7 +35,7 @@ import { siteConfig } from '../config/site';
 				Have questions first? Call or text
 				<a href={siteConfig.phoneHref} class="font-semibold">{siteConfig.phoneDisplay}</a>.
 			</p>
-			<p class="text-sm font-medium text-slate-600">Serving Ozaukee County & the Milwaukee area + remote.</p>
+			<p class="text-sm font-medium text-slate-600">Serving Ozaukee County, the Milwaukee area, and remote clients.</p>
 		</div>
 	</Section>
 
@@ -43,75 +44,155 @@ import { siteConfig } from '../config/site';
 			<Heading
 				eyebrow="Services"
 				title="What we build"
-				subtitle="Practical services built to support growth, clarity, and consistency."
+				subtitle="Two primary ways we help small businesses look better online and operate more efficiently."
 			/>
-			<div class="grid gap-6 md:grid-cols-3">
-				<Card class="border-transparent">
-					<h3 class="text-xl font-semibold text-slate-900">Websites</h3>
-					<div
-						class="relative mt-4 min-h-[260px] overflow-hidden rounded-lg bg-cover bg-center"
-						style={`background-image: url(${webImage.src});`}
-					>
-						<div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 via-slate-950/60 to-transparent px-4 pb-4 pt-5">
-							<p class="text-sm text-white [text-shadow:0_1px_2px_rgba(15,23,42,0.85)]">
-								Clear, professional websites that present your business well and guide visitors to contact you.
+			<div class="grid gap-6 lg:grid-cols-2">
+				<Card class="overflow-hidden border-transparent p-0">
+					<div class="relative min-h-[240px] bg-cover bg-center" style={`background-image: url(${webImage.src});`}>
+						<div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/40 to-transparent"></div>
+						<div class="absolute inset-x-0 bottom-0 p-6">
+							<p class="label-mono text-white/80">Primary service</p>
+							<h3 class="mt-2 text-2xl font-semibold text-white">Professional Websites</h3>
+							<p class="mt-3 max-w-xl text-sm leading-relaxed text-white/90">
+								Professional, modern websites designed to build credibility, clearly explain what you do, and turn visitors into inquiries.
 							</p>
-							<Button href="/services" variant="ghost" class="mt-2 px-0 text-white hover:bg-white/15">Learn more</Button>
 						</div>
 					</div>
-				</Card>
-				<Card class="border-transparent">
-					<h3 class="text-xl font-semibold text-slate-900">Simple apps</h3>
-					<div
-						class="relative mt-4 min-h-[260px] overflow-hidden rounded-lg bg-cover bg-center"
-						style={`background-image: url(${appImage.src});`}
-					>
-						<div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 via-slate-950/60 to-transparent px-4 pb-4 pt-5">
-							<p class="text-sm text-white [text-shadow:0_1px_2px_rgba(15,23,42,0.85)]">
-								Practical tools that help with day-to-day operations, customer communication, and internal workflows.
-							</p>
-							<Button href="/services" variant="ghost" class="mt-2 px-0 text-white hover:bg-white/15">Learn more</Button>
-						</div>
+					<div class="space-y-4 p-6">
+						<ul class="grid gap-2 text-sm text-slate-700 sm:grid-cols-2">
+							<li>• Business websites</li>
+							<li>• Service and landing pages</li>
+							<li>• Lead generation</li>
+							<li>• Mobile-friendly design</li>
+							<li>• SEO foundations</li>
+						</ul>
+							<Button href="/services#websites" variant="ghost" class="px-0">Explore website development</Button>
 					</div>
 				</Card>
-				<Card class="border-transparent">
-					<h3 class="text-xl font-semibold text-slate-900">Ongoing support</h3>
-					<div
-						class="relative mt-4 min-h-[260px] overflow-hidden rounded-lg bg-cover bg-center"
-						style={`background-image: url(${supportImage.src});`}
-					>
-						<div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 via-slate-950/60 to-transparent px-4 pb-4 pt-5">
-							<p class="text-sm text-white [text-shadow:0_1px_2px_rgba(15,23,42,0.85)]">
-								Reliable monthly support so your site stays current, polished, and aligned with your goals.
+
+				<Card class="overflow-hidden border-transparent p-0">
+					<div class="relative min-h-[240px] bg-cover bg-center" style={`background-image: url(${appImage.src});`}>
+						<div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/40 to-transparent"></div>
+						<div class="absolute inset-x-0 bottom-0 p-6">
+							<p class="label-mono text-white/80">Primary service</p>
+							<h3 class="mt-2 text-2xl font-semibold text-white">Custom Business Applications</h3>
+							<p class="mt-3 max-w-xl text-sm leading-relaxed text-white/90">
+								Practical software built around the way your business works, without forcing you into a large off-the-shelf system filled with features you do not need.
 							</p>
-							<Button href="/services" variant="ghost" class="mt-2 px-0 text-white hover:bg-white/15">Learn more</Button>
 						</div>
+					</div>
+					<div class="space-y-4 p-6">
+						<ul class="grid gap-2 text-sm text-slate-700 sm:grid-cols-2">
+							<li>• Customer and contact management</li>
+							<li>• Scheduling and workflows</li>
+							<li>• Forms and data collection</li>
+							<li>• Internal dashboards</li>
+							<li>• Volunteer or member management</li>
+							<li>• Replacing spreadsheets and repetitive manual processes</li>
+						</ul>
+							<Button href="/services#business-applications" variant="ghost" class="px-0">Explore business applications</Button>
 					</div>
 				</Card>
 			</div>
-			<p class="text-sm text-slate-600">
-				Questions? <a href={siteConfig.phoneHref} class="font-medium">Call and we can talk it through.</a>
-			</p>
-			<p class="text-sm text-slate-600">Clear scope, clear timelines, and communication you can count on.</p>
+
+			<Card class="overflow-hidden border-transparent p-0">
+				<div class="grid gap-0 lg:grid-cols-[1.25fr_0.75fr]">
+					<div class="space-y-4 p-6 md:p-8">
+						<p class="label-mono text-slate-500">Supporting service</p>
+						<h3 class="text-2xl font-semibold text-slate-900">Ongoing Support</h3>
+						<p class="max-w-2xl text-sm leading-relaxed text-slate-600 md:text-base">
+							Ongoing support for keeping your website or business application current, reliable, secure, and useful as your business changes.
+						</p>
+						<ul class="grid gap-2 text-sm text-slate-700 sm:grid-cols-2">
+							<li>• Content and image updates</li>
+							<li>• Bug fixes and reliability checks</li>
+							<li>• Small improvements as needs change</li>
+							<li>• Help keeping systems secure and current</li>
+						</ul>
+						<Button href="/services#ongoing-support" variant="ghost" class="px-0">Learn more about support</Button>
+					</div>
+					<div class="min-h-[240px] bg-cover bg-center" style={`background-image: url(${supportImage.src});`}></div>
+				</div>
+			</Card>
+
+			<div class="space-y-3">
+				<p class="text-sm text-slate-600">
+					Questions? <a href={siteConfig.phoneHref} class="font-medium">Call and we can talk it through.</a>
+				</p>
+				<p class="text-sm text-slate-600">Clear scope, clear timelines, and communication you can count on.</p>
+			</div>
 		</div>
 	</Section>
 
-	<Section>
+	<Section class="!py-16 md:!py-20">
+		<div class="space-y-8">
+			<Heading
+				eyebrow="Business applications"
+				title="Still running part of your business through spreadsheets, email, or manual processes?"
+				subtitle="Maybe customer information lives in multiple spreadsheets. Maybe your team manually copies information between systems. Maybe you need customers, employees, members, or volunteers to log in and complete tasks online."
+			/>
+
+			<div class="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+				<Card hover={false} class="bg-white">
+					<div class="space-y-4">
+						<p class="label-mono text-slate-500">What a practical tool can do</p>
+						<p class="text-sm leading-relaxed text-slate-700 md:text-base">
+							You don't always need expensive enterprise software. Sometimes you just need a simple tool built around your business.
+						</p>
+						<ul class="space-y-2 text-sm text-slate-700">
+							<li>• Replace manual data entry and repetitive follow-up.</li>
+							<li>• Give your team one place to manage key information.</li>
+							<li>• Make scheduling, intake, and approvals easier.</li>
+							<li>• Help customers or members complete tasks online.</li>
+						</ul>
+						<Button href="/contact" class="mt-2">Talk about a business app</Button>
+						<p class="text-xs leading-relaxed text-slate-500">
+							Some business applications I've worked on involve private internal systems and can't be shown publicly. I'm happy to talk through the types of problems I've solved and how I approach custom business software.
+						</p>
+					</div>
+				</Card>
+
+				<div class="grid gap-4 sm:grid-cols-2">
+					<Card hover={false} class="p-5">
+						<h3 class="text-base font-semibold text-slate-900">Too many spreadsheets</h3>
+						<p class="mt-2 text-sm text-slate-600">Important information is scattered across files and hard to keep current.</p>
+					</Card>
+					<Card hover={false} class="p-5">
+						<h3 class="text-base font-semibold text-slate-900">Repetitive data entry</h3>
+						<p class="mt-2 text-sm text-slate-600">Your team enters the same information in multiple places or copies and pastes it repeatedly.</p>
+					</Card>
+					<Card hover={false} class="p-5">
+						<h3 class="text-base font-semibold text-slate-900">Disconnected processes</h3>
+						<p class="mt-2 text-sm text-slate-600">Email, spreadsheets, and forms don't work together cleanly.</p>
+					</Card>
+					<Card hover={false} class="p-5">
+						<h3 class="text-base font-semibold text-slate-900">Software that doesn't fit</h3>
+						<p class="mt-2 text-sm text-slate-600">Existing platforms are too complicated, too expensive, or don't match how your business works.</p>
+					</Card>
+				</div>
+			</div>
+		</div>
+	</Section>
+
+	<SelectedWork projects={selectedWorkProjects} />
+
+	<Section class="!py-16 md:!py-20">
 		<div class="grid items-start gap-8 lg:grid-cols-2">
 			<Heading
 				eyebrow="Subscription model"
 				title="Ongoing support built for real business needs"
-				subtitle="Most clients choose ongoing support so their website keeps improving after launch."
+				subtitle="After launch, you can keep working with Geek Life Development for updates, improvements, maintenance, troubleshooting, and evolving business needs."
 			/>
 			<Card hover={false} class="bg-white">
 				<p class="label-mono text-slate-500">Typical subscription includes</p>
 				<ul class="mt-4 space-y-2 text-sm text-slate-700">
-					<li>• Content and image updates</li>
-					<li>• Ongoing quality and performance checks</li>
+					<li>• Content, data, and image updates</li>
+					<li>• Ongoing maintenance and troubleshooting</li>
 					<li>• Planned improvements tied to business priorities</li>
-					<li>• Fast help for important website changes</li>
+					<li>• Fast help for important website or app changes</li>
 				</ul>
-				<p class="mt-4 text-sm text-slate-600">
+				<p class="mt-4 text-sm text-slate-600">Support keeps your website or business application current, reliable, secure, and useful as your business changes.</p>
+				<p class="mt-3 text-sm text-slate-600">
 					Want to talk before requesting a quote? <a href={siteConfig.phoneHref} class="font-medium">Call {siteConfig.phoneDisplay}</a>.
 				</p>
 				<Button href="/pricing" class="mt-6">See how pricing works</Button>
@@ -119,66 +200,33 @@ import { siteConfig } from '../config/site';
 		</div>
 	</Section>
 
-	<!-- <Section variant="muted">
-		<div class="space-y-10">
-			<Heading
-				eyebrow="Work preview"
-				title="Recent projects"
-				subtitle="A few examples of businesses we’ve helped present more clearly online."
-			/>
-			<div class="grid gap-6 md:grid-cols-3">
-				<Card>
-					<h3 class="text-xl font-semibold">Burnt Dirt Art</h3>
-					<p class="mt-2 text-sm text-slate-500">burntdirtart.com</p>
-					<p class="mt-3 text-sm text-slate-600">A refined, easy-to-browse website that supports the brand’s story and customer inquiries.</p>
-					<Button href="/work" variant="ghost" class="mt-4 px-0">View project</Button>
-				</Card>
-				<Card>
-					<h3 class="text-xl font-semibold">FactoryCat</h3>
-					<p class="mt-2 text-sm text-slate-500">factorycat.com</p>
-					<p class="mt-3 text-sm text-slate-600">A polished business presence built to communicate value clearly and support lead generation.</p>
-					<Button href="/work" variant="ghost" class="mt-4 px-0">View project</Button>
-				</Card>
-				<Card>
-					<h3 class="text-xl font-semibold">The Overwhelmed Gamer</h3>
-					<p class="mt-2 text-sm text-slate-500">overwhelmedgamer.show</p>
-					<p class="mt-3 text-sm text-slate-600">A cleaner content experience that helps visitors quickly find updates, episodes, and key information.</p>
-					<Button href="/work" variant="ghost" class="mt-4 px-0">View project</Button>
-				</Card>
-			</div>
-			<div>
-				<Button href="/work" size="lg">View all work</Button>
-			</div>
-		</div>
-	</Section> -->
-
 	<Section>
 		<div class="space-y-10">
 			<Heading
 				eyebrow="Process"
 				title="How we work together"
-				subtitle="A simple, professional process that keeps projects clear from start to finish."
+				subtitle="A simple, professional process that keeps website and business application projects clear from start to finish."
 			/>
 			<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
 				<Card>
 					<p class="label-mono text-slate-500">01</p>
 					<h3 class="mt-3 text-lg font-semibold">Discover</h3>
-					<p class="mt-2 text-sm text-slate-600">We define your goals, priorities, and what success should look like.</p>
+					<p class="mt-2 text-sm text-slate-600">We define your goals, problems, priorities, users, and what success should look like.</p>
 				</Card>
 				<Card>
 					<p class="label-mono text-slate-500">02</p>
 					<h3 class="mt-3 text-lg font-semibold">Design & Build</h3>
-					<p class="mt-2 text-sm text-slate-600">We create a clear, professional site experience aligned to your business goals.</p>
+					<p class="mt-2 text-sm text-slate-600">We create a solution aligned with your business goals and the way your workflow actually works.</p>
 				</Card>
 				<Card>
 					<p class="label-mono text-slate-500">03</p>
 					<h3 class="mt-3 text-lg font-semibold">Launch</h3>
-					<p class="mt-2 text-sm text-slate-600">We finalize details, review everything together, and launch with confidence.</p>
+					<p class="mt-2 text-sm text-slate-600">We finalize details, test everything together, and launch with confidence.</p>
 				</Card>
 				<Card>
 					<p class="label-mono text-slate-500">04</p>
 					<h3 class="mt-3 text-lg font-semibold">Support & Improve</h3>
-					<p class="mt-2 text-sm text-slate-600">We continue improving your site as your business grows and priorities change.</p>
+					<p class="mt-2 text-sm text-slate-600">We continue improving the solution as your business grows and needs change.</p>
 				</Card>
 			</div>
 		</div>
@@ -186,7 +234,8 @@ import { siteConfig } from '../config/site';
 
 	<Section variant="dark">
 		<div class="space-y-6 text-center">
-			<h2 class="text-white">Ready for a website that reflects your business?</h2>
+			<h2 class="text-white">Have a website to build — or a business problem technology could solve?</h2>
+			<p class="mx-auto max-w-3xl text-slate-300">Tell me what you're trying to accomplish. I'll help you figure out the right approach.</p>
 			<div class="flex flex-wrap justify-center gap-3">
 				<Button href="/contact" size="lg">Get a quote</Button>
 				<Button href={siteConfig.phoneHref} size="lg" variant="secondary">Call Geek Life Development</Button>
