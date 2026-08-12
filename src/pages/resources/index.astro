@@ -4,7 +4,9 @@ import Layout from '../../components/Layout.astro';
 import Badge from '../../components/ui/Badge.astro';
 import Button from '../../components/ui/Button.astro';
 import Card from '../../components/ui/Card.astro';
+import Heading from '../../components/ui/Heading.astro';
 import Section from '../../components/ui/Section.astro';
+import { siteConfig } from '../../config/site';
 
 const posts = (await getCollection('resources', ({ data }) => !data.draft)).sort(
   (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
@@ -19,27 +21,34 @@ const formatDate = (value: Date) =>
 ---
 
 <Layout
-  title="Resources | Geek Life Development"
-  description="Practical guides for small businesses — websites, pricing, and what to do next."
+  title="Small Business Technology Resources | Geek Life Development"
+  description="Practical guides for small businesses covering websites, business applications, workflows, technology decisions, and ongoing support."
 >
-  <Section>
+  <Section class="!py-16 md:!py-20">
     <div class="max-w-4xl space-y-6">
-      <h1 class="text-4xl md:text-6xl">Resources</h1>
+      <p class="label-mono text-slate-500">RESOURCES</p>
+      <h1 class="text-4xl leading-tight md:text-6xl">Practical guidance for better technology decisions.</h1>
       <p class="max-w-3xl text-base text-[var(--color-neutral)] md:text-lg">
-        Practical guides for small businesses — websites, pricing, and what to do next.
+        Straightforward resources for small businesses navigating websites,
+        business software, workflows, and ongoing technology needs.
       </p>
       <div class="flex flex-wrap gap-3">
         <Button href="/contact" size="lg">Get a quote</Button>
+        <Button href={siteConfig.phoneHref} size="lg" variant="secondary">Talk through your project</Button>
       </div>
-      <p class="text-sm text-slate-600">
-        Prefer updates in your reader?
-        <a href="/rss.xml" class="font-medium">Subscribe via RSS</a>
-      </p>
+      <p class="text-sm text-slate-600">Serving Ozaukee County & the Milwaukee area + remote.</p>
     </div>
   </Section>
 
-  <Section variant="muted">
-    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+  <Section variant="muted" class="!py-14 md:!py-16">
+    <div class="space-y-8">
+      <Heading
+        eyebrow="PRACTICAL GUIDES"
+        title="Technology decisions without the jargon."
+        subtitle="Straightforward articles to help you understand your options, recognize problems worth solving, and make better technology decisions before spending money on a solution."
+      />
+
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
       {
         posts.map((post) => (
           <Card class="flex h-full flex-col">
@@ -55,14 +64,33 @@ const formatDate = (value: Date) =>
                 {post.data.tags.map((tag) => <Badge variant="neutral">{tag}</Badge>)}
               </div>
             )}
-            <div class="mt-6">
+            <div class="mt-6 mt-auto">
               <Button href={`/resources/${post.slug}`} variant="secondary" size="sm">Read article</Button>
             </div>
           </Card>
         ))
       }
-    </div>
+      </div>
 
-    <p class="mt-10 text-sm text-slate-600">Serving Ozaukee County & the Milwaukee area + remote.</p>
+      <p class="text-sm text-slate-600">
+        Prefer RSS? <a href="/rss.xml" class="font-medium">Subscribe to updates.</a>
+      </p>
+    </div>
+  </Section>
+
+  <Section class="!py-14 md:!py-16">
+    <div class="max-w-4xl">
+      <Card hover={false} class="bg-slate-50/80">
+        <p class="label-mono text-slate-500">NOT SURE WHAT YOU NEED?</p>
+        <h2 class="mt-3 text-3xl leading-tight md:text-4xl">Have a business problem you're trying to figure out?</h2>
+        <p class="mt-4 max-w-3xl text-sm text-slate-600 md:text-base">
+          You don't need to know the technical solution before reaching out. Tell me what isn't working, what feels inefficient, or what you're trying to accomplish, and we'll start there.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <Button href={siteConfig.phoneHref}>Talk through your project</Button>
+          <Button href="/services" variant="ghost">View services</Button>
+        </div>
+      </Card>
+    </div>
   </Section>
 </Layout>
