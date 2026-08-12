@@ -1,127 +1,60 @@
 ---
 import FAQAccordion from '../components/FAQAccordion.astro';
 import Layout from '../components/Layout.astro';
-import Badge from '../components/ui/Badge.astro';
 import Button from '../components/ui/Button.astro';
 import Card from '../components/ui/Card.astro';
 import Heading from '../components/ui/Heading.astro';
 import Section from '../components/ui/Section.astro';
 import { siteConfig } from '../config/site';
 
-const tiers = [
-  {
-    name: 'Starter',
-    buildFee: 'Starting at $2,900+',
-    supportFee: 'Support from $197/mo',
-    bestFor: 'Small businesses needing a clean, modern web presence.',
-    timeline: '~1–2 weeks (typical)',
-    includes: [
-      '1–5 pages (or equivalent sections)',
-      'Mobile-responsive build',
-      'Search-ready foundation',
-      'Fast, clean setup',
-      'Launch support'
-    ],
-    boundaries: [
-      'Best for brochure/landing sites',
-      'Copy + assets provided by client (light guidance ok)',
-      'New features/integrations scoped separately'
-    ]
-  },
-  {
-    name: 'Growth',
-    buildFee: 'Starting at $4,900+',
-    supportFee: 'Support from $397/mo',
-    bestFor: 'Businesses/creators focused on visibility + conversion.',
-    timeline: '~2–4 weeks (typical)',
-    includes: [
-      'Everything in Starter',
-      'Content-ready pages for updates and case studies',
-      'Conversion-focused sections (FAQs, testimonials, lead capture)',
-      'Local search foundations',
-      'Analytics setup (optional)'
-    ],
-    boundaries: ['Moderate integrations can be scoped', 'Larger custom functionality is an add-on'],
-    popular: true
-  },
-  {
-    name: 'Pro',
-    buildFee: 'Starting at $8,000+',
-    supportFee: 'Support from $697+/mo',
-    bestFor: 'Advanced builds, integrations, or app-adjacent needs.',
-    timeline: '~4–8 weeks (typical)',
-    includes: [
-      'Everything in Growth',
-      'Advanced integrations (payments, memberships, client areas) as scoped',
-      'Custom components tailored to brand',
-      'More pre-launch iteration'
-    ],
-    boundaries: ['Not full software product builds', 'Third-party costs billed separately']
-  }
-];
-
 const faqItems = [
   {
-    question: 'Do you charge a one-time build fee?',
+    question: 'How much does a typical website cost?',
     answer:
-      'Yes. Every project starts with a one-time build fee that covers planning, design, build, and launch.'
+      'Professional website projects start at $2,900. Final pricing depends on scope, content, functionality, and project requirements.'
   },
   {
-    question: 'Is ongoing support required?',
+    question: 'How do you price custom business applications?',
     answer:
-      'No. Ongoing support is not mandatory, but it is the preferred path for most clients because the site keeps improving after launch.'
+      'Business applications are priced after understanding the workflow, functionality, integrations, users, and overall complexity involved.'
   },
   {
-    question: 'What counts as an “edit” in support?',
+    question: "Why don't business applications have a starting price?",
     answer:
-      'Typical edits include content updates, image swaps, small layout adjustments, and routine upkeep tasks that fit your plan scope.'
+      "A customer contact tool for five employees and a multi-step application with integrations, permissions, and automation are very different projects. I price business applications after understanding the workflow so you're paying for what the business actually needs."
   },
   {
-    question: 'What’s considered outside support scope?',
+    question: 'Do I need to know exactly what I need before contacting you?',
     answer:
-      'Bigger features, major redesigns, and advanced custom functionality are scoped as separate add-ons.'
+      'No. You can describe the problem, current process, or outcome you want. I can help determine whether the practical solution is a website, business application, integration, automation, or something simpler.'
   },
   {
-    question: 'Who owns the website and content?',
+    question: 'Can we start small and add features later?',
     answer:
-      'You do. Once project deliverables are completed and paid, your site and content belong to you.'
+      'Yes, when technically practical. A focused first phase is often better than building a large system before the business knows what it actually needs.'
   },
   {
-    question: 'What about hosting and domains?',
+    question: 'What does ongoing support cover?',
     answer:
-      'You can keep hosting and domain ownership in your own accounts. We can help set things up and support handoff as needed.'
-  },
-  {
-    question: 'What happens if I cancel support?',
-    answer:
-      'You can cancel support at any time. Your existing site stays live under your ownership, and future changes can be scoped as needed.'
-  },
-  {
-    question: 'Can you work remotely?',
-    answer:
-      'Yes. We work with clients in Ozaukee County and the Milwaukee area and also collaborate remotely.'
-  },
-  {
-    question: 'Can you add a database / login / dashboard?',
-    answer:
-      'Yes. Those features are available as scoped add-ons so timeline, deliverables, and costs are clear before work begins.'
+      'Ongoing support can include website and content updates, minor improvements, reliability and performance checks, troubleshooting, hosting guidance, and planned improvements. Basic website support starts at $250/month. Support for custom business applications or more involved systems is scoped separately.'
   }
 ];
 ---
 
 <Layout
   title="Pricing | Geek Life Development"
-  description="Simple, professional pricing with one-time build fees, ongoing support options, and clear scope boundaries."
+  description="Clear pricing for professional websites, custom-scoped business applications, and ongoing support from Geek Life Development."
 >
-  <Section>
+  <Section class="!py-16 md:!py-20">
     <div class="max-w-4xl space-y-6">
-      <h1 class="text-4xl leading-tight md:text-6xl">Simple, structured pricing.</h1>
+      <p class="label-mono text-slate-500">PRICING</p>
+      <h1 class="text-4xl leading-tight md:text-6xl">Clear pricing where it makes sense. Custom quotes where it doesn't.</h1>
       <p class="max-w-3xl text-base leading-relaxed text-[var(--color-neutral)] md:text-lg">
-        We combine a one-time build fee with ongoing support so your website launches strong and keeps improving over time.
+        Some projects are straightforward enough to have a starting price. Others depend on the workflow, integrations, and business problem being solved. Either way, we'll define the scope and cost before development begins.
       </p>
       <div class="flex flex-wrap gap-3">
         <Button href="/contact" size="lg">Get a quote</Button>
-        <Button href={siteConfig.phoneHref} size="lg" variant="secondary">Call now</Button>
+        <Button href={siteConfig.phoneHref} size="lg" variant="secondary">Talk through your project</Button>
       </div>
       <p class="text-sm text-slate-600">
         Prefer to talk first? <a href={siteConfig.phoneHref} class="font-medium">Call or text {siteConfig.phoneDisplay}</a>.
@@ -130,143 +63,172 @@ const faqItems = [
     </div>
   </Section>
 
-  <Section variant="muted">
-    <div class="grid items-start gap-10 lg:grid-cols-2">
+  <Section variant="muted" class="!py-14 md:!py-16">
+    <div class="space-y-8">
       <Heading
-        eyebrow="How it works"
-        title="A clear model from launch to long-term support"
-        subtitle="Designed for business owners who want reliable delivery and clear expectations."
+        eyebrow="HOW PRICING WORKS"
+        title="Start with the problem. Define the scope. Know the cost before we build."
+        subtitle="Every project starts by understanding what you're trying to accomplish. From there, I'll recommend the simplest practical approach and define the scope, timeline, and investment before development begins."
       />
 
-      <Card hover={false}>
-        <ul class="space-y-3 text-sm text-slate-700">
-          <li><strong>Step 1:</strong> One-time build investment (design + build + launch)</li>
-          <li><strong>Step 2:</strong> Optional ongoing support (updates, improvements, peace of mind)</li>
-           <li><strong>Step 3:</strong> Add-ons for larger features (integrations, connected tools, custom functionality)</li>
-        </ul>
-        <p class="mt-5 text-sm text-slate-600">
-          Exact pricing depends on scope, complexity, and timeline — these tiers help you choose the right fit.
-        </p>
-      </Card>
-    </div>
-  </Section>
-
-  <Section>
-    <div class="space-y-10">
-      <Heading
-        eyebrow="Tier structure"
-        title="Starter, Growth, and Pro"
-        subtitle="Choose the level that fits your goals, timeline, and support needs."
-      />
-        
-      <div class="grid gap-6 lg:grid-cols-3">
-        {
-          tiers.map((tier) => (
-            <Card class={tier.popular ? 'border-blue-200 ring-2 ring-blue-100' : ''}>
-              {tier.popular && <Badge variant="accent">Most popular</Badge>}
-              <h3 class="mt-3 text-2xl font-semibold">{tier.name}</h3>
-              <p class="mt-3 text-lg font-semibold text-slate-900">{tier.buildFee}</p>
-              <p class="mt-1 text-sm text-slate-600">{tier.supportFee}</p>
-              <p class="mt-3 text-sm text-slate-600"><strong>Best for:</strong> {tier.bestFor}</p>
-              <p class="mt-2 text-sm text-slate-700"><strong>Typical timeline:</strong> {tier.timeline}</p>
-
-              <p class="mt-5 label-mono text-slate-500">What’s included</p>
-              <ul class="mt-2 space-y-2 text-sm text-slate-700">
-                {tier.includes.map((item) => <li>• {item}</li>)}
-              </ul>
-
-              <p class="mt-5 label-mono text-slate-500">Boundaries</p>
-              <ul class="mt-2 space-y-2 text-sm text-slate-700">
-                {tier.boundaries.map((item) => <li>• {item}</li>)}
-              </ul>
-
-              <Button href="/contact" class="mt-6 w-full">Get a quote</Button>
-            </Card>
-          ))
-        }
+      <div class="grid gap-4 md:grid-cols-3">
+        <Card hover={false} class="p-5">
+          <p class="label-mono text-slate-500">01</p>
+          <h3 class="mt-3 text-lg font-semibold text-slate-900">Understand the need</h3>
+          <p class="mt-2 text-sm text-slate-600">We talk through the business problem, goals, users, and current process.</p>
+        </Card>
+        <Card hover={false} class="p-5">
+          <p class="label-mono text-slate-500">02</p>
+          <h3 class="mt-3 text-lg font-semibold text-slate-900">Define the solution</h3>
+          <p class="mt-2 text-sm text-slate-600">I recommend the right approach and establish the project scope.</p>
+        </Card>
+        <Card hover={false} class="p-5">
+          <p class="label-mono text-slate-500">03</p>
+          <h3 class="mt-3 text-lg font-semibold text-slate-900">Approve before building</h3>
+          <p class="mt-2 text-sm text-slate-600">You receive a clear scope, timeline, and price before development begins.</p>
+        </Card>
       </div>
     </div>
   </Section>
 
-  <Section variant="muted">
-    <div class="grid items-start gap-10 lg:grid-cols-[1.2fr_1fr]">
+  <Section class="!py-14 md:!py-16">
+    <div class="space-y-10">
       <Heading
-        eyebrow="Preferred partnership"
-        title="Prefer a long-term partner?"
-        subtitle="Most clients choose ongoing support so their site stays current and useful after launch."
+        eyebrow="SERVICE PRICING"
+        title="Three ways to work together"
+        subtitle="Straightforward projects have useful starting prices. Custom work is scoped around the business problem and defined before development begins."
+      />
+
+      <div class="grid gap-6 lg:grid-cols-3">
+        <Card class="h-full">
+          <p class="label-mono text-slate-500">PROFESSIONAL WEBSITES</p>
+          <h3 class="mt-3 text-2xl font-semibold text-slate-900">Professional Websites</h3>
+          <p class="mt-3 text-lg font-semibold text-slate-900">Starting at $2,900</p>
+          <p class="mt-3 text-sm text-slate-600">For small businesses that need a professional, modern website that clearly explains what they do and turns visitors into inquiries.</p>
+          <p class="mt-5 label-mono text-slate-500">Typical projects can include</p>
+          <ul class="mt-2 space-y-2 text-sm text-slate-700">
+            <li>• Clear site structure and messaging</li>
+            <li>• Responsive design</li>
+            <li>• Contact or lead-generation forms</li>
+            <li>• Search-friendly technical setup</li>
+            <li>• Launch and post-launch support</li>
+          </ul>
+          <p class="mt-4 text-sm text-slate-700"><strong>Typical timeline:</strong> approximately 1–3 weeks depending on scope.</p>
+          <Button href="/contact" class="mt-6 w-full">Discuss a website</Button>
+        </Card>
+
+        <Card class="h-full border-blue-200/80 bg-blue-50/30">
+          <p class="label-mono text-slate-500">BUSINESS APPLICATIONS</p>
+          <h3 class="mt-3 text-2xl font-semibold text-slate-900">Custom Business Applications</h3>
+          <p class="mt-3 text-lg font-semibold text-slate-900">Pricing based on scope</p>
+          <p class="mt-1 text-sm text-slate-600">Business applications are priced around the workflow, complexity, integrations, and functionality required.</p>
+          <p class="mt-3 text-sm text-slate-600">For businesses that need a focused tool to replace spreadsheets, repetitive work, disconnected processes, or awkward manual workflows.</p>
+          <p class="mt-5 label-mono text-slate-500">Examples can include</p>
+          <ul class="mt-2 space-y-2 text-sm text-slate-700">
+            <li>• Customer or contact management</li>
+            <li>• Scheduling and workflow tools</li>
+            <li>• Forms and data collection</li>
+            <li>• Internal dashboards</li>
+            <li>• Member or volunteer management</li>
+            <li>• Process automation</li>
+            <li>• Connected website-to-office workflows</li>
+          </ul>
+          <p class="mt-4 text-sm font-medium text-slate-800">You do not need to know what software you need before reaching out.</p>
+          <Button href="/contact" class="mt-6 w-full">Discuss a business problem</Button>
+        </Card>
+
+        <Card class="h-full">
+          <p class="label-mono text-slate-500">ONGOING SUPPORT</p>
+          <h3 class="mt-3 text-2xl font-semibold text-slate-900">Ongoing Support</h3>
+          <p class="mt-3 text-lg font-semibold text-slate-900">Starting at $250/month</p>
+          <p class="mt-3 text-sm text-slate-600">For straightforward websites that need dependable maintenance, updates, and ongoing attention.</p>
+          <p class="mt-5 label-mono text-slate-500">Typical support can include</p>
+          <ul class="mt-2 space-y-2 text-sm text-slate-700">
+            <li>• Content and data updates</li>
+            <li>• Small layout or usability improvements</li>
+            <li>• Reliability and performance checks</li>
+            <li>• Troubleshooting</li>
+            <li>• Minor workflow improvements</li>
+            <li>• Hosting and deployment guidance</li>
+            <li>• Planned improvements as priorities change</li>
+          </ul>
+          <p class="mt-4 text-sm text-slate-700">Support for business applications, more active websites, or systems with more involved monthly needs is scoped based on complexity and expected support.</p>
+          <Button href="/services#ongoing-support" class="mt-6 w-full">Explore ongoing support</Button>
+        </Card>
+      </div>
+    </div>
+  </Section>
+
+  <Section variant="muted" class="!py-14 md:!py-16">
+    <div class="grid items-start gap-8 lg:grid-cols-[1.05fr_0.95fr]">
+      <Heading
+        eyebrow="FLEXIBLE SCOPE"
+        title="Some projects need more than one piece."
+        subtitle="A project might begin with a website and later add an internal business application. Or the website may act as the front door to a workflow your team manages behind the scenes."
       />
 
       <Card hover={false}>
-        <ul class="space-y-2 text-sm text-slate-700">
-          <li>• Content updates (copy/images)</li>
-          <li>• Small layout adjustments</li>
-          <li>• New sections/pages within plan limits</li>
-          <li>• Performance & uptime checks</li>
-          <li>• Light search visibility upkeep</li>
-        </ul>
-        <p class="mt-5 text-sm text-slate-600">Bigger features and app work are scoped separately.</p>
-        <p class="mt-3 text-sm font-medium text-slate-800">Reduced build fee available with a 12-month support plan.</p>
-        <Button href="/contact" class="mt-6">Get a quote</Button>
+        <p class="label-mono text-slate-500">Example flow</p>
+        <p class="mt-3 text-sm font-medium text-slate-900 md:text-base">Website → Form or Customer Action → Business Application → Team Workflow</p>
+        <p class="mt-4 text-sm text-slate-600">We'll scope the pieces that make sense now without forcing you to build everything at once.</p>
       </Card>
     </div>
   </Section>
 
-  <Section variant="muted">
+  <Section class="!py-14 md:!py-16">
     <div class="space-y-8">
       <Heading
-        eyebrow="Add-ons"
-        title="Scoped add-ons when you need more"
-        subtitle="Add what you need while keeping the core project clear and manageable."
+        eyebrow="SCOPE & COMPLEXITY"
+        title="What affects project pricing?"
       />
 
       <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         <Card hover={false} class="p-5">
-          <p class="font-medium text-slate-900">Extra pages</p>
-          <p class="mt-2 text-sm text-slate-600">Add pages for services, offers, or campaigns.</p>
+          <p class="font-medium text-slate-900">Number of pages or screens</p>
+          <p class="mt-2 text-sm text-slate-600">More content, views, or workflows require additional design and development.</p>
         </Card>
         <Card hover={false} class="p-5">
-          <p class="font-medium text-slate-900">Copywriting / copy polish</p>
-          <p class="mt-2 text-sm text-slate-600">Clarify messaging and improve page readability.</p>
+          <p class="font-medium text-slate-900">Custom functionality</p>
+          <p class="mt-2 text-sm text-slate-600">Unique business rules or interactions increase development scope.</p>
         </Card>
         <Card hover={false} class="p-5">
-          <p class="font-medium text-slate-900">Brand refresh / visual polish</p>
-          <p class="mt-2 text-sm text-slate-600">Refresh the look and feel without rebuilding everything.</p>
+          <p class="font-medium text-slate-900">Integrations</p>
+          <p class="mt-2 text-sm text-slate-600">Connecting payment systems, calendars, email, APIs, or existing tools adds implementation and testing.</p>
         </Card>
         <Card hover={false} class="p-5">
-          <p class="font-medium text-slate-900">Search content expansion</p>
-          <p class="mt-2 text-sm text-slate-600">Add service and location pages to grow qualified traffic.</p>
+          <p class="font-medium text-slate-900">Content and data</p>
+          <p class="mt-2 text-sm text-slate-600">Migration, content entry, cleanup, or structured data can affect scope.</p>
         </Card>
         <Card hover={false} class="p-5">
-          <p class="font-medium text-slate-900">Integrations (booking/email/payments)</p>
-          <p class="mt-2 text-sm text-slate-600">Connect tools your team already uses.</p>
+          <p class="font-medium text-slate-900">Workflow complexity</p>
+          <p class="mt-2 text-sm text-slate-600">Multi-step processes, permissions, notifications, and automation require additional planning and development.</p>
         </Card>
         <Card hover={false} class="p-5">
-          <p class="font-medium text-slate-900">Advanced forms and data workflows</p>
-          <p class="mt-2 text-sm text-slate-600">Custom form handling and connected workflows scoped separately.</p>
-        </Card>
-        <Card hover={false} class="p-5">
-          <p class="font-medium text-slate-900">Reporting and internal tools</p>
-          <p class="mt-2 text-sm text-slate-600">Light business tools scoped to your specific workflow.</p>
-        </Card>
-        <Card hover={false} class="p-5 md:col-span-2 lg:col-span-1">
-          <p class="font-medium text-slate-900">Ongoing performance tuning</p>
-          <p class="mt-2 text-sm text-slate-600">Ongoing speed and usability improvements over time.</p>
+          <p class="font-medium text-slate-900">Ongoing needs</p>
+          <p class="mt-2 text-sm text-slate-600">Support, maintenance, hosting, and planned improvements are scoped around how the system will be used.</p>
         </Card>
       </div>
 
-      <p class="text-sm text-slate-600">If you’re unsure where to start, we’ll recommend the clearest next step.</p>
-      <p class="text-sm text-slate-600">
-        Questions about fit? <a href={siteConfig.phoneHref} class="font-medium">Call and we can talk it through.</a>
-      </p>
+      <p class="text-sm text-slate-600">The goal isn't to make the project bigger. It's to identify what you actually need and price that clearly.</p>
     </div>
   </Section>
 
-  <Section>
+  <Section variant="muted" class="!py-14 md:!py-16">
+    <div class="max-w-4xl">
+      <Card hover={false} class="border-sky-100 bg-sky-50/80 px-6 py-7 md:px-8 md:py-8">
+        <p class="label-mono text-slate-500">START SMALL</p>
+        <h3 class="text-2xl font-semibold text-slate-900">Custom software doesn't have to mean a massive project.</h3>
+        <p class="mt-3 text-sm text-slate-700 md:text-base">Often the best first step is solving one high-value problem — replacing a spreadsheet, simplifying an intake process, organizing customer information, or removing repetitive work. Additional functionality can be added later when it makes sense.</p>
+      </Card>
+    </div>
+  </Section>
+
+  <Section class="!py-14 md:!py-16">
     <div class="grid gap-10 lg:grid-cols-[1fr_1.2fr]">
       <Heading
         eyebrow="FAQ"
         title="Common pricing questions"
-        subtitle="Friendly answers so you can move forward with confidence."
+        subtitle="Concise answers to help you understand pricing and next steps."
       />
       <FAQAccordion items={faqItems} />
     </div>
@@ -274,12 +236,12 @@ const faqItems = [
 
   <Section variant="dark">
     <div class="space-y-6 text-center">
-      <h2 class="text-white">Ready to build something modern?</h2>
+      <h2 class="text-white">Have a project in mind — or just a problem that needs solving?</h2>
+      <p class="mx-auto max-w-3xl text-slate-300">Tell me what you're trying to accomplish. I'll help determine the practical next step and what it is likely to cost.</p>
       <div class="flex flex-wrap justify-center gap-3">
         <Button href="/contact" size="lg">Get a quote</Button>
-        <Button href={siteConfig.phoneHref} size="lg" variant="secondary">Call Geek Life Development</Button>
+        <Button href={siteConfig.phoneHref} size="lg" variant="secondary">Talk through your project</Button>
       </div>
-      <p class="text-sm text-slate-300">Call or text to talk through your project. No pressure.</p>
     </div>
   </Section>
 </Layout>
