@@ -7,68 +7,127 @@ import Heading from '../components/ui/Heading.astro';
 import Section from '../components/ui/Section.astro';
 ---
 
-<Layout title="About | Geek Life Development" description="Learn how Geek Life Development partners with small businesses through clear process, professional communication, and dependable delivery.">
+<Layout
+  title="About Geek Life Development | Websites and Business Applications"
+  description="Geek Life Development helps small businesses in Ozaukee County, Milwaukee, Wisconsin, and remotely through professional websites and practical custom business applications."
+>
   <Hero
     title="About Geek Life Development"
-    subtitle="I help small businesses present themselves clearly online with professional websites and dependable ongoing support."
+    subtitle="I help small businesses solve practical problems with technology — from professional websites that build trust and generate inquiries to custom business applications that simplify how work gets done behind the scenes."
+    subtitleSecondary="The goal is not to add technology for the sake of it. It is to build something useful, understandable, and aligned with how your business actually works."
     primaryCta={{ label: 'Get a quote', href: '/contact' }}
     accent={false}
   />
 
-  <Section>
+  <Section class="!py-16 md:!py-20">
     <div class="space-y-8">
       <Heading
         eyebrow="What I build"
-        title="Practical services for growing businesses"
-        subtitle="Everything is built to help your business look credible, communicate clearly, and keep improving over time."
+        title="Practical technology built around your business"
+        subtitle="I build focused solutions that help businesses present themselves professionally, operate more efficiently, and keep improving over time."
       />
-      <p class="text-sm font-medium text-slate-600">Serving Ozaukee County & the Milwaukee area + remote.</p>
+      <p class="text-sm font-medium text-slate-600">Serving Ozaukee County, the Milwaukee area, and remote clients.</p>
       <div class="grid gap-6 md:grid-cols-3">
         <Card>
-          <h3 class="text-xl font-semibold">Websites</h3>
-          <p class="mt-3 text-sm text-slate-600">Professional websites that make your business easier to understand and trust.</p>
+          <h3 class="text-xl font-semibold">Professional Websites</h3>
+          <p class="mt-3 text-sm text-slate-600">Modern, business-focused websites designed to build credibility, explain what you do clearly, and make it easier for potential customers to take the next step.</p>
         </Card>
         <Card>
-          <h3 class="text-xl font-semibold">Simple apps</h3>
-          <p class="mt-3 text-sm text-slate-600">Practical tools that support your day-to-day operations and communication.</p>
+          <h3 class="text-xl font-semibold">Custom Business Applications</h3>
+          <p class="mt-3 text-sm text-slate-600">Practical tools built around your business — from customer management and dashboards to workflows, forms, scheduling, and internal systems.</p>
         </Card>
         <Card>
           <h3 class="text-xl font-semibold">Ongoing support</h3>
-          <p class="mt-3 text-sm text-slate-600">Reliable monthly support for updates, improvements, and peace of mind.</p>
+          <p class="mt-3 text-sm text-slate-600">Reliable support for updates, improvements, troubleshooting, and keeping your website or business application useful as your needs change.</p>
         </Card>
       </div>
     </div>
   </Section>
 
-  <Section variant="muted">
+  <Section variant="muted" class="!py-16 md:!py-20">
+    <div class="space-y-8">
+      <Heading
+        eyebrow="How I think about technology"
+        title="The right solution is usually the simplest one that solves the problem well."
+        subtitle="Small businesses do not always need another large software platform or a complicated technical system. Sometimes the right answer is a better website. Sometimes it is replacing a spreadsheet, connecting a few workflows, or building a focused internal tool around the way your team already works."
+      />
+      <Card hover={false}>
+        <p class="text-sm text-slate-700 md:text-base">
+          My job is to understand the problem first and recommend an approach that makes sense for the business, budget, and people who will actually use it.
+        </p>
+      </Card>
+    </div>
+  </Section>
+
+  <Section class="!py-16 md:!py-20">
     <div class="space-y-8">
       <Heading
         eyebrow="How I work"
         title="Clear process, professional communication"
-        subtitle="I keep projects organized so you always know what’s happening, what’s next, and what to expect."
+        subtitle="I keep projects organized so you know what is happening, what comes next, and what decisions need to be made."
       />
       <Card hover={false}>
         <ul class="space-y-2 text-sm text-slate-700">
-          <li>• Clear scope before work begins</li>
-          <li>• Friendly communication with straightforward updates</li>
-          <li>• Regular reviews to prevent late surprises</li>
+          <li>• Clear scope before development begins</li>
+          <li>• Straightforward communication and regular updates</li>
+          <li>• Practical recommendations without unnecessary complexity</li>
           <li>• Realistic timelines with clear milestones</li>
-          <li>• Launch support and post-launch guidance</li>
+          <li>• Testing and review before launch</li>
+          <li>• Support and guidance after launch</li>
         </ul>
       </Card>
     </div>
   </Section>
 
-  <Section>
+  <Section variant="muted" class="!py-14 md:!py-16">
+    <div class="grid items-start gap-8 lg:grid-cols-2">
+      <Heading
+        eyebrow="Direct partnership"
+        title="You work directly with the person building your project."
+        subtitle="There is no sales handoff, account-manager layer, or separate development team to navigate. I handle the conversation, planning, development, and ongoing support, so the person understanding your business problem is also the person building the solution."
+      />
+      <Card hover={false}>
+        <p class="text-sm text-slate-700 md:text-base">
+          I built Geek Life Development around a straightforward idea: small businesses should be able to get custom technology without navigating a large agency or forcing their business into software that does not quite fit.
+        </p>
+        <p class="mt-3 text-sm text-slate-700 md:text-base">
+          I enjoy understanding how a business actually operates and turning those problems into practical, maintainable solutions.
+        </p>
+        <p class="mt-3 text-sm text-slate-700 md:text-base">
+          That keeps communication clear, decisions faster, and projects more focused.
+        </p>
+      </Card>
+    </div>
+  </Section>
+
+  <Section class="!py-14 md:!py-16">
     <div class="grid items-start gap-8 lg:grid-cols-2">
       <Heading
         eyebrow="Who I work with"
-        title="A partner for local and remote businesses"
-        subtitle="I work with business owners who want clear strategy, clean delivery, and long-term reliability from their web partner."
+        title="A practical technology partner for local and remote businesses"
+        subtitle="I work with small businesses and organizations that want clear communication, dependable delivery, and technology that solves a real business need."
       />
       <Card hover={false}>
-        <p class="text-sm text-slate-700">
-          Whether you’re nearby or remote, the process stays the same: clear planning, focused execution, and steady support.
+        <p class="text-sm text-slate-700 md:text-base">
+          That may be a new website, a better way to manage information, a custom workflow, or a combination of the two.
+        </p>
+        <p class="mt-3 text-sm font-medium text-slate-700">
+          Serving Ozaukee County, the Milwaukee area, and remote clients.
+        </p>
+      </Card>
+    </div>
+  </Section>
+
+  <Section variant="muted" class="!py-14 md:!py-16">
+    <div class="space-y-8">
+      <Heading
+        eyebrow="Portfolio context"
+        title="Not every project belongs in a public portfolio"
+        subtitle="Some business applications I've worked on involve private internal processes, customer information, or operational data and cannot be shown publicly."
+      />
+      <Card hover={false}>
+        <p class="text-sm text-slate-700 md:text-base">
+          I can still discuss the types of problems I've worked on, the approach I take, and how I design practical software without exposing private business information.
         </p>
       </Card>
     </div>
@@ -76,10 +135,11 @@ import Section from '../components/ui/Section.astro';
 
   <Section variant="dark">
     <div class="space-y-6 text-center">
-      <h2 class="text-white">Ready to work with a clear, reliable web partner?</h2>
+      <h2 class="text-white">Have a website to build — or a business problem technology could solve?</h2>
+      <p class="mx-auto max-w-3xl text-slate-300">Tell me what you're trying to accomplish. I'll help you figure out a practical next step.</p>
       <div class="flex flex-wrap justify-center gap-3">
         <Button href="/contact" size="lg">Get a quote</Button>
-        <Button href="/work" size="lg" variant="secondary">View work</Button>
+        <Button href="/services" size="lg" variant="secondary">View services</Button>
       </div>
     </div>
   </Section>
