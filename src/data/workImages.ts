@@ -1,9 +1,9 @@
 import type { ImageMetadata } from 'astro';
-import burntDirtArtDesktop from '../assets/burnt-dirt-art-image.png';
+import artSiteDesktop from '../assets/art-site.png';
 import burntDirtArtMobile from '../assets/burnt-dirt-art-mobile.png';
 import factoryCatDesktop from '../assets/factory-cat-image.png';
 import factoryCatMobile from '../assets/factory-cat-mobile.png';
-import overwhelmedGamerDesktop from '../assets/overwhelmed-gamer-image.png';
+import gamerSiteDesktop from '../assets/gamer-site.png';
 import overwhelmedGamerMobile from '../assets/overwhelmed-gamer-mobile.png';
 
 export type WorkImageSet = {
@@ -14,7 +14,7 @@ export type WorkImageSet = {
 
 export const workImagesBySlug: Record<string, WorkImageSet> = {
   'burnt-dirt-art': {
-    desktop: burntDirtArtDesktop,
+    desktop: artSiteDesktop,
     mobile: burntDirtArtMobile,
     alt: 'Burnt Dirt Art website preview'
   },
@@ -24,7 +24,7 @@ export const workImagesBySlug: Record<string, WorkImageSet> = {
     alt: 'FactoryCat website preview'
   },
   'overwhelmed-gamer': {
-    desktop: overwhelmedGamerDesktop,
+    desktop: gamerSiteDesktop,
     mobile: overwhelmedGamerMobile,
     alt: 'The Overwhelmed Gamer website preview'
   }

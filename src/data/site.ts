@@ -4,7 +4,7 @@ export const siteConfig = {
   name: coreSiteConfig.siteName,
   url: coreSiteConfig.siteUrl,
   description: coreSiteConfig.defaultDescription,
-  tagline: 'Modern websites and simple apps for small businesses',
+  tagline: 'Modern websites, practical business applications, and ongoing support for small businesses',
   email: coreSiteConfig.email,
   locale: coreSiteConfig.locale,
   ogImage: coreSiteConfig.ogImage

@@ -10,22 +10,22 @@ import { siteConfig } from '../config/site';
 
 <Layout
   title="Services | Geek Life Development"
-  description="Explore website projects, practical business tools, and ongoing support delivered with clear scope and reliable communication."
+  description="Explore professional websites, practical business applications, and ongoing support delivered with clear scope and reliable communication."
 >
   <Hero
     title="Services built for small businesses that want clear, reliable results"
-    subtitle="We help business owners in Ozaukee County, Milwaukee, and beyond launch professional websites and keep them improving over time."
+    subtitle="We help business owners in Ozaukee County, Milwaukee, and beyond launch professional websites, practical business applications, and ongoing support that keeps both improving over time."
     primaryCta={{ label: 'Get a quote', href: '/contact' }}
     secondaryCta={{ label: 'Talk through your project', href: siteConfig.phoneHref }}
     accent={false}
   />
 
   <Section>
-    <div class="grid items-start gap-10 lg:grid-cols-2">
+    <div id="websites" class="grid items-start gap-10 lg:grid-cols-2">
       <Heading
         eyebrow="Websites"
-        title="Our core service: clear, professional websites"
-        subtitle="Your site should build trust quickly, explain what you do, and make it easy for people to reach out."
+        title="Professional websites that build trust and turn visitors into inquiries"
+        subtitle="Your site should build trust quickly, explain what you do, and make it easy for people to take the next step."
       />
 
       <Card hover={false}>
@@ -53,31 +53,35 @@ import { siteConfig } from '../config/site';
   <Section variant="muted">
     <div class="space-y-10">
       <Heading
-        eyebrow="Simple apps"
-        title="Business tools for clear, specific needs"
-        subtitle="When your team needs more than a brochure site, we can add practical tools that support daily operations."
+        eyebrow="Business applications"
+        title="Practical business applications built around how your team actually works"
+        subtitle="When your team needs more than a brochure site, we can add focused tools that support daily operations without unnecessary complexity."
       />
 
-      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div id="business-applications" class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         <Card>
-          <h3 class="text-xl font-semibold">Client or member areas</h3>
-          <p class="mt-3 text-sm text-slate-600">Private pages for clients, members, or internal teams.</p>
+          <h3 class="text-xl font-semibold">Customer and contact management</h3>
+          <p class="mt-3 text-sm text-slate-600">Tools for tracking customer details, follow-ups, and relationship history.</p>
         </Card>
         <Card>
-          <h3 class="text-xl font-semibold">Reporting views</h3>
-          <p class="mt-3 text-sm text-slate-600">Simple reporting screens that highlight the information your team needs most.</p>
+          <h3 class="text-xl font-semibold">Scheduling and workflows</h3>
+          <p class="mt-3 text-sm text-slate-600">Simple systems that make scheduling, routing, and task handoffs easier.</p>
         </Card>
         <Card>
-          <h3 class="text-xl font-semibold">Scheduling systems</h3>
-          <p class="mt-3 text-sm text-slate-600">Booking and availability tools that make scheduling easier for staff and customers.</p>
-        </Card>
-        <Card>
-          <h3 class="text-xl font-semibold">Internal workflows</h3>
-          <p class="mt-3 text-sm text-slate-600">Simple systems that reduce repetitive work and improve consistency.</p>
-        </Card>
-        <Card>
-          <h3 class="text-xl font-semibold">Form-based processes</h3>
+          <h3 class="text-xl font-semibold">Forms and data collection</h3>
           <p class="mt-3 text-sm text-slate-600">Better intake and handoff flows for leads, requests, and client updates.</p>
+        </Card>
+        <Card>
+          <h3 class="text-xl font-semibold">Internal dashboards</h3>
+          <p class="mt-3 text-sm text-slate-600">A central view of the information your team needs to make decisions quickly.</p>
+        </Card>
+        <Card>
+          <h3 class="text-xl font-semibold">Volunteer or member management</h3>
+          <p class="mt-3 text-sm text-slate-600">Practical tools for organizations that manage people, schedules, and participation.</p>
+        </Card>
+        <Card>
+          <h3 class="text-xl font-semibold">Replacing manual processes</h3>
+          <p class="mt-3 text-sm text-slate-600">Solutions that help replace spreadsheets, repeated copy-and-paste work, and disconnected systems.</p>
         </Card>
       </div>
 
@@ -93,18 +97,18 @@ import { siteConfig } from '../config/site';
   </Section>
 
   <Section>
-    <div class="grid items-start gap-10 lg:grid-cols-2">
+    <div id="ongoing-support" class="grid items-start gap-10 lg:grid-cols-2">
       <Heading
         eyebrow="Ongoing support"
-        title="Ongoing support that keeps your site current"
-        subtitle="After launch, we provide steady monthly support so your website stays polished, accurate, and useful."
+        title="Ongoing support that keeps your website or business application current"
+        subtitle="After launch, we provide steady monthly support so your website or business application stays polished, accurate, secure, and useful."
       />
 
       <Card hover={false}>
         <ul class="space-y-2 text-sm text-slate-700">
           <li>• Monthly updates and quality checks</li>
-          <li>• Content and layout improvements</li>
-          <li>• Hosting guidance and launch support</li>
+          <li>• Content, data, and layout improvements</li>
+          <li>• Hosting guidance, launch support, and troubleshooting</li>
           <li>• Ongoing performance and reliability reviews</li>
         </ul>
       </Card>
