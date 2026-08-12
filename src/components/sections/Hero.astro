@@ -10,12 +10,13 @@ interface CTA {
 interface Props {
   title: string;
   subtitle: string;
+  subtitleSecondary?: string;
   primaryCta: CTA;
   secondaryCta?: CTA;
   accent?: boolean;
 }
 
-const { title, subtitle, primaryCta, secondaryCta, accent = true } = Astro.props;
+const { title, subtitle, subtitleSecondary, primaryCta, secondaryCta, accent = true } = Astro.props;
 ---
 
 <Section class="relative overflow-hidden">
@@ -30,6 +31,7 @@ const { title, subtitle, primaryCta, secondaryCta, accent = true } = Astro.props
   <div class="relative max-w-4xl space-y-6">
     <h1 class="text-4xl leading-tight md:text-6xl">{title}</h1>
     <p class="max-w-3xl text-base leading-relaxed text-[var(--color-neutral)] md:text-lg">{subtitle}</p>
+    {subtitleSecondary && <p class="max-w-3xl text-base leading-relaxed text-[var(--color-neutral)] md:text-lg">{subtitleSecondary}</p>}
     <div class="flex flex-wrap gap-3 pt-2">
       <Button href={primaryCta.href} size="lg">{primaryCta.label}</Button>
       {secondaryCta && (
