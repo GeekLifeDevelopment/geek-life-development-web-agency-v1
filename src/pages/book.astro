@@ -1,0 +1,156 @@
+---
+import Layout from '../components/Layout.astro';
+import Button from '../components/ui/Button.astro';
+import Card from '../components/ui/Card.astro';
+import Section from '../components/ui/Section.astro';
+import { siteConfig } from '../config/site';
+
+const bookingUrl = siteConfig.bookingUrl;
+---
+
+<Layout
+  title="Free 15-Minute Discovery Call | Geek Life Development"
+  description="Talk with Geek Life Development about a website, custom business application, or process improvement. Request a free 15-minute introductory conversation."
+>
+  <Section class="!py-14 md:!py-20">
+    <div class="max-w-4xl space-y-6">
+      <p class="label-mono text-slate-500">A simple first conversation</p>
+      <h1 class="text-4xl leading-tight md:text-6xl">Let's talk about what you're trying to accomplish.</h1>
+      <p class="max-w-3xl text-base leading-relaxed text-[var(--color-neutral)] md:text-lg">
+        Whether you need a better website, custom software, or you're still figuring out the right approach,
+        a free 15-minute conversation is a good place to start.
+      </p>
+      <p class="text-sm text-slate-600">
+        Based in Cedarburg, Wisconsin. Working with businesses in the Milwaukee area and remotely.
+        Prefer to call or text? <a href={siteConfig.phoneHref} class="font-semibold">{siteConfig.phoneDisplay}</a>.
+      </p>
+    </div>
+  </Section>
+
+  <Section variant="muted" class="!py-14 md:!py-16">
+    <div class="grid items-start gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+      <Card hover={false} class="space-y-5 bg-white">
+        <p class="label-mono text-slate-500">15-minute introduction</p>
+        <h2 class="text-2xl font-semibold text-slate-900">{bookingUrl ? 'Choose an available time' : 'Request a time to talk'}</h2>
+        {
+          bookingUrl ? (
+            <div class="space-y-4">
+              <p class="text-sm leading-relaxed text-slate-700">
+                Pick an available appointment on the booking page. You'll receive the meeting details when your appointment is confirmed.
+              </p>
+              <Button href={bookingUrl} size="lg" class="w-full">View available times</Button>
+              <p class="text-xs leading-relaxed text-slate-500">
+                The scheduling link opens the booking service. You can also send an inquiry using the form beside this section.
+              </p>
+            </div>
+          ) : (
+            <div class="space-y-4">
+              <p class="text-sm leading-relaxed text-slate-700">
+                Tell me a little about your project using the short form. I'll reply so we can arrange a convenient time.
+                Submitting the form is a request, not a confirmed calendar appointment.
+              </p>
+              <Button href="#discovery-request" size="lg" class="w-full">Send a call request</Button>
+            </div>
+          )
+        }
+
+        <div class="border-t border-slate-200 pt-5">
+          <h3 class="text-lg font-semibold text-slate-900">What we'll discuss</h3>
+          <ul class="mt-3 space-y-2 text-sm leading-relaxed text-slate-700">
+            <li>• Your business and what you want to improve</li>
+            <li>• Whether a website, application, or simpler solution is the right fit</li>
+            <li>• Practical next steps, timing, and approximate scope</li>
+          </ul>
+          <p class="mt-4 text-sm text-slate-600">
+            No obligation and no lengthy sales presentation. Website projects start at $2,900;
+            custom applications are quoted to fit the work involved.
+          </p>
+        </div>
+      </Card>
+
+      <Card hover={false} class="space-y-4 bg-white">
+        <div id="discovery-request" class="space-y-2 scroll-mt-24">
+          <p class="label-mono text-slate-500">{bookingUrl ? 'Prefer to write first?' : 'Get the conversation started'}</p>
+          <h2 class="text-2xl font-semibold text-slate-900">Tell me a little about your project</h2>
+          <p class="text-sm leading-relaxed text-slate-600">
+            This form requests a personal reply. It does not reserve an appointment.
+          </p>
+        </div>
+
+        <form
+          name="discovery-call"
+          method="POST"
+          action="/contact/thanks"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          class="grid gap-4"
+        >
+          <input type="hidden" name="form-name" value="discovery-call" />
+          <input type="hidden" name="source" value="website-discovery" />
+          <p class="hidden" aria-hidden="true">
+            <label>Leave this field empty: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+          </p>
+
+          <div class="grid gap-4 sm:grid-cols-2">
+            <label class="grid gap-2 text-sm font-medium text-slate-800">
+              Your name *
+              <input name="name" required autocomplete="name" placeholder="Your name" class="h-11 rounded-lg border border-slate-200 px-3" />
+            </label>
+            <label class="grid gap-2 text-sm font-medium text-slate-800">
+              Business email *
+              <input type="email" name="email" required autocomplete="email" placeholder="you@company.com" class="h-11 rounded-lg border border-slate-200 px-3" />
+            </label>
+          </div>
+
+          <label class="grid gap-2 text-sm font-medium text-slate-800">
+            Company or organization
+            <input name="company" autocomplete="organization" placeholder="Business name" class="h-11 rounded-lg border border-slate-200 px-3" />
+          </label>
+
+          <label class="grid gap-2 text-sm font-medium text-slate-800">
+            Existing website (optional)
+            <input type="url" name="website" placeholder="https://example.com" class="h-11 rounded-lg border border-slate-200 px-3" />
+          </label>
+
+          <label class="grid gap-2 text-sm font-medium text-slate-800">
+            What would you like help with? *
+            <select name="projectType" required class="h-11 rounded-lg border border-slate-200 bg-white px-3">
+              <option value="">Select an option</option>
+              <option value="website">Website or redesign</option>
+              <option value="business-software">Custom business software or automation</option>
+              <option value="both">A website and an internal tool</option>
+              <option value="unsure">Not sure yet</option>
+            </select>
+          </label>
+
+          <label class="grid gap-2 text-sm font-medium text-slate-800">
+            What are you looking to accomplish? *
+            <textarea
+              name="message"
+              rows="4"
+              required
+              placeholder="A sentence or two is plenty."
+              class="rounded-lg border border-slate-200 px-3 py-2"
+            ></textarea>
+          </label>
+
+          <Button type="submit" size="lg" class="w-full">Send my inquiry</Button>
+          <p class="text-xs leading-relaxed text-slate-500">
+            I'll use your information to respond to your inquiry, not to sign you up for a mailing list.
+            Please don't include passwords or other sensitive information.
+          </p>
+        </form>
+      </Card>
+    </div>
+  </Section>
+
+  <Section class="!py-12 md:!py-14">
+    <div class="mx-auto max-w-3xl space-y-4 text-center">
+      <h2 class="text-2xl font-semibold text-slate-900">Already know exactly what you need?</h2>
+      <p class="text-sm leading-relaxed text-slate-600">
+        You can still send a fuller request through the project quote form.
+      </p>
+      <Button href="/contact" variant="secondary">Request a project quote</Button>
+    </div>
+  </Section>
+</Layout>

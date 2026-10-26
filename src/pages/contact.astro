@@ -14,8 +14,11 @@ import { siteConfig } from '../config/site';
     <div class="max-w-4xl space-y-6">
       <h1 class="text-4xl md:text-6xl">Get a quote</h1>
       <p class="max-w-3xl text-base text-[var(--color-neutral)] md:text-lg">
-        Reach out whichever way is easiest. Fill out the form, or call/text directly.
+        Request a free introductory conversation, fill out the project form, or call/text directly.
       </p>
+      <div class="flex flex-wrap gap-3">
+        <Button href="/book" size="lg">{siteConfig.bookingCtaLabel}</Button>
+      </div>
       <p class="text-sm text-slate-600">
         Want to skip the form? <a href={siteConfig.phoneHref} class="font-semibold">Call or text {siteConfig.phoneDisplay}</a>.
       </p>
