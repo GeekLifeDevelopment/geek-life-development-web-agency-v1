@@ -5,10 +5,10 @@ The website supports an optional external booking link, without making booking d
 ## Current experience
 
 - Visitors follow /book from the homepage, header, pricing, services, or contact page.
-- Until a valid HTTPS URL is configured, /book shows a short **Request a call** form.
+- The site's default booking link is **https://calendar.app.google/pQqiyazKYdjspRa8A** (provided by the business owner). /book displays the **View available times** option and a short inquiry form.
 - Netlify Forms handles that fallback form (name: discovery-call); a successful submission goes to /contact/thanks.
 - Form submission requests a response. It is **not** a confirmed appointment.
-- When PUBLIC_BOOKING_URL is configured, /book offers a direct **View available times** link to the scheduler. The email request form remains as a backup.
+- To change scheduling providers later, set PUBLIC_BOOKING_URL to a different valid HTTPS URL; it overrides the default booking link. The email request form remains as a backup.
 
 ## Create the appointment schedule
 
@@ -29,13 +29,13 @@ Some features depend on the Google account's plan.
 
 ## Wire the booking URL into Netlify
 
-1. Open the Geek Life Development site settings in Netlify.
-2. Add an environment variable named **PUBLIC_BOOKING_URL** containing the full HTTPS booking page URL. It is intentionally public (not a secret).
-3. Trigger a new deploy so Astro builds the updated site with the link.
-4. Test /book, the main navigation CTA, and homepage CTA. Check that the link opens the correct business-branded booking page.
-5. Make a test appointment to confirm the right calendar, appointment length, reminder settings, and any other calendar conflict settings. Remove the test booking afterward.
+1. The owner-supplied Google appointment URL is already configured as the site's default. No Netlify environment variable is required for initial deployment.
+2. If the booking page changes, update `defaultBookingUrl` in `src/config/site.ts` **or** set `PUBLIC_BOOKING_URL` in the Geek Life Development Netlify site settings to a replacement HTTPS link; this variable is intentionally public, not a secret.
+3. Trigger a new deploy so Astro builds with the booking URL.
+4. Test /book, the main navigation CTA, and homepage CTA. Check that the link opens a business-branded booking page.
+5. Make a test appointment to confirm the correct account, appointment length, time zone, reminder settings, and other calendar-conflict settings. Cancel the test booking afterward.
 
-Do not put a fabricated URL in the source code. If the environment variable is blank or invalid, the page uses the Netlify form fallback.
+If an empty override is configured, the default Google appointment URL is used. If an **invalid nonempty** override is configured, the booking page falls back to the Netlify inquiry form (there is no fabricated booking URL).
 
 ## Confirm the fallback form works
 
@@ -48,7 +48,7 @@ Do not put a fabricated URL in the source code. If the environment variable is b
 
 ## Outstanding decisions
 
-- Confirm the desired booking-provider account and share URL.
+- Confirm the owner-supplied Google Calendar page displays the intended business identity, appointment duration, and availability; external page contents have not yet been independently verified.
 - Approve the appointment availability and meeting method.
 - Confirm and publish an accurate privacy policy before expanding lead capture.
 - Configure and test source attribution and booked-meeting analytics, without including submitted contact details in analytics events.
