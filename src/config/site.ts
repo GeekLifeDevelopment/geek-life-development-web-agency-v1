@@ -1,6 +1,7 @@
-// Set PUBLIC_BOOKING_URL to the public HTTPS booking page when the business
-// calendar is ready. Without it, the site offers a Netlify call-request form.
-const configuredBookingUrl = String(import.meta.env.PUBLIC_BOOKING_URL ?? '').trim();
+// Google Calendar appointment schedule supplied by the business owner.
+// Override with PUBLIC_BOOKING_URL in Netlify if the booking provider changes.
+const defaultBookingUrl = 'https://calendar.app.google/pQqiyazKYdjspRa8A';
+const configuredBookingUrl = String(import.meta.env.PUBLIC_BOOKING_URL || defaultBookingUrl).trim();
 const bookingUrl = (() => {
   if (!configuredBookingUrl) return null;
   try {
